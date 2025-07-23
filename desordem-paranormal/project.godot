@@ -27,6 +27,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Desordem Paranormal"
 
+[global_group]
+
+Player=""
+
 [input]
 
 MoveUp={
