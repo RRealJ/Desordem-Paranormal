@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dghlg2t5h65io"]
+
+[ext_resource type="Script" uid="uid://xf75vre18fbc" path="res://Weapon/Bullets/bullet.gd" id="1_k3b4g"]
+
+[node name="katana_slash" type="Node2D"]
+script = ExtResource("1_k3b4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

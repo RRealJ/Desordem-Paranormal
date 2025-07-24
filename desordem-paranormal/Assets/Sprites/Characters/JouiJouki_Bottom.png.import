@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1ne32rvnh0li"
-path="res://.godot/imported/JouiJouki_Bottom.png-665571ccdc62213869cbe61fd921f468.ctex"
+path="res://.godot/imported/JouiJouki_Bottom.png-0677095e830a96000d041e3ff924468c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/JouiJouki_Bottom.png"
-dest_files=["res://.godot/imported/JouiJouki_Bottom.png-665571ccdc62213869cbe61fd921f468.ctex"]
+source_file="res://Assets/Sprites/Characters/JouiJouki_Bottom.png"
+dest_files=["res://.godot/imported/JouiJouki_Bottom.png-0677095e830a96000d041e3ff924468c.ctex"]
 
 [params]
 

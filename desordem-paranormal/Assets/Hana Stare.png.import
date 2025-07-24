@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1dyq67gsjp3x"
-path="res://.godot/imported/JouiJouki_Upper.png-652b2a7a16d4e40e748b192c6158b765.ctex"
+uid="uid://cclvtk3w5a5ox"
+path="res://.godot/imported/Hana Stare.png-b7d49fb6cbeab633e029fa89e80b0e52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/JouiJouki_Upper.png"
-dest_files=["res://.godot/imported/JouiJouki_Upper.png-652b2a7a16d4e40e748b192c6158b765.ctex"]
+source_file="res://Assets/Hana Stare.png"
+dest_files=["res://.godot/imported/Hana Stare.png-b7d49fb6cbeab633e029fa89e80b0e52.ctex"]
 
 [params]
 

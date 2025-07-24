@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon_stats" load_steps=2 format=3 uid="uid://ch0sx3nubejfj"]
+
+[ext_resource type="Script" uid="uid://du1e0lxrsgmtr" path="res://Weapon/weapon_stats.gd" id="1_5lbii"]
+
+[resource]
+script = ExtResource("1_5lbii")
+name = "Katana Erosiva"
+damage = 5
+range_type = 0
+dmg_type = 2
+attack_cooldown = 2
+awaken = false
+metadata/_custom_type_script = "uid://du1e0lxrsgmtr"
