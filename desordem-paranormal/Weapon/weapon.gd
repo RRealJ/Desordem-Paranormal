@@ -28,9 +28,14 @@ func shoot():
 	upper.play("Attack")
 
 	var instance = bullet_scene.instantiate()
-	instance.global_position = global_position
 	instance.rotation = rotation
-	get_tree().root.add_child(instance)
 	
-func _on_weapon_cooldown_timeout() -> void:
-	shoot()
+	if weapon_stats.range_type == 0:
+		var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+		var offset_distance: float = 10.0  # Adjust to how far from player you want
+		instance.global_position = position + direction * offset_distance
+		character.add_child(instance)
+			
+	else:
+		instance.global_position = global_position
+		get_tree().root.add_child(instance)

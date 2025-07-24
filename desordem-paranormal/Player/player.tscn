@@ -1,15 +1,16 @@
-[gd_scene load_steps=23 format=3 uid="uid://cb7idslyr7msi"]
+[gd_scene load_steps=24 format=3 uid="uid://cb7idslyr7msi"]
 
 [ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Texture2D" uid="uid://b1ne32rvnh0li" path="res://Assets/Sprites/Characters/JouiJouki_Bottom.png" id="2_fhl08"]
-[ext_resource type="Texture2D" uid="uid://1dyq67gsjp3x" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="2_k53q1"]
-[ext_resource type="PackedScene" uid="uid://chjrdidk1vdoq" path="res://Weapon/Bullets/bullet.tscn" id="3_k53q1"]
+[ext_resource type="Texture2D" uid="uid://nbgj3xscmp6k" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="2_k53q1"]
 [ext_resource type="Resource" uid="uid://ch0sx3nubejfj" path="res://Weapon/Resources/katana_erosiva.tres" id="5_fhl08"]
 [ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="6_fhl08"]
+[ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="6_vtle1"]
 [ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="7_vtle1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hvfyp"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtle1"]
+radius = 4.0
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5o4e"]
 atlas = ExtResource("2_fhl08")
@@ -61,10 +62,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
-atlas = ExtResource("2_k53q1")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
 atlas = ExtResource("2_k53q1")
 region = Rect2(32, 0, 32, 32)
@@ -85,12 +82,13 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("2_k53q1")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
+atlas = ExtResource("2_k53q1")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_b1ygp"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtle1")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_od3ui")
 }, {
@@ -114,11 +112,17 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtle1"]
+radius = 3.0
+
 [node name="JoJo" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_l8h54")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_hvfyp")
+[node name="hurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+shape = SubResource("CapsuleShape2D_vtle1")
+debug_color = Color(0.986138, 0.216807, 0.40486, 0.42)
 
 [node name="Bottom" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o28un")
@@ -129,12 +133,19 @@ frame_progress = 0.648864
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_b1ygp")
 animation = &"Attack"
-frame = 6
+frame = 5
 frame_progress = 1.0
 
 [node name="main_weapon" type="Node2D" parent="."]
 script = ExtResource("6_fhl08")
 weapon_stats = ExtResource("5_fhl08")
-bullet_scene = ExtResource("3_k53q1")
+bullet_scene = ExtResource("6_vtle1")
+
+[node name="katana_slash" parent="main_weapon" instance=ExtResource("6_vtle1")]
 
 [node name="Pointer" parent="." instance=ExtResource("7_vtle1")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_vtle1")

@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://doyn8tj4dhsos" path="res://Scripts/katana_slash.gd" id="1_y8hrb"]
 [ext_resource type="Texture2D" uid="uid://bffcnavf2v1y5" path="res://Assets/Sprites/Bullets/Katana_Slash.png" id="2_y8hrb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8hrb"]
+size = Vector2(10, 23.2979)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkd31"]
 atlas = ExtResource("2_y8hrb")
 region = Rect2(0, 0, 40, 48)
@@ -53,13 +56,13 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8hrb"]
-size = Vector2(9.5, 19.9787)
-
-[node name="katana_slash_control" type="Node2D"]
+[node name="katana_slash" type="Area2D"]
 script = ExtResource("1_y8hrb")
-swing_arc_degrees = -250.0
 SPEED = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 11.3092)
+shape = SubResource("RectangleShape2D_y8hrb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dhbbe")
@@ -67,14 +70,5 @@ animation = &"Attack"
 autoplay = "Attack"
 frame = 5
 frame_progress = 1.0
-
-[node name="katana_slash" type="Area2D" parent="."]
-rotation = 0.647725
-collision_layer = 16
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="katana_slash"]
-position = Vector2(4.75, 9.98935)
-shape = SubResource("RectangleShape2D_y8hrb")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
