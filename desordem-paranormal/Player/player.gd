@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
+const TYPE = 0 #Guerreiro
 
 @export var health: int = 50
 @export var speed: float = 100
+@export var level: int = 0
+@export var crit_rate: float = 10 
+@export var crit_modify: float = 2.5
+
 @onready var upper: AnimatedSprite2D = $Upper
 @onready var bottom: AnimatedSprite2D = $Bottom
 @onready var main_weapon: Node2D = $main_weapon

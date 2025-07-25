@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Texture2D" uid="uid://b1ne32rvnh0li" path="res://Assets/Sprites/Characters/JouiJouki_Bottom.png" id="2_fhl08"]
 [ext_resource type="Texture2D" uid="uid://nbgj3xscmp6k" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="2_k53q1"]
-[ext_resource type="Resource" uid="uid://ch0sx3nubejfj" path="res://Weapon/Resources/katana_erosiva.tres" id="5_fhl08"]
+[ext_resource type="Resource" uid="uid://dv6jftcltn4kh" path="res://Weapon/Resources/katana_erosiva.tres" id="5_fhl08"]
 [ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="6_fhl08"]
 [ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="6_vtle1"]
 [ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="7_vtle1"]
@@ -117,6 +117,7 @@ radius = 3.0
 
 [node name="JoJo" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_l8h54")
+speed = 85.0
 
 [node name="hurtBox" type="Area2D" parent="."]
 
@@ -142,6 +143,7 @@ weapon_stats = ExtResource("5_fhl08")
 bullet_scene = ExtResource("6_vtle1")
 
 [node name="katana_slash" parent="main_weapon" instance=ExtResource("6_vtle1")]
+swing_arc_degrees = -230.0
 
 [node name="Pointer" parent="." instance=ExtResource("7_vtle1")]
 visible = false
