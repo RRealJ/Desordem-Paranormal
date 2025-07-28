@@ -17,11 +17,11 @@ enum range_types {
 }
 
 enum dmg_types{
-	PHYSICAL,
 	BLOOD,
 	DEATH,
 	ENERGY,
-	KNOWLEDGE
+	KNOWLEDGE,
+	PHYSICAL
 }
 
 enum weapon_types{

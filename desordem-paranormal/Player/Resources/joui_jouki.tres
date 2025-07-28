@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Character_data" load_steps=2 format=3 uid="uid://cl4jd718lj032"]
+[gd_resource type="Resource" script_class="Character_data" load_steps=2 format=3 uid="uid://wdrqyuqh4qhx"]
 
 [ext_resource type="Script" uid="uid://10cwd11tkgrd" path="res://Player/character_data.gd" id="1_woqu8"]
 
@@ -6,7 +6,7 @@
 script = ExtResource("1_woqu8")
 name = "Joui Jouki"
 health = 100
-speed = 80.0
+speed = 85.0
 level = 0
 crit_rate = 10.0
 crit_modify = 2.5

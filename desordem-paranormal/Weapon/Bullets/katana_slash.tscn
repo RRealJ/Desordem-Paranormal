@@ -79,3 +79,4 @@ position = Vector2(4.75, 9.98935)
 shape = SubResource("RectangleShape2D_y8hrb")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="katana_slash" to="." method="_on_katana_slash_body_entered"]

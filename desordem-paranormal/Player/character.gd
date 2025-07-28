@@ -88,7 +88,11 @@ func matchDamage(damage, damage_element):
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.ENERGY:
 				damage *= 2
-				
+			
+		character_data.elements_of_characters.PHYSICAL:
+			print("Enemy Damage Element: PHYSICAL")
+			print("Dont Change Damage now")
+			
 		_:
 			print("Enemy Damage Element: FEAR")
 			damage *= 10

@@ -21,5 +21,6 @@ enum elements_of_characters {
 	BLOOD,
 	DEATH,
 	ENERGY,
-	KNOWLEDGE
+	KNOWLEDGE,
+	PHYSICAL
 }

@@ -22,3 +22,4 @@ func slash(mouse_position: Vector2):
 	# Step 2: Animate the swing
 	tween = get_tree().create_tween()
 	tween.tween_property($katana_slash, "rotation", base_angle + deg_to_rad(swing_arc_degrees / 2.0), swing_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		
