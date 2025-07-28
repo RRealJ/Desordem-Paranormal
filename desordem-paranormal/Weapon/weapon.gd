@@ -49,7 +49,7 @@ func shoot():
 		
 	print(instance.DAMAGE)
 	
-	if weapon_stats.range_type == 0:
+	if weapon_stats.range_type == weapon_stats.range_types.MELEE:
 		var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 		var offset_distance: float = 10.0  # Adjust to how far from player you want
 		instance.global_position = position + direction * offset_distance
