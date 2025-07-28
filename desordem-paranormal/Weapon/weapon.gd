@@ -33,18 +33,22 @@ func shoot():
 	instance.rotation = rotation
 	instance.SPEED = weapon_stats.speed
 	
-	if weapon_stats.weapon_type == weapon_stats.weapon_types.MAIN and character.TYPE == 0:
+	if weapon_stats.weapon_type == weapon_stats.weapon_types.MAIN and character.character_data.type_of_character == character.character_data.types_of_characters.GUERREIRO: 
 		dmg_boost = character.level
 		
-	elif weapon_stats.weapon_type == weapon_stats.weapon_types.PICKABLE and character.TYPE == 1:
+	elif weapon_stats.weapon_type == weapon_stats.weapon_types.PICKABLE and character.character_data.type_of_character == character.character_data.types_of_characters.ESPECIALISTA: 
 		dmg_boost = character.level
 	
 	instance.DAMAGE = weapon_stats.damage + dmg_boost
 	var it_crits = (randi() % 100 <= character.crit_rate)
+
+	print(it_crits)
 	
 	if it_crits:
 		instance.DAMAGE = instance.DAMAGE * character.crit_modify
 		
+	print(instance.DAMAGE)
+	
 	if weapon_stats.range_type == 0:
 		var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 		var offset_distance: float = 10.0  # Adjust to how far from player you want

@@ -30,6 +30,7 @@ project/assembly_name="Desordem Paranormal"
 [global_group]
 
 Player=""
+Enemy=""
 
 [input]
 
@@ -61,8 +62,9 @@ MoveRight={
 [layer_names]
 
 2d_physics/layer_2="player_hurtbox"
-2d_physics/layer_3="enemy_hurtbox"
-2d_physics/layer_5="bullet_hitbox"
+2d_physics/layer_3="bullet_hitbox"
+2d_physics/layer_5="enemy_hurtbox"
+2d_physics/layer_6="enemy_hitbox"
 
 [rendering]
 

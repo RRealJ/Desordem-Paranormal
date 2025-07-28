@@ -57,6 +57,7 @@ animations = [{
 size = Vector2(9.5, 19.9787)
 
 [node name="katana_slash_control" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_y8hrb")
 swing_arc_degrees = -250.0
 SPEED = 0
@@ -70,8 +71,8 @@ frame_progress = 1.0
 
 [node name="katana_slash" type="Area2D" parent="."]
 rotation = 0.647725
-collision_layer = 16
-collision_mask = 4
+collision_layer = 4
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="katana_slash"]
 position = Vector2(4.75, 9.98935)

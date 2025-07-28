@@ -1,39 +1,36 @@
 [gd_scene load_steps=24 format=3 uid="uid://cb7idslyr7msi"]
 
-[ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/player.gd" id="1_l8h54"]
-[ext_resource type="Texture2D" uid="uid://b1ne32rvnh0li" path="res://Assets/Sprites/Characters/JouiJouki_Bottom.png" id="2_fhl08"]
-[ext_resource type="Texture2D" uid="uid://nbgj3xscmp6k" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="2_k53q1"]
-[ext_resource type="Resource" uid="uid://dv6jftcltn4kh" path="res://Weapon/Resources/katana_erosiva.tres" id="5_fhl08"]
-[ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="6_fhl08"]
-[ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="6_vtle1"]
-[ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="7_vtle1"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtle1"]
-radius = 4.0
-height = 12.0
+[ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/character.gd" id="1_12mgq"]
+[ext_resource type="Texture2D" uid="uid://b1ne32rvnh0li" path="res://Assets/Sprites/Characters/JouiJouki_Bottom.png" id="2_bl1y4"]
+[ext_resource type="Resource" uid="uid://cl4jd718lj032" path="res://Player/Resources/joui_jouki.tres" id="2_qfc47"]
+[ext_resource type="Texture2D" uid="uid://nbgj3xscmp6k" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="3_qfc47"]
+[ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="4_g1apg"]
+[ext_resource type="Resource" uid="uid://dv6jftcltn4kh" path="res://Weapon/Resources/katana_erosiva.tres" id="5_s1hos"]
+[ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="6_rntvr"]
+[ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="7_m8t8s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5o4e"]
-atlas = ExtResource("2_fhl08")
+atlas = ExtResource("2_bl1y4")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gu6f8"]
-atlas = ExtResource("2_fhl08")
+atlas = ExtResource("2_bl1y4")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkpta"]
-atlas = ExtResource("2_fhl08")
+atlas = ExtResource("2_bl1y4")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfmf2"]
-atlas = ExtResource("2_fhl08")
+atlas = ExtResource("2_bl1y4")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pisgm"]
-atlas = ExtResource("2_fhl08")
+atlas = ExtResource("2_bl1y4")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1ygp"]
-atlas = ExtResource("2_fhl08")
+atlas = ExtResource("2_bl1y4")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o28un"]
@@ -63,27 +60,27 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
-atlas = ExtResource("2_k53q1")
+atlas = ExtResource("3_qfc47")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
-atlas = ExtResource("2_k53q1")
+atlas = ExtResource("3_qfc47")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3vf3"]
-atlas = ExtResource("2_k53q1")
+atlas = ExtResource("3_qfc47")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apopc"]
-atlas = ExtResource("2_k53q1")
+atlas = ExtResource("3_qfc47")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5htga"]
-atlas = ExtResource("2_k53q1")
+atlas = ExtResource("3_qfc47")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
-atlas = ExtResource("2_k53q1")
+atlas = ExtResource("3_qfc47")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b1ygp"]
@@ -112,18 +109,15 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vtle1"]
-radius = 3.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl1y4"]
+radius = 4.0
+height = 14.0
 
 [node name="JoJo" type="CharacterBody2D" groups=["Player"]]
-script = ExtResource("1_l8h54")
-speed = 85.0
-
-[node name="hurtBox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
-shape = SubResource("CapsuleShape2D_vtle1")
-debug_color = Color(0.986138, 0.216807, 0.40486, 0.42)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_12mgq")
+character_data = ExtResource("2_qfc47")
 
 [node name="Bottom" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o28un")
@@ -138,16 +132,14 @@ frame = 5
 frame_progress = 1.0
 
 [node name="main_weapon" type="Node2D" parent="."]
-script = ExtResource("6_fhl08")
-weapon_stats = ExtResource("5_fhl08")
-bullet_scene = ExtResource("6_vtle1")
+script = ExtResource("4_g1apg")
+weapon_stats = ExtResource("5_s1hos")
+bullet_scene = ExtResource("6_rntvr")
 
-[node name="katana_slash" parent="main_weapon" instance=ExtResource("6_vtle1")]
-swing_arc_degrees = -230.0
-
-[node name="Pointer" parent="." instance=ExtResource("7_vtle1")]
+[node name="Pointer" parent="." instance=ExtResource("7_m8t8s")]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_vtle1")
+[node name="hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_bl1y4")
+debug_color = Color(1, 0.166925, 0.296297, 0.42)
