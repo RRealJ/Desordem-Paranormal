@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://co4sl6jg0g3jc"]
+[gd_scene load_steps=4 format=3 uid="uid://co4sl6jg0g3jc"]
 
 [ext_resource type="Script" uid="uid://c8vh2vn4xs8or" path="res://Enemy/enemy.gd" id="1_uq8fd"]
-[ext_resource type="Resource" uid="uid://da42nilddx77k" path="res://Enemy/Resources/zumbi_de_sangue.tres" id="2_73xiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uq8fd"]
 radius = 6.0
@@ -10,11 +9,10 @@ radius = 6.0
 radius = 4.0
 height = 12.0
 
-[node name="enemy_test" type="CharacterBody2D" groups=["Enemy"]]
+[node name="enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_uq8fd")
-enemy_data = ExtResource("2_73xiy")
 
 [node name="hurtbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uq8fd")

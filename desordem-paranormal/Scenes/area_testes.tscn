@@ -1,13 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://rt2sm3m0cy3x"]
+[gd_scene load_steps=7 format=3 uid="uid://rt2sm3m0cy3x"]
 
 [ext_resource type="PackedScene" uid="uid://cb7idslyr7msi" path="res://Player/joui_jouki.tscn" id="1_gbprf"]
 [ext_resource type="Script" uid="uid://3a53vm3xe2mn" path="res://Scenes/StageControl.gd" id="1_lyi4a"]
-[ext_resource type="PackedScene" uid="uid://co4sl6jg0g3jc" path="res://Enemy/enemy_test.tscn" id="2_qdsdc"]
+[ext_resource type="PackedScene" uid="uid://co4sl6jg0g3jc" path="res://Enemy/enemy.tscn" id="2_qdsdc"]
+[ext_resource type="PackedScene" uid="uid://bjauqvfmmwng0" path="res://Enemy/enemy_controller.tscn" id="3_h63fh"]
+[ext_resource type="Script" uid="uid://3lwm0se026n" path="res://Enemy/enemy_spawner_data.gd" id="4_h63fh"]
+
+[sub_resource type="Resource" id="Resource_h63fh"]
+script = ExtResource("4_h63fh")
+enemy = ExtResource("2_qdsdc")
+quantity = 2
+end_timer = 10.0
+delay = 1.0
+metadata/_custom_type_script = "uid://3lwm0se026n"
 
 [node name="Area_testes" type="Node2D"]
 script = ExtResource("1_lyi4a")
 
-[node name="enemy_test" parent="." instance=ExtResource("2_qdsdc")]
-
 [node name="JoJo" parent="." instance=ExtResource("1_gbprf")]
 position = Vector2(158, 97)
+
+[node name="enemy_controller" parent="." instance=ExtResource("3_h63fh")]
+enemy_spawner_data = Array[ExtResource("4_h63fh")]([SubResource("Resource_h63fh")])

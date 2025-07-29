@@ -50,14 +50,12 @@ func _process(delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 	
-	
 func recieve_damage(damage, damage_type) -> void:
 	damage = matchDamage(damage, damage_type)
 	health -= int(damage)
 	print(health,"/",character_data.health)
 	updateUI()
 		
-
 func matchDamage(damage, damage_element):
 	match damage_element:
 		
@@ -98,7 +96,6 @@ func matchDamage(damage, damage_element):
 			damage *= 10
 	
 	return damage
-
 
 func updateUI() -> void:
 	pass
