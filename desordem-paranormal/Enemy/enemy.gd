@@ -19,13 +19,16 @@ var TARGET: CharacterBody2D
 
 func _process(delta: float) -> void:
 	move(TARGET, delta)
+	if (TARGET.position.x - position.x) < 0:
+		$Sprite2D.flip_h = true
+	else:
+		$Sprite2D.flip_h = false	
 
 func move(target, delta):
 	var direction = (target.position - position).normalized()
 	var desired_velocity = direction * speed
 	var steering = (desired_velocity - velocity) * delta * 2.5
 	velocity += steering
-	look_at(TARGET.global_position)
 	move_and_slide()
 
 func _on_hitbox_body_entered(body: Node2D) -> void:

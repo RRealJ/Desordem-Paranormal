@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://rt2sm3m0cy3x"]
 
 [ext_resource type="Script" uid="uid://3a53vm3xe2mn" path="res://Scenes/StageControl.gd" id="1_lyi4a"]
-[ext_resource type="PackedScene" uid="uid://co4sl6jg0g3jc" path="res://Enemy/enemy.tscn" id="2_qdsdc"]
+[ext_resource type="PackedScene" uid="uid://co4sl6jg0g3jc" path="res://Enemy/Blood/blood_zombie.tscn" id="2_qdsdc"]
 [ext_resource type="PackedScene" uid="uid://bnwqpyn3evyj6" path="res://Player/joui_jouki.tscn" id="3_ax884"]
-[ext_resource type="PackedScene" uid="uid://bjauqvfmmwng0" path="res://Enemy/enemy_controller.tscn" id="3_h63fh"]
-[ext_resource type="Script" uid="uid://cho7f52od37fy" path="res://Enemy/enemy_spawner_data.gd" id="4_h63fh"]
+[ext_resource type="PackedScene" uid="uid://bjauqvfmmwng0" path="res://Enemy/Enemy_Controller/enemy_controller.tscn" id="3_h63fh"]
+[ext_resource type="Script" uid="uid://cho7f52od37fy" path="res://Enemy/Enemy_Spawner/enemy_spawner_data.gd" id="4_h63fh"]
 
 [sub_resource type="Resource" id="Resource_h63fh"]
 script = ExtResource("4_h63fh")
@@ -12,6 +12,7 @@ enemy_scene = ExtResource("2_qdsdc")
 enemy_quantity = 5
 enemy_timer_end = 10.0
 enemy_delay = 1.0
+enemy_is_formation = false
 metadata/_custom_type_script = "uid://cho7f52od37fy"
 
 [node name="Area_testes" type="Node2D"]

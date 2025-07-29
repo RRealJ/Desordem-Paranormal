@@ -4,11 +4,11 @@ extends Node2D
 @export var quantity: int
 @export var end_timer: float
 @export var delay: float
+@export var is_formation: bool
 
 var time_since_last_spawn: float = 999.0
 var player: CharacterBody2D
 var stage: Node2D
-var wave_count: int = 0
 
 func _ready() -> void:
 	stage = $".."
@@ -24,12 +24,14 @@ func _process(delta: float) -> void:
 
 func spawn_enemy():
 	time_since_last_spawn = 0.0
-	print("Wave: ",wave_count)
-	wave_count += 1
 	for i in range(quantity):
-		print("Enemy Spawned")
 		var new_enemy = enemy.instantiate()
-		new_enemy.global_position = get_possible_enemy_position()
+		
+		if is_formation:		
+			new_enemy.global_position = player.global_position
+		else:
+			new_enemy.global_position = get_possible_enemy_position()
+			
 		new_enemy.TARGET = player
 		stage.add_child(new_enemy)
 		

@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://co4sl6jg0g3jc"]
+
+[ext_resource type="Script" uid="uid://c8vh2vn4xs8or" path="res://Enemy/enemy.gd" id="1_uq8fd"]
+[ext_resource type="Texture2D" uid="uid://3mlhb17tb0sf" path="res://Assets/Sprites/Enemies/Blood/Blood_Zombie.png" id="2_am0pq"]
+[ext_resource type="Texture2D" uid="uid://btdyt5iuvrogj" path="res://Assets/Sprites/Enemies/Blood/Blood_Zombie_n.png" id="3_eqilm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uq8fd"]
+radius = 6.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ncf7h"]
+diffuse_texture = ExtResource("2_am0pq")
+normal_texture = ExtResource("3_eqilm")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_73xiy"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_m6jha"]
+resource_name = "Walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_glvfu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0rspp"]
+_data = {
+&"RESET": SubResource("Animation_glvfu"),
+&"Walking": SubResource("Animation_m6jha")
+}
+
+[node name="blood_zombie" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_uq8fd")
+
+[node name="hurtbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uq8fd")
+debug_color = Color(0.910365, 0, 0.103723, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_ncf7h")
+hframes = 4
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="hitbox" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CapsuleShape2D_73xiy")
+debug_color = Color(0, 0.619576, 0.569242, 0.42)
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0rspp")
+}
+autoplay = "Walking"
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
