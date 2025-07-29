@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export var character_data: Character_data
 
-@onready var upper: AnimatedSprite2D = $Upper
-@onready var bottom: AnimatedSprite2D = $Bottom
+@onready var upper: Sprite2D = $Upper
+@onready var bottom: Sprite2D = $Bottom
 @onready var main_weapon: Node2D = $main_weapon
 
 var max_health: int
@@ -22,7 +22,7 @@ func _ready() -> void:
 	crit_rate = character_data.crit_rate
 	crit_modify = character_data.crit_modify
 	$Pointer.visible = true
-	bottom.play("Walking")
+	$animWalk.play("Walking")
 
 func _process(delta: float) -> void:
 	if main_weapon.rotation_degrees > 90 and main_weapon.rotation_degrees < 270:

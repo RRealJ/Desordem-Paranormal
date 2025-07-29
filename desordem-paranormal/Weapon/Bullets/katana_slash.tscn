@@ -1,73 +1,65 @@
-[gd_scene load_steps=11 format=3 uid="uid://dghlg2t5h65io"]
+[gd_scene load_steps=10 format=3 uid="uid://dghlg2t5h65io"]
 
 [ext_resource type="Script" uid="uid://doyn8tj4dhsos" path="res://Scripts/katana_slash.gd" id="1_y8hrb"]
 [ext_resource type="Texture2D" uid="uid://bffcnavf2v1y5" path="res://Assets/Sprites/Bullets/Katana_Slash.png" id="2_y8hrb"]
+[ext_resource type="Texture2D" uid="uid://d2ud8roy5neb3" path="res://Assets/Sprites/Bullets/Katana_Slash_n.png" id="3_ctusi"]
+[ext_resource type="Texture2D" uid="uid://pfb2rye2fxc2" path="res://Assets/Sprites/test_light.png" id="3_hkd31"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hkd31"]
-atlas = ExtResource("2_y8hrb")
-region = Rect2(0, 0, 40, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctusi"]
-atlas = ExtResource("2_y8hrb")
-region = Rect2(40, 0, 40, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aq0qe"]
-atlas = ExtResource("2_y8hrb")
-region = Rect2(80, 0, 40, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_slrdh"]
-atlas = ExtResource("2_y8hrb")
-region = Rect2(120, 0, 40, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqtbr"]
-atlas = ExtResource("2_y8hrb")
-region = Rect2(160, 0, 40, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4d32g"]
-atlas = ExtResource("2_y8hrb")
-region = Rect2(200, 0, 40, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dhbbe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hkd31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ctusi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aq0qe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_slrdh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jqtbr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4d32g")
-}],
-"loop": false,
-"name": &"Attack",
-"speed": 10.0
-}]
+[sub_resource type="CanvasTexture" id="CanvasTexture_ctusi"]
+diffuse_texture = ExtResource("2_y8hrb")
+normal_texture = ExtResource("3_ctusi")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8hrb"]
-size = Vector2(9.5, 19.9787)
+size = Vector2(24.4527, 12.4302)
+
+[sub_resource type="Animation" id="Animation_ctusi"]
+resource_name = "Attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_aq0qe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_slrdh"]
+_data = {
+&"Attack": SubResource("Animation_ctusi"),
+&"RESET": SubResource("Animation_aq0qe")
+}
 
 [node name="katana_slash_control" type="Node2D"]
+position = Vector2(-4.76837e-07, 0)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_y8hrb")
-swing_arc_degrees = -250.0
+swing_arc_degrees = 250.0
 SPEED = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dhbbe")
-animation = &"Attack"
-autoplay = "Attack"
-frame = 5
-frame_progress = 1.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, -1)
+texture = SubResource("CanvasTexture_ctusi")
+hframes = 6
 
 [node name="katana_slash" type="Area2D" parent="."]
 rotation = 0.647725
@@ -75,8 +67,21 @@ collision_layer = 4
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="katana_slash"]
-position = Vector2(4.75, 9.98935)
+position = Vector2(-12.2264, -6.21508)
 shape = SubResource("RectangleShape2D_y8hrb")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[node name="PointLight2D" type="PointLight2D" parent="katana_slash"]
+visible = false
+position = Vector2(4.71168, 10.6469)
+rotation = -0.647725
+energy = 0.7
+texture = ExtResource("3_hkd31")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_slrdh")
+}
+autoplay = "Attack"
+
 [connection signal="body_entered" from="katana_slash" to="." method="_on_katana_slash_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

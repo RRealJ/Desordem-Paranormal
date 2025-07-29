@@ -2,7 +2,7 @@ extends Node2D
 
 @export var weapon_stats: Weapon_stats
 @export var bullet_scene: PackedScene
-@onready var upper: AnimatedSprite2D = $"../Upper"
+@onready var anim: AnimationPlayer = $"../animAttack"
 
 var time_last_shoot: float = 0.0
 var character: CharacterBody2D
@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 func shoot():
 	var dmg_boost: int = 0
 	time_last_shoot = 0.0
-	upper.play("Attack")
+	anim.play("Attack")
 	
 	var instance = bullet_scene.instantiate()
 	instance.rotation = rotation
@@ -57,6 +57,12 @@ func shoot():
 		var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 		var offset_distance: float = 10.0  # Adjust to how far from player you want
 		instance.global_position = position + direction * offset_distance
+		
+		if scale.x > 0:
+			instance.scale.y = scale.x + 0.5
+		else:
+			instance.scale.y = scale.x - 0.5
+			
 		character.add_child(instance)
 			
 	else:

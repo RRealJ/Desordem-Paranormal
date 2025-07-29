@@ -1,145 +1,129 @@
-[gd_scene load_steps=24 format=3 uid="uid://cb7idslyr7msi"]
+[gd_scene load_steps=18 format=3 uid="uid://bnwqpyn3evyj6"]
 
-[ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/character.gd" id="1_12mgq"]
-[ext_resource type="Texture2D" uid="uid://b1ne32rvnh0li" path="res://Assets/Sprites/Characters/JouiJouki_Bottom.png" id="2_bl1y4"]
-[ext_resource type="Resource" uid="uid://wdrqyuqh4qhx" path="res://Player/Resources/joui_jouki.tres" id="2_qfc47"]
-[ext_resource type="Texture2D" uid="uid://nbgj3xscmp6k" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="3_qfc47"]
-[ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="4_g1apg"]
-[ext_resource type="Resource" uid="uid://cms4kkdj6bfdr" path="res://Weapon/Resources/katana_erosiva.tres" id="5_s1hos"]
-[ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="6_rntvr"]
-[ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="7_m8t8s"]
+[ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/character.gd" id="1_gj76y"]
+[ext_resource type="Resource" uid="uid://wdrqyuqh4qhx" path="res://Player/Resources/joui_jouki.tres" id="2_li66o"]
+[ext_resource type="Texture2D" uid="uid://b1ne32rvnh0li" path="res://Assets/Sprites/Characters/JouiJouki_Bottom.png" id="3_bi27d"]
+[ext_resource type="Texture2D" uid="uid://nbgj3xscmp6k" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="4_8kvql"]
+[ext_resource type="Texture2D" uid="uid://oufmm3xtp7rq" path="res://Assets/Sprites/Characters/JouiJouki_Bottom_n.png" id="4_li66o"]
+[ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="5_6v8rf"]
+[ext_resource type="Texture2D" uid="uid://brw7cccp7gvy7" path="res://Assets/Sprites/Characters/JouiJouki_Upper_n.png" id="6_bi27d"]
+[ext_resource type="Resource" uid="uid://cms4kkdj6bfdr" path="res://Weapon/Resources/katana_erosiva.tres" id="6_l7cgl"]
+[ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="7_7lihg"]
+[ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="8_81csu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5o4e"]
-atlas = ExtResource("2_bl1y4")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="CanvasTexture" id="CanvasTexture_bi27d"]
+diffuse_texture = ExtResource("3_bi27d")
+normal_texture = ExtResource("4_li66o")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gu6f8"]
-atlas = ExtResource("2_bl1y4")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dkpta"]
-atlas = ExtResource("2_bl1y4")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lfmf2"]
-atlas = ExtResource("2_bl1y4")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pisgm"]
-atlas = ExtResource("2_bl1y4")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1ygp"]
-atlas = ExtResource("2_bl1y4")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o28un"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p5o4e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gu6f8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dkpta")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lfmf2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pisgm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b1ygp")
-}],
-"loop": true,
-"name": &"Walking",
-"speed": 10.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
-atlas = ExtResource("3_qfc47")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
-atlas = ExtResource("3_qfc47")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3vf3"]
-atlas = ExtResource("3_qfc47")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_apopc"]
-atlas = ExtResource("3_qfc47")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5htga"]
-atlas = ExtResource("3_qfc47")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
-atlas = ExtResource("3_qfc47")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_b1ygp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_od3ui")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_00tjw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3vf3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_apopc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5htga")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vtle1")
-}],
-"loop": false,
-"name": &"Attack",
-"speed": 10.0
-}]
+[sub_resource type="CanvasTexture" id="CanvasTexture_8kvql"]
+diffuse_texture = ExtResource("4_8kvql")
+normal_texture = ExtResource("6_bi27d")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl1y4"]
 radius = 4.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_6v8rf"]
+resource_name = "Attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upper:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_li66o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Upper:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mbuau"]
+resource_name = "Walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bottom:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581, 0.664, 0.747, 0.83, 0.913),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gj76y"]
+_data = {
+&"Attack": SubResource("Animation_6v8rf"),
+&"RESET": SubResource("Animation_li66o"),
+&"Walking": SubResource("Animation_mbuau")
+}
+
 [node name="JoJo" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_12mgq")
-character_data = ExtResource("2_qfc47")
+script = ExtResource("1_gj76y")
+character_data = ExtResource("2_li66o")
 
-[node name="Bottom" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_o28un")
-animation = &"Walking"
-frame_progress = 0.648864
+[node name="Bottom" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_bi27d")
+hframes = 6
 
-[node name="Upper" type="AnimatedSprite2D" parent="."]
+[node name="Upper" type="Sprite2D" parent="."]
 position = Vector2(8, 0)
-sprite_frames = SubResource("SpriteFrames_b1ygp")
-animation = &"Attack"
-frame = 5
-frame_progress = 1.0
+texture = SubResource("CanvasTexture_8kvql")
+hframes = 6
 
 [node name="main_weapon" type="Node2D" parent="."]
-script = ExtResource("4_g1apg")
-weapon_stats = ExtResource("5_s1hos")
-bullet_scene = ExtResource("6_rntvr")
+script = ExtResource("5_6v8rf")
+weapon_stats = ExtResource("6_l7cgl")
+bullet_scene = ExtResource("7_7lihg")
 
-[node name="Pointer" parent="." instance=ExtResource("7_m8t8s")]
+[node name="Pointer" parent="." instance=ExtResource("8_81csu")]
 visible = false
 
 [node name="hurtbox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_bl1y4")
 debug_color = Color(1, 0.166925, 0.296297, 0.42)
+
+[node name="animAttack" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gj76y")
+}
+
+[node name="animWalk" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gj76y")
+}
