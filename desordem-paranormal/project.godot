@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Desordem Paranormal"
-run/main_scene="uid://cb7idslyr7msi"
+run/main_scene="uid://rt2sm3m0cy3x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,19 +1,20 @@
 extends CharacterBody2D
 class_name Enemy
 
-var SPEED: float = 50
-var TARGET: CharacterBody2D
-var DAMAGE: int = 10
-var ENEMY_TYPE: damage_types = damage_types.BLOOD
-var HEALTH: int = 30
+@export var enemy_data: Enemy_data
 
-enum damage_types {
-	BLOOD,
-	DEATH,
-	ENERGY,
-	KNOWLEDGE,
-	PHYSICAL
-}
+var HEALTH: int
+var SPEED: float
+var DAMAGE: int
+var ENEMY_TYPE: int
+
+var TARGET: CharacterBody2D
+
+func _ready() -> void:
+	HEALTH = enemy_data.health
+	SPEED = enemy_data.speed
+	DAMAGE = enemy_data.damage
+	ENEMY_TYPE = enemy_data.enemy_type
 
 func _process(delta: float) -> void:
 	move(TARGET, delta)
@@ -42,35 +43,35 @@ func recieve_damage(damage, damage_type) -> void:
 func matchDamage(damage, damage_element):
 	print("========enemy========")
 	match damage_element:
-		damage_types.BLOOD:#USING SAME ENUM
+		enemy_data.damage_types.BLOOD:#USING SAME ENUM
 			print("Bullet Damage Element: BLOOD")
-			if ENEMY_TYPE == damage_types.DEATH:
+			if ENEMY_TYPE == enemy_data.damage_types.DEATH:
 				damage /= 2
-			elif ENEMY_TYPE == damage_types.KNOWLEDGE:
+			elif ENEMY_TYPE == enemy_data.damage_types.KNOWLEDGE:
 				damage *= 2
 			
-		damage_types.DEATH:#USING SAME ENUM
+		enemy_data.damage_types.DEATH:#USING SAME ENUM
 			print("Enemy Damage Element: DEATH")
-			if ENEMY_TYPE == damage_types.ENERGY:
+			if ENEMY_TYPE == enemy_data.damage_types.ENERGY:
 				damage /= 2
-			elif ENEMY_TYPE == damage_types.BLOOD:
+			elif ENEMY_TYPE == enemy_data.damage_types.BLOOD:
 				damage *= 2
 				
-		damage_types.ENERGY:#USING SAME ENUM
+		enemy_data.damage_types.ENERGY:#USING SAME ENUM
 			print("Enemy Damage Element: ENERGY")
-			if ENEMY_TYPE == damage_types.KNOWLEDGE:
+			if ENEMY_TYPE == enemy_data.damage_types.KNOWLEDGE:
 				damage /= 2
-			elif ENEMY_TYPE == damage_types.DEATH:
+			elif ENEMY_TYPE == enemy_data.damage_types.DEATH:
 				damage *= 2
 		
-		damage_types.KNOWLEDGE:#USING SAME ENUM
+		enemy_data.damage_types.KNOWLEDGE:#USING SAME ENUM
 			print("Enemy Damage Element: KNOWLEDGE")
-			if ENEMY_TYPE == damage_types.BLOOD:
+			if ENEMY_TYPE == enemy_data.damage_types.BLOOD:
 				damage /= 2
-			elif ENEMY_TYPE == damage_types.ENERGY:
+			elif ENEMY_TYPE == enemy_data.damage_types.ENERGY:
 				damage *= 2
 			
-		damage_types.PHYSICAL:
+		enemy_data.damage_types.PHYSICAL:
 			print("Enemy Damage Element: PHYSICAL")
 			print("Dont Change Damage now")
 			
