@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://chjrdidk1vdoq"]
+[gd_scene load_steps=2 format=3 uid="uid://chjrdidk1vdoq"]
 
 [ext_resource type="Script" uid="uid://xf75vre18fbc" path="res://Weapon/Bullets/bullet.gd" id="1_il7m0"]
-[ext_resource type="Texture2D" uid="uid://cclvtk3w5a5ox" path="res://Assets/Hana Stare.png" id="2_8nb1r"]
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_il7m0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_8nb1r")

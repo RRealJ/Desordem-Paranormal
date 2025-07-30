@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://4ifxijn6dyju"]
+[gd_scene load_steps=2 format=3 uid="uid://4ifxijn6dyju"]
 
 [ext_resource type="Script" uid="uid://dxwcvqqckxk65" path="res://Pointer/pointer.gd" id="1_hwnuy"]
-[ext_resource type="Texture2D" uid="uid://cclvtk3w5a5ox" path="res://Assets/Hana Stare.png" id="2_wybuf"]
 
 [node name="Pointer" type="Node2D"]
 script = ExtResource("1_hwnuy")
@@ -9,4 +8,3 @@ script = ExtResource("1_hwnuy")
 [node name="Arrow" type="Sprite2D" parent="."]
 position = Vector2(46, 0)
 rotation = 1.5708
-texture = ExtResource("2_wybuf")

@@ -12,4 +12,5 @@ range_type = 0
 dmg_type = 1
 attack_cooldown = 2
 awaken = false
+description = "Uma Katana afida com varias espirais pretas pela lâmina, você consegue sentir o elemento da morte presente nessa arma."
 metadata/_custom_type_script = "uid://du1e0lxrsgmtr"

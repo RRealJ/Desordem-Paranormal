@@ -9,6 +9,8 @@ class_name Weapon_stats
 @export var dmg_type: dmg_types
 @export var attack_cooldown: int
 @export var awaken: bool
+@export var level: int = 1
+@export var description: String
 
 enum range_types {
 	MELEE,

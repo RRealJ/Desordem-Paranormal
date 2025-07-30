@@ -6,7 +6,7 @@ class_name Enemy
 @export var speed: float = 50
 @export var damage: int = 10
 @export var exp: int = 5
-@export var nex: float = 0.1
+@export var nex: float = 0.01
 @export var money: int = 5
 @export var enemy_type: damage_types = damage_types.BLOOD
 

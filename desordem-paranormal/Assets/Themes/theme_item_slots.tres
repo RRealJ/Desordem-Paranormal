@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cyneqiul8ys8n"]
+
+[ext_resource type="FontFile" uid="uid://c4oilnjthd10m" path="res://Assets/Fonts/Pixellari.ttf" id="1_iiepo"]
+
+[sub_resource type="Gradient" id="Gradient_iiepo"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.436709, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xpyes"]
+gradient = SubResource("Gradient_iiepo")
+width = 128
+height = 128
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bps2v"]
+texture = SubResource("GradientTexture2D_xpyes")
+modulate_color = Color(1, 1, 1, 0.6)
+
+[resource]
+default_font = ExtResource("1_iiepo")
+default_font_size = 16
+Panel/styles/panel = SubResource("StyleBoxTexture_bps2v")
