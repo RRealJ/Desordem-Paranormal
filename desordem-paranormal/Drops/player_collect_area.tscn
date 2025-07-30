@@ -6,8 +6,8 @@
 radius = 24.0208
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qya1j"]
-radius = 6.0
-height = 22.0
+radius = 7.0
+height = 28.0
 
 [node name="player_collect_area" type="Area2D"]
 collision_layer = 8

@@ -63,7 +63,8 @@ dynamic_separation_area = false
 target_weight = 50.0
 player_separation_weight = 3.0
 maximum_speed = 60.0
-jitter_fix = 0.7
+skip_frames = 15
+jitter_fix = 1.0
 
 [node name="hurtbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uq8fd")

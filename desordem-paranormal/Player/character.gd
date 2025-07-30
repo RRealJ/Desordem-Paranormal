@@ -30,7 +30,7 @@ func _ready() -> void:
 	$Pointer.visible = true
 	$animWalk.play("Walking")
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if main_weapon.rotation_degrees > 90 and main_weapon.rotation_degrees < 270:
 		bottom.flip_h = true
 		upper.flip_h = true

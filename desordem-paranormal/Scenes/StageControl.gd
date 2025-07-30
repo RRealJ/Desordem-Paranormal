@@ -9,11 +9,4 @@ extends Node2D
 
 func _ready() -> void:
 	Global.enemies = enemies
-	Global.obstacle_tile_map = $"TileMapLayer Obstacles"
-	update_pathfinder(false)
 	enemy_controller.create_spawner(enemy_controller.enemy_spawners_data[0])
-
-
-func update_pathfinder(non_blocking: bool= true) -> void:
-	if Global.pathfinder:
-		Global.pathfinder.update(player.position, non_blocking)

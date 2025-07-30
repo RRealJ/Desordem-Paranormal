@@ -14,5 +14,10 @@ func _on_katana_slash_hit_enemy_hurtbox(area: Area2D) -> void:
 		area.recieve_damage(DAMAGE, DAMAGE_TYPE)
 
 
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	clear_bullet()
+	
+
 func clear_bullet() -> void:
 	queue_free()

@@ -145,10 +145,7 @@ func _physics_process(delta: float) -> void:
 
 		# add the target direction ( towards the enemy ) to our velocity
 		var target_dir: Vector2
-		#if Global.pathfinder:
-		#	target_dir= Global.pathfinder.get_direction(position)
-		
-		#if not target_dir:
+
 		target_dir= (Global.player.global_position - position).normalized()
 		
 		velocity+= target_dir * target_weight

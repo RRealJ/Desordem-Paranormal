@@ -52,7 +52,7 @@ func spawn_enemy() -> void:
 			
 		var obj := enemy_scene.instantiate()
 		obj.global_position = get_possible_enemy_position()
-		$"..".add_child(obj)
+		Global.enemies.add_child(obj)
 
 
 func _on_timer_timeout() -> void:
