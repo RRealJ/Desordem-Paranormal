@@ -31,6 +31,8 @@ project/assembly_name="Desordem Paranormal"
 
 Player=""
 Enemy=""
+Exp=""
+Money=""
 
 [input]
 

@@ -14,6 +14,7 @@ var crit_rate: float
 var crit_modify: float
 var exp: int = 0
 var nex: float = 0.0
+var money: int = 0
 
 func _ready() -> void:
 	$Pointer.change_pointer(character_data.element_of_character)

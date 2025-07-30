@@ -10,6 +10,10 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_absorv_delete_area_entered(area: Area2D) -> void:
-	player.exp += area.exp_value
-	player.nex = area.nex_value
+	if area.is_in_group("Money"):
+		player.money += area.money_value
+		
+	elif area.is_in_group("Exp"):
+		player.exp += area.exp_value
+		player.nex = area.nex_value
 	area.queue_free()
