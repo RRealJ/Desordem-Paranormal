@@ -83,5 +83,5 @@ libraries = {
 }
 autoplay = "Attack"
 
-[connection signal="body_entered" from="katana_slash" to="." method="_on_katana_slash_body_entered"]
+[connection signal="area_entered" from="katana_slash" to="." method="_on_katana_slash_hit_enemy_hurtbox"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

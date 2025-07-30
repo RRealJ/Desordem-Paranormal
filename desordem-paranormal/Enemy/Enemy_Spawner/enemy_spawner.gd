@@ -1,45 +1,65 @@
 extends Node2D
 
-@export var enemy: PackedScene
+@export var enemy_scene: PackedScene
 @export var quantity: int
 @export var end_timer: float
-@export var delay: float
+@export var spawn_interval: float
+@export var wait_for_empty_space: bool= false
+@export var empty_radius: float= 20.0
 @export var is_formation: bool
+@onready var timer: Timer = $Timer
+@onready var LifeTimer: Timer = $LifeTime
 
-var time_since_last_spawn: float = 999.0
 var player: CharacterBody2D
-var stage: Node2D
+
+var paused:= false
+var busy:= false
+var empty_space_query: PhysicsShapeQueryParameters2D
+
 
 func _ready() -> void:
-	stage = $".."
-	player = stage.player_character
-	$Timer.start(end_timer)
+	if wait_for_empty_space:
+		var query := PhysicsShapeQueryParameters2D.new()
+		query.collide_with_areas = true
+		query.collide_with_bodies = true
+		query.collision_mask = Global.ENEMY_COLLISION_LAYER
+		query.transform = transform
+		var shape := CircleShape2D.new()
+		shape.radius = empty_radius
+		query.shape = shape
+		empty_space_query = query
 
-
-func _process(delta: float) -> void:
-	time_since_last_spawn += delta
-	if time_since_last_spawn >= delay:
-		spawn_enemy()
-	
+	timer.wait_time = spawn_interval
+	timer.start()
+	LifeTimer.wait_time = end_timer
+	LifeTimer.start()
 
 func spawn_enemy():
-	time_since_last_spawn = 0.0
+	print("spawn_enemy()")
+	if busy: return
+	if paused: return
+	
 	for i in range(quantity):
-		var new_enemy = enemy.instantiate()
-		
-		if is_formation:		
-			new_enemy.global_position = player.global_position
-		else:
-			new_enemy.global_position = get_possible_enemy_position()
+		if wait_for_empty_space:
+			print("spawned enemy")
 			
-		new_enemy.TARGET = player
-		stage.add_child(new_enemy)
-		
-		
+			busy= true
+			await get_tree().physics_frame
+			busy= false
+			var space_state: PhysicsDirectSpaceState2D= get_world_2d().direct_space_state
+			if not space_state: return
+			var result = space_state.intersect_shape(empty_space_query)
+			if result : return
+			
+		var obj = enemy_scene.instantiate()
+		obj.global_position = get_possible_enemy_position()
+		$"..".add_child(obj)
+
+
 func _on_timer_timeout() -> void:
-	queue_free()
-
-
+	spawn_enemy()
+	
+	
 func get_possible_enemy_position():
 	var screen_rect = get_viewport().get_visible_rect()
 	var margin = 100
@@ -60,5 +80,9 @@ func get_possible_enemy_position():
 		3:  # Right
 			spawn_position.x = screen_rect.end.x + margin
 			spawn_position.y = randf_range(screen_rect.position.y, screen_rect.end.y)
-	
+				
 	return spawn_position
+
+
+func _on_life_time_timeout() -> void:
+	queue_free()

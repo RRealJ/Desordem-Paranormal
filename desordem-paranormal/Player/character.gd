@@ -16,6 +16,9 @@ var exp: int = 0
 var nex: float = 0.0
 var money: int = 0
 
+func _init() -> void:
+	Global.player = self
+
 func _ready() -> void:
 	$Pointer.change_pointer(character_data.element_of_character)
 	max_health = character_data.health
@@ -62,38 +65,32 @@ func matchDamage(damage, damage_element):
 	match damage_element:
 		
 		character_data.elements_of_characters.BLOOD:#USING SAME ENUM
-			print("Enemy Damage Element: BLOOD")
 			if character_data.element_of_character == character_data.elements_of_characters.DEATH:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.KNOWLEDGE:
 				damage *= 2
 			
 		character_data.elements_of_characters.DEATH:#USING SAME ENUM
-			print("Enemy Damage Element: DEATH")
 			if character_data.element_of_character == character_data.elements_of_characters.ENERGY:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.BLOOD:
 				damage *= 2
 				
 		character_data.elements_of_characters.ENERGY:#USING SAME ENUM
-			print("Enemy Damage Element: ENERGY")
 			if character_data.element_of_character == character_data.elements_of_characters.KNOWLEDGE:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.DEATH:
 				damage *= 2
 		
 		character_data.elements_of_characters.KNOWLEDGE:#USING SAME ENUM
-			print("Enemy Damage Element: KNOWLEDGE")
 			if character_data.element_of_character == character_data.elements_of_characters.BLOOD:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.ENERGY:
 				damage *= 2
 			
 		character_data.elements_of_characters.PHYSICAL:
-			print("Enemy Damage Element: PHYSICAL")
-			
+			pass
 		_:
-			print("Enemy Damage Element: FEAR")
 			damage *= 10
 	
 	return damage

@@ -9,6 +9,7 @@ var character: CharacterBody2D
 var level: int = 0
 
 func _ready() -> void:
+	level = weapon_stats.level
 	character = $".."
 
 
@@ -40,7 +41,7 @@ func shoot():
 	elif weapon_stats.weapon_type == weapon_stats.weapon_types.PICKABLE and character.character_data.type_of_character == character.character_data.types_of_characters.ESPECIALISTA: 
 		dmg_boost = character.level
 	
-	dmg_boost = dmg_boost + (5 * level)
+	dmg_boost += (level * 5) 
 	instance.DAMAGE = weapon_stats.damage + dmg_boost
 	var it_crits = (randi() % 100 <= character.crit_rate)
 

@@ -130,3 +130,6 @@ libraries = {
 }
 
 [node name="player_collect_area" parent="." instance=ExtResource("11_s1hos")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -68,3 +68,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_47rd6")
 }
 autoplay = "Giro"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

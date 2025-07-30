@@ -9,9 +9,9 @@ func _process(delta: float) -> void:
 	position += transform.x * SPEED * delta
 
 
-func _on_katana_slash_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"):
-		body.recieve_damage(DAMAGE, DAMAGE_TYPE)
+func _on_katana_slash_hit_enemy_hurtbox(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		area.recieve_damage(DAMAGE, DAMAGE_TYPE)
 
 
 func clear_bullet():

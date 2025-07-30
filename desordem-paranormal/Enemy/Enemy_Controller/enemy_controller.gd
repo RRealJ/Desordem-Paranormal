@@ -5,12 +5,12 @@ extends Node2D
 
 
 func create_spawner(spawner_data:Enemy_spawner_data):
+	print("Spawner Created")
 	var spawner = enemy_spawner.instantiate()
-	
-	spawner.enemy = spawner_data.enemy_scene
+	spawner.enemy_scene = spawner_data.enemy_scene
 	spawner.quantity = spawner_data.enemy_quantity
 	spawner.end_timer = spawner_data.enemy_timer_end
-	spawner.delay = spawner_data.enemy_delay
+	spawner.spawn_interval = spawner_data.enemy_delay
 	spawner.is_formation = spawner_data.enemy_is_formation
 	
 	$"..".add_child(spawner)

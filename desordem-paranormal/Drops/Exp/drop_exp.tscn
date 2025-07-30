@@ -35,3 +35,7 @@ shape = SubResource("CircleShape2D_yc8at")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 process_material = SubResource("ParticleProcessMaterial_yc8at")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.19209e-07, -1.78814e-07)
+scale = Vector2(0.45, 0.5)

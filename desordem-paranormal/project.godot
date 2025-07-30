@@ -15,6 +15,10 @@ run/main_scene="uid://rt2sm3m0cy3x"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [display]
 
 window/size/viewport_width=320
@@ -22,6 +26,7 @@ window/size/viewport_height=180
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -70,6 +75,12 @@ MoveRight={
 2d_physics/layer_6="enemy_hitbox"
 2d_physics/layer_8="soft_collision"
 2d_physics/layer_9="drops"
+2d_physics/layer_11="obstacle_collision"
+2d_physics/layer_12="raycast_enemy_collision"
+
+[physics]
+
+2d/physics_engine="Rapier2D"
 
 [rendering]
 
