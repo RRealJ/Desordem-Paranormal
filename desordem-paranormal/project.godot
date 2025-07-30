@@ -63,8 +63,11 @@ MoveRight={
 
 2d_physics/layer_2="player_hurtbox"
 2d_physics/layer_3="bullet_hitbox"
+2d_physics/layer_4="player_collect_area"
 2d_physics/layer_5="enemy_hurtbox"
 2d_physics/layer_6="enemy_hitbox"
+2d_physics/layer_8="soft_collision"
+2d_physics/layer_9="drops"
 
 [rendering]
 

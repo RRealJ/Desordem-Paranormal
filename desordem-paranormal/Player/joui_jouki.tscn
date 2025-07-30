@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bnwqpyn3evyj6"]
+[gd_scene load_steps=19 format=3 uid="uid://bnwqpyn3evyj6"]
 
 [ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/character.gd" id="1_gj76y"]
 [ext_resource type="Resource" uid="uid://wdrqyuqh4qhx" path="res://Player/Resources/joui_jouki.tres" id="2_li66o"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cms4kkdj6bfdr" path="res://Weapon/Resources/katana_erosiva.tres" id="6_l7cgl"]
 [ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="7_7lihg"]
 [ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="8_81csu"]
+[ext_resource type="PackedScene" uid="uid://bh571nsqy51e0" path="res://Drops/player_collect_area.tscn" id="11_s1hos"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bi27d"]
 diffuse_texture = ExtResource("3_bi27d")
@@ -90,6 +91,7 @@ _data = {
 }
 
 [node name="JoJo" type="CharacterBody2D" groups=["Player"]]
+z_index = 2
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_gj76y")
@@ -113,7 +115,6 @@ bullet_scene = ExtResource("7_7lihg")
 visible = false
 
 [node name="hurtbox" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_bl1y4")
 debug_color = Color(1, 0.166925, 0.296297, 0.42)
@@ -127,3 +128,5 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_gj76y")
 }
+
+[node name="player_collect_area" parent="." instance=ExtResource("11_s1hos")]

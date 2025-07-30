@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dggsl2y48fo1c"]
+
+[ext_resource type="Script" uid="uid://bslttc2ctr0fw" path="res://Drops/Exp/drop_exp.gd" id="1_vbjrg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yc8at"]
+radius = 4.0
+
+[sub_resource type="Gradient" id="Gradient_yc8at"]
+offsets = PackedFloat32Array(0, 0.324561, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.184211, 0.184211, 0.184211, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vbjrg"]
+gradient = SubResource("Gradient_yc8at")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yc8at"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 1.0
+velocity_pivot = Vector3(0, 100, 0)
+direction = Vector3(1, -1, 0)
+spread = 90.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+color_ramp = SubResource("GradientTexture1D_vbjrg")
+
+[node name="drop_exp" type="Area2D"]
+z_index = -1
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_vbjrg")
+
+[node name="collect_area" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yc8at")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_yc8at")

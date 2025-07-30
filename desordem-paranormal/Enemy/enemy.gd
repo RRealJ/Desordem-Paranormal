@@ -5,7 +5,12 @@ class_name Enemy
 @export var health: int = 30
 @export var speed: float = 50
 @export var damage: int = 10
+@export var exp: int = 5
+@export var nex: float = 0.1
 @export var enemy_type: damage_types = damage_types.BLOOD
+
+@onready var soft_collision: Area2D = $soft_collision
+@onready var exp_scene: PackedScene = preload("res://Drops/Exp/drop_exp.tscn")
 
 enum damage_types {
 	BLOOD,
@@ -29,6 +34,8 @@ func move(target, delta):
 	var desired_velocity = direction * speed
 	var steering = (desired_velocity - velocity) * delta * 2.5
 	velocity += steering
+	if soft_collision.is_colliding():
+		velocity += soft_collision.get_push_vector() * delta * 150
 	move_and_slide()
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
@@ -37,15 +44,19 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	
 func recieve_damage(player_damage, damage_type) -> void:
 	player_damage = matchDamage(player_damage, damage_type)
-	print("vida antes:",health)
 	health -= int(player_damage)
-	print("vida depois:",health)
-	print("====================")
 	if health <= 0:
+		drop_exp()
 		queue_free()
+
+func drop_exp():
+	var new_exp = exp_scene.instantiate()
+	new_exp.exp_value = exp
+	new_exp.nex_value = nex
+	new_exp.global_position = global_position
+	$"..".add_child(new_exp)
 		
 func matchDamage(player_damage, damage_element):
-	print("========enemy========")
 	match damage_element:
 		damage_types.BLOOD:#USING SAME ENUM
 			print("Bullet Damage Element: BLOOD")
@@ -77,7 +88,6 @@ func matchDamage(player_damage, damage_element):
 			
 		damage_types.PHYSICAL:
 			print("Bullet Damage Element: PHYSICAL")
-			print("Dont Change Damage now")
 			
 		_:
 			print("Bullet Damage Element: FEAR")

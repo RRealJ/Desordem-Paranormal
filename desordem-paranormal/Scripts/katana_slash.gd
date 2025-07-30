@@ -1,9 +1,9 @@
 extends Bullet
 
-@onready var tween := get_tree().create_tween()
+@onready var tween: Tween = get_tree().create_tween()
 
-@export var swing_arc_degrees := 90.0
-@export var swing_duration := 0.2
+@export var swing_arc_degrees: float = 90.0
+@export var swing_duration: float = 0.2
 
 
 func _process(delta: float) -> void:
@@ -23,5 +23,5 @@ func slash(mouse_position: Vector2):
 	tween.tween_property($katana_slash, "rotation", base_angle + deg_to_rad(swing_arc_degrees / 2.0), swing_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	queue_free()

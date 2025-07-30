@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhjanayxf50ox"]
+
+[ext_resource type="Script" uid="uid://d2vsfch2jcph0" path="res://Scripts/Soft_Collision/soft_collision.gd" id="1_s12nc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wnnfx"]
+radius = 4.0
+
+[node name="soft_collision" type="Area2D"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_s12nc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wnnfx")
+debug_color = Color(1.68458e-06, 0.634299, 0.43064, 0.42)

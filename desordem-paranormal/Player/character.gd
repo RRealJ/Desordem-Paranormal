@@ -12,6 +12,8 @@ var speed: float
 var level: int
 var crit_rate: float
 var crit_modify: float
+var exp: int = 0
+var nex: float = 0.0
 
 func _ready() -> void:
 	$Pointer.change_pointer(character_data.element_of_character)
@@ -53,7 +55,6 @@ func _process(delta: float) -> void:
 func recieve_damage(damage, damage_type) -> void:
 	damage = matchDamage(damage, damage_type)
 	health -= int(damage)
-	print(health,"/",character_data.health)
 	updateUI()
 		
 func matchDamage(damage, damage_element):
@@ -89,7 +90,6 @@ func matchDamage(damage, damage_element):
 			
 		character_data.elements_of_characters.PHYSICAL:
 			print("Enemy Damage Element: PHYSICAL")
-			print("Dont Change Damage now")
 			
 		_:
 			print("Enemy Damage Element: FEAR")
