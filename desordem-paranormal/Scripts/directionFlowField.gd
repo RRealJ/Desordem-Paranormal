@@ -5,7 +5,7 @@ var cached_directions: Dictionary
 
 
 
-func build(_origin: Vector2i):
+func build(_origin: Vector2i) -> void:
 	super(_origin)
 
 	cached_directions.clear()
@@ -30,7 +30,7 @@ func get_direction(from: Vector2)-> Vector2:
 	return cached_directions[grid_coords]
 
 
-func debug_draw(canvas: CanvasItem, tile_map: TileMapLayer, color: Color):
+func debug_draw(canvas: CanvasItem, tile_map: TileMapLayer, color: Color) -> void:
 	for key: Vector2i in cached_directions:
 		var center:= tile_map.map_to_local(key)
 		var dir: Vector2= get_direction(center)

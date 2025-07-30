@@ -14,6 +14,6 @@ func _ready() -> void:
 	enemy_controller.create_spawner(enemy_controller.enemy_spawners_data[0])
 
 
-func update_pathfinder(non_blocking: bool= true):
+func update_pathfinder(non_blocking: bool= true) -> void:
 	if Global.pathfinder:
 		Global.pathfinder.update(player.position, non_blocking)

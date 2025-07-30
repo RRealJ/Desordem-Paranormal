@@ -16,17 +16,17 @@ extends Pathfinder
 
 var flow_field: DirectionFlowField
 
-var previous_player_grid_coords= null
+var previous_player_grid_coords: Vector2i
 
 
-func _ready():
+func _ready() -> void:
 	assert(tile_map, "Assign a Tile Map Layer to this Pathfinder")
 	super()
 	
 	flow_field= DirectionFlowField.new(tile_map, field_size)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_select"):
 		queue_redraw()
 
@@ -48,7 +48,7 @@ func get_flowfield_direction(from: Vector2)-> Vector2:
 	return Vector2.ZERO
 
 
-func update(player_pos: Vector2, non_blocking: bool= true):
+func update(player_pos: Vector2, non_blocking: bool= true) -> void:
 	if busy: return
 	
 	var player_grid_coords: Vector2i= get_grid_coords(player_pos)
@@ -61,7 +61,7 @@ func update(player_pos: Vector2, non_blocking: bool= true):
 	flow_field.build(player_grid_coords)
 
 
-func _draw():
+func _draw() -> void:
 	if not debug_mode: return
 	if not is_inside_tree() or not Global.player: return
 	

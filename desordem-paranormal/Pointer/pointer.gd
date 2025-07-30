@@ -9,7 +9,7 @@ enum elements {
 	KNOWLEDGE
 }
 
-func change_pointer(element):
+func change_pointer(element:int) -> void:
 	var new_texture: String
 	
 	match element:
@@ -32,5 +32,5 @@ func change_pointer(element):
 		
 	self.scale = Vector2(0.5, 0.5)
 	
-func _process(_delta):
+func _process(_delta:float) -> void:
 	look_at(get_global_mouse_position())

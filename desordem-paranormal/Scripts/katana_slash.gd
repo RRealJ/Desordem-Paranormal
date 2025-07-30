@@ -13,9 +13,9 @@ func _process(delta: float) -> void:
 		slash(get_global_mouse_position())
 
 	
-func slash(mouse_position: Vector2):
+func slash(mouse_position: Vector2) -> void:
 	# Step 1: Point toward the mouse
-	var base_angle = (mouse_position - global_position).angle()
+	var base_angle: float = (mouse_position - global_position).angle()
 	$katana_slash.rotation = base_angle - deg_to_rad(swing_arc_degrees / 2.0)
 
 	# Step 2: Animate the swing

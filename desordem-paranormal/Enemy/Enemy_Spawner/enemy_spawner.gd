@@ -33,7 +33,7 @@ func _ready() -> void:
 	LifeTimer.wait_time = end_timer
 	LifeTimer.start()
 
-func spawn_enemy():
+func spawn_enemy() -> void:
 	print("spawn_enemy()")
 	if busy: return
 	if paused: return
@@ -47,10 +47,10 @@ func spawn_enemy():
 			busy= false
 			var space_state: PhysicsDirectSpaceState2D= get_world_2d().direct_space_state
 			if not space_state: return
-			var result = space_state.intersect_shape(empty_space_query)
+			var result := space_state.intersect_shape(empty_space_query)
 			if result : return
 			
-		var obj = enemy_scene.instantiate()
+		var obj := enemy_scene.instantiate()
 		obj.global_position = get_possible_enemy_position()
 		$"..".add_child(obj)
 
@@ -59,24 +59,24 @@ func _on_timer_timeout() -> void:
 	spawn_enemy()
 	
 	
-func get_possible_enemy_position():
-	var player = Global.player
-	var camera = player.get_node("Camera2D")
-	var margin = 100
-	var spawn_position = Vector2.ZERO
+func get_possible_enemy_position() -> Vector2:
+	var player: CharacterBody2D = Global.player
+	var camera: Camera2D = player.get_node("Camera2D")
+	var margin: float = 100
+	var spawn_position: Vector2 = Vector2.ZERO
 	
 	# Get the screen size
-	var screen_size = get_viewport().get_visible_rect().size
-	var half_screen = screen_size * 0.5
+	var screen_size: Vector2 = get_viewport().get_visible_rect().size
+	var half_screen: Vector2 = screen_size * 0.5
 	
 	# Get world-space screen rectangle centered on the camera
-	var cam_pos = camera.global_position
-	var screen_left = cam_pos.x - half_screen.x
-	var screen_right = cam_pos.x + half_screen.x
-	var screen_top = cam_pos.y - half_screen.y
-	var screen_bottom = cam_pos.y + half_screen.y
+	var cam_pos: Vector2 = camera.global_position
+	var screen_left: int = cam_pos.x - half_screen.x
+	var screen_right: int  = cam_pos.x + half_screen.x
+	var screen_top: int  = cam_pos.y - half_screen.y
+	var screen_bottom: int  = cam_pos.y + half_screen.y
 	
-	var edge = randi() % 4
+	var edge: int = randi() % 4
 	
 	match edge:
 		0:  # Top

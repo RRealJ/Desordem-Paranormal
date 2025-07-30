@@ -56,12 +56,12 @@ func _process(delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 	
-func recieve_damage(damage, damage_type) -> void:
+func recieve_damage(damage: float, damage_type: int) -> void:
 	damage = matchDamage(damage, damage_type)
 	health -= int(damage)
 	updateUI()
 		
-func matchDamage(damage, damage_element):
+func matchDamage(damage:float, damage_element: int) -> float:
 	match damage_element:
 		
 		character_data.elements_of_characters.BLOOD:#USING SAME ENUM

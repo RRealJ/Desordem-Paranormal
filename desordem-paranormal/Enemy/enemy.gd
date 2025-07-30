@@ -40,13 +40,13 @@ var TARGET: CharacterBody2D = Global.player
 @export var maximum_speed: float= 25.0
 
 # skip n calculation frames
-@export var skip_frames: int= 20
+@export var skip_frames: int = 20
 
 # fine-tune the intersect_shape() max_results
-@export var max_intersect_results:= 8
+@export var max_intersect_results: int = 8
 
 # for smoother movement
-@export_range(0.0, 1.0) var jitter_fix= 0.5
+@export_range(0.0, 1.0) var jitter_fix: float = 0.5
 
 @onready var collision_shape: CollisionShape2D = $hurtbox
 @onready var separation_area: Area2D = $"Separation Area"
@@ -187,7 +187,7 @@ func get_overlapping_area_positions()-> Array[Vector2]:
 		# - with more results the separation becomes more precise, potentially
 		# accounting for more nearby enemies.
 		# - less results should mean more performance
-		var query_result= get_world_2d().direct_space_state.intersect_shape(query, max_intersect_results)
+		var query_result:= get_world_2d().direct_space_state.intersect_shape(query, max_intersect_results)
 		
 		if query_result:
 			for item in query_result:
@@ -202,7 +202,7 @@ func get_overlapping_area_positions()-> Array[Vector2]:
 # adding velocity to move away from the given position
 # with the given weight and considering the distance to our
 # current position. the closer we are the greater the factor 
-func separate_from(other_pos: Vector2, weight: float):
+func separate_from(other_pos: Vector2, weight: float) -> void:
 	var vec: Vector2= position - other_pos
 	if vec.is_zero_approx(): return
 	velocity+= vec.normalized() * 1.0 / vec.length() * weight
@@ -210,7 +210,7 @@ func separate_from(other_pos: Vector2, weight: float):
 
 # called from an Area Obstacle if it detects an overlap and we get
 # the resulting collision normal
-func handle_obstacle_collision(normal: Vector2):
+func handle_obstacle_collision(normal: Vector2) -> void:
 	obstacle_collision_normal= normal
 
 
@@ -223,7 +223,7 @@ func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
 		body.recieve_damage(damage, enemy_type)	
 	
 	
-func recieve_damage(player_damage, damage_type) -> void:
+func recieve_damage(player_damage:float , damage_type:int) -> void:
 	player_damage = matchDamage(player_damage, damage_type)
 	health -= int(player_damage)
 	if health <= 0:
@@ -233,16 +233,16 @@ func recieve_damage(player_damage, damage_type) -> void:
 		queue_free()
 
 
-func drop_exp():
-	var new_exp = exp_scene.instantiate()
+func drop_exp() -> void:
+	var new_exp := exp_scene.instantiate()
 	new_exp.exp_value = exp
 	new_exp.nex_value = nex
 	new_exp.global_position = global_position
 	$"..".add_child(new_exp)
 			
 			
-func drop_money():
-	var new_money = money_scene.instantiate()
+func drop_money() -> void:
+	var new_money := money_scene.instantiate()
 	var new_color: Color
 	new_money.money_value = money
 	
@@ -261,7 +261,7 @@ func drop_money():
 	$"..".add_child(new_money)
 
 
-func matchDamage(player_damage, damage_element):
+func matchDamage(player_damage: float, damage_element: int) -> float:
 	match damage_element:
 		damage_types.BLOOD:#USING SAME ENUM
 			if enemy_type == damage_types.DEATH:

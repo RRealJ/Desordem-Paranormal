@@ -9,11 +9,11 @@ var origin: Vector2i
 var size: Vector2i
 var rect: Rect2i
 
-func _init(_tile_map: TileMapLayer, _size: Vector2i= Vector2i.ZERO):
+func _init(_tile_map: TileMapLayer, _size: Vector2i= Vector2i.ZERO) -> void:
 	tile_map= _tile_map
 	size= _size
 
-func build(_origin: Vector2i):
+func build(_origin: Vector2i) -> void:
 	origin= _origin
 
 	field.clear()
@@ -60,7 +60,7 @@ func build(_origin: Vector2i):
 func get_grid_coords(pos: Vector2)-> Vector2i:
 	return floor(pos / Global.TILE_SIZE)
 
-func debug_draw(canvas: CanvasItem, tile_map: TileMapLayer, color: Color):
+func debug_draw(canvas: CanvasItem, tile_map: TileMapLayer, color: Color) -> void:
 	for key: Vector2i in field:
 		var center:= tile_map.map_to_local(key)
 		canvas.draw_string(Global.font, center, "%.1f" % field[key], HORIZONTAL_ALIGNMENT_CENTER, -1, 16, color)

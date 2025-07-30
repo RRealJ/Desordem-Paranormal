@@ -4,9 +4,9 @@ extends Node2D
 @onready var enemy_spawner: PackedScene = preload("res://Enemy/Enemy_Spawner/enemy_spawner.tscn")
 
 
-func create_spawner(spawner_data:Enemy_spawner_data):
+func create_spawner(spawner_data:Enemy_spawner_data) -> void:
 	print("Spawner Created")
-	var spawner = enemy_spawner.instantiate()
+	var spawner := enemy_spawner.instantiate()
 	spawner.enemy_scene = spawner_data.enemy_scene
 	spawner.quantity = spawner_data.enemy_quantity
 	spawner.end_timer = spawner_data.enemy_timer_end

@@ -26,12 +26,12 @@ func _process(delta: float) -> void:
 	if time_last_shoot >= weapon_stats.attack_cooldown:
 		shoot()
 
-func shoot():
+func shoot() -> void:
 	var dmg_boost: int = 0
 	time_last_shoot = 0.0
 	anim.play("Attack")
 	
-	var instance = bullet_scene.instantiate()
+	var instance := bullet_scene.instantiate()
 	instance.rotation = rotation
 	instance.SPEED = weapon_stats.speed
 	
@@ -43,7 +43,7 @@ func shoot():
 	
 	dmg_boost += (level * 5) 
 	instance.DAMAGE = weapon_stats.damage + dmg_boost
-	var it_crits = (randi() % 100 <= character.crit_rate)
+	var it_crits: bool = (randi() % 100 <= character.crit_rate)
 
 	print(it_crits)
 	

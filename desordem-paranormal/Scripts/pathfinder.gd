@@ -21,5 +21,5 @@ func get_direction(from: Vector2)-> Vector2:
 	return Vector2.ZERO 
 
 
-func update(player_pos: Vector2, non_blocking: bool= true):
+func update(player_pos: Vector2, non_blocking: bool= true) -> void:
 	pass
