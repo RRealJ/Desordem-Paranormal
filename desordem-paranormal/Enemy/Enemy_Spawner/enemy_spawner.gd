@@ -10,7 +10,6 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @onready var LifeTimer: Timer = $LifeTime
 
-var player: CharacterBody2D
 
 var paused:= false
 var busy:= false
@@ -61,26 +60,38 @@ func _on_timer_timeout() -> void:
 	
 	
 func get_possible_enemy_position():
-	var screen_rect = get_viewport().get_visible_rect()
+	var player = Global.player
+	var camera = player.get_node("Camera2D")
 	var margin = 100
 	var spawn_position = Vector2.ZERO
+	
+	# Get the screen size
+	var screen_size = get_viewport().get_visible_rect().size
+	var half_screen = screen_size * 0.5
+	
+	# Get world-space screen rectangle centered on the camera
+	var cam_pos = camera.global_position
+	var screen_left = cam_pos.x - half_screen.x
+	var screen_right = cam_pos.x + half_screen.x
+	var screen_top = cam_pos.y - half_screen.y
+	var screen_bottom = cam_pos.y + half_screen.y
 	
 	var edge = randi() % 4
 	
 	match edge:
 		0:  # Top
-			spawn_position.x = randf_range(screen_rect.position.x, screen_rect.end.x)
-			spawn_position.y = screen_rect.position.y - margin
+			spawn_position.x = randf_range(screen_left, screen_right)
+			spawn_position.y = screen_top - margin
 		1:  # Bottom
-			spawn_position.x = randf_range(screen_rect.position.x, screen_rect.end.x)
-			spawn_position.y = screen_rect.end.y + margin
+			spawn_position.x = randf_range(screen_left, screen_right)
+			spawn_position.y = screen_bottom + margin
 		2:  # Left
-			spawn_position.x = screen_rect.position.x - margin
-			spawn_position.y = randf_range(screen_rect.position.y, screen_rect.end.y)
+			spawn_position.x = screen_left - margin
+			spawn_position.y = randf_range(screen_top, screen_bottom)
 		3:  # Right
-			spawn_position.x = screen_rect.end.x + margin
-			spawn_position.y = randf_range(screen_rect.position.y, screen_rect.end.y)
-				
+			spawn_position.x = screen_right + margin
+			spawn_position.y = randf_range(screen_top, screen_bottom)
+			
 	return spawn_position
 
 

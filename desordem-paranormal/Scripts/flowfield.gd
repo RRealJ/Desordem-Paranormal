@@ -24,6 +24,7 @@ func build(_origin: Vector2i):
 		rect= tile_map.get_used_rect()
 
 	# start the flow field from the origin with a value of 0
+	print(size)
 	var active_points: Array[Vector2i]= []
 	active_points.append(origin)
 	field[origin]= 0.0

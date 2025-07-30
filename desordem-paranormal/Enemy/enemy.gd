@@ -217,9 +217,11 @@ func handle_obstacle_collision(normal: Vector2):
 func is_area()-> bool:
 	return true
 
+
 func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
 	if body == TARGET:
 		body.recieve_damage(damage, enemy_type)	
+	
 	
 func recieve_damage(player_damage, damage_type) -> void:
 	player_damage = matchDamage(player_damage, damage_type)
@@ -230,12 +232,14 @@ func recieve_damage(player_damage, damage_type) -> void:
 		drop_exp()
 		queue_free()
 
+
 func drop_exp():
 	var new_exp = exp_scene.instantiate()
 	new_exp.exp_value = exp
 	new_exp.nex_value = nex
 	new_exp.global_position = global_position
 	$"..".add_child(new_exp)
+			
 			
 func drop_money():
 	var new_money = money_scene.instantiate()
@@ -255,6 +259,7 @@ func drop_money():
 	new_money.change_color_to = new_color
 	new_money.global_position = global_position
 	$"..".add_child(new_money)
+
 
 func matchDamage(player_damage, damage_element):
 	match damage_element:
