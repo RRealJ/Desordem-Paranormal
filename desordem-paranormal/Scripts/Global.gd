@@ -1,15 +1,38 @@
 extends Node
 
+const PLAYER_COLLISION_LAYER = 2
+const ENEMY_COLLISION_LAYER = 8
+const OBSTACLE_COLLISION_LAYER = 11
+const RAYCAST_ENEMY_COLLISION_LAYER=  12
+const TILE_SIZE = 16
 
-
-const PLAYER_COLLISION_LAYER= 2
-const ENEMY_COLLISION_LAYER= 8
-const OBSTACLE_COLLISION_LAYER= 11
-const RAYCAST_ENEMY_COLLISION_LAYER= 12
-
-const TILE_SIZE= 16
-
+var items_resources_avaible: Array[Dictionary]
 var player: CharacterBody2D
 var enemies: Node2D
 var obstacle_tile_map: TileMapLayer
 var pathfinder: Pathfinder
+
+
+func _ready() -> void:
+	get_items_resources("res://Weapon/Resources")
+
+
+func get_items_resources(folder_path: String) -> void:
+	var dir: DirAccess = DirAccess.open(folder_path)
+	
+	if dir:
+		dir.list_dir_begin()
+		var file_name: String = dir.get_next()
+		
+		while file_name != "":
+			if not dir.current_is_dir() and file_name.ends_with(".tres"):
+				
+				var file_path: String = folder_path + "/" + file_name
+				var res: Resource = load(file_path)
+				if res:
+					
+					var new_dicionary: Dictionary = {res.id : res} 
+					items_resources_avaible.append(new_dicionary)
+					
+			file_name = dir.get_next()
+		dir.list_dir_end()

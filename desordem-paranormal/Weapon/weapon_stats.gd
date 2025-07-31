@@ -1,6 +1,7 @@
 extends Resource
 class_name Weapon_stats
 
+@export var id: int
 @export var name: String
 @export var damage: int
 @export var speed: int
@@ -11,6 +12,7 @@ class_name Weapon_stats
 @export var awaken: bool
 @export var level: int = 1
 @export var description: String
+@export var portrait_path: String
 
 enum range_types {
 	MELEE,

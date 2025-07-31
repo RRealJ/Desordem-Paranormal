@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ry48q0fn0f2v"]
+
+[ext_resource type="Script" uid="uid://b88l2p8y7y1yu" path="res://Inventory/inventory_control.gd" id="1_b1hjk"]
+[ext_resource type="Resource" uid="uid://dwdr4mfda23xr" path="res://Inventory/player_inventory.tres" id="2_lngxs"]
+
+[node name="inventory_control" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_b1hjk")
+inventory = ExtResource("2_lngxs")
