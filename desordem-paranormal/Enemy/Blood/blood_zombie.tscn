@@ -53,7 +53,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o5e71"]
-radius = 10.0499
+radius = 14.0357
 
 [node name="blood_zombie" type="Area2D" groups=["Enemy"]]
 collision_layer = 144
@@ -61,7 +61,7 @@ collision_mask = 0
 script = ExtResource("1_uq8fd")
 dynamic_separation_area = false
 target_weight = 50.0
-player_separation_weight = 3.0
+player_separation_weight = 2.0
 maximum_speed = 60.0
 skip_frames = 15
 jitter_fix = 1.0
@@ -87,10 +87,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_0rspp")
 }
 autoplay = "Walking"
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(-0.5, 0)
-scale = Vector2(0.75, 0.8)
 
 [node name="Separation Area" type="Area2D" parent="."]
 collision_layer = 1024

@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/character.gd" id="1_gj76y"]
 [ext_resource type="Resource" uid="uid://wdrqyuqh4qhx" path="res://Player/Resources/joui_jouki.tres" id="2_li66o"]
 [ext_resource type="Texture2D" uid="uid://b1ne32rvnh0li" path="res://Assets/Sprites/Characters/JouiJouki_Bottom.png" id="3_bi27d"]
-[ext_resource type="Texture2D" uid="uid://nbgj3xscmp6k" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="4_8kvql"]
+[ext_resource type="Texture2D" uid="uid://dite8sblpyj4h" path="res://Assets/Sprites/Characters/JouiJouki_Upper.png" id="4_8kvql"]
 [ext_resource type="Texture2D" uid="uid://oufmm3xtp7rq" path="res://Assets/Sprites/Characters/JouiJouki_Bottom_n.png" id="4_li66o"]
 [ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="5_6v8rf"]
-[ext_resource type="Texture2D" uid="uid://brw7cccp7gvy7" path="res://Assets/Sprites/Characters/JouiJouki_Upper_n.png" id="6_bi27d"]
+[ext_resource type="Texture2D" uid="uid://bcg0x0f5f1g2h" path="res://Assets/Sprites/Characters/JouiJouki_Upper_n.png" id="6_bi27d"]
 [ext_resource type="Resource" uid="uid://cms4kkdj6bfdr" path="res://Weapon/Resources/katana_erosiva.tres" id="6_l7cgl"]
 [ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="7_7lihg"]
 [ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="8_81csu"]
@@ -103,7 +103,6 @@ texture = SubResource("CanvasTexture_bi27d")
 hframes = 6
 
 [node name="Upper" type="Sprite2D" parent="."]
-position = Vector2(8, 0)
 texture = SubResource("CanvasTexture_8kvql")
 hframes = 6
 

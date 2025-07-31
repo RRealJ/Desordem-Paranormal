@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcg0x0f5f1g2h"
-path="res://.godot/imported/JouiJouki_Upper_n.png-dd3f9e1adfdbe14a053cbd1883a29d8a.ctex"
+uid="uid://chyhtyjtonj8n"
+path="res://.godot/imported/JouiJouki_Upper_n_antes.png-e207991fdb5e2f3544e52ba221eb9311.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Characters/JouiJouki_Upper_n.png"
-dest_files=["res://.godot/imported/JouiJouki_Upper_n.png-dd3f9e1adfdbe14a053cbd1883a29d8a.ctex"]
+source_file="res://Assets/Sprites/Characters/JouiJouki_Upper_n_antes.png"
+dest_files=["res://.godot/imported/JouiJouki_Upper_n_antes.png-e207991fdb5e2f3544e52ba221eb9311.ctex"]
 
 [params]
 

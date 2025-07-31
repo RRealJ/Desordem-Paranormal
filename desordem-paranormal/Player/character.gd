@@ -34,11 +34,11 @@ func _physics_process(delta: float) -> void:
 	if main_weapon.rotation_degrees > 90 and main_weapon.rotation_degrees < 270:
 		bottom.flip_h = true
 		upper.flip_h = true
-		upper.position.x = bottom.position.x - 8
+		
 	else:
 		bottom.flip_h = false
 		upper.flip_h = false
-		upper.position.x = bottom.position.x + 8
+		
 			
 	var direction:Vector2 = Vector2.ZERO
 	
