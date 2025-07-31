@@ -4,13 +4,16 @@
 
 [resource]
 script = ExtResource("1_5lbii")
+id = 0
 name = "Katana Erosiva"
 damage = 5
 speed = 0
 weapon_type = 0
 range_type = 0
-dmg_type = 1
+element_type = 1
 attack_cooldown = 2
 awaken = false
+level = 1
 description = "Uma Katana afida com varias espirais pretas pela lâmina, você consegue sentir o elemento da morte presente nessa arma."
+portrait_path = ""
 metadata/_custom_type_script = "uid://du1e0lxrsgmtr"

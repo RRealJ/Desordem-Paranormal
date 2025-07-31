@@ -1,6 +1,22 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cyneqiul8ys8n"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cyneqiul8ys8n"]
 
 [ext_resource type="FontFile" uid="uid://c4oilnjthd10m" path="res://Assets/Fonts/Pixellari.ttf" id="1_iiepo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iiepo"]
+bg_color = Color(1.44392e-06, 0.804442, 0.516074, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.803922, 0.517647, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bps2v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iiepo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpyes"]
 
 [sub_resource type="Gradient" id="Gradient_iiepo"]
 interpolation_mode = 2
@@ -20,4 +36,8 @@ modulate_color = Color(1, 1, 1, 0.6)
 [resource]
 default_font = ExtResource("1_iiepo")
 default_font_size = 16
+Button/styles/focus = SubResource("StyleBoxFlat_iiepo")
+Button/styles/hover = SubResource("StyleBoxEmpty_bps2v")
+Button/styles/normal = SubResource("StyleBoxEmpty_iiepo")
+Button/styles/pressed = SubResource("StyleBoxEmpty_xpyes")
 Panel/styles/panel = SubResource("StyleBoxTexture_bps2v")
