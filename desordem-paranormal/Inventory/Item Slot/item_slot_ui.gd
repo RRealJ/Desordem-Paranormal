@@ -16,7 +16,7 @@ func update_item_slot() -> void:
 	new_text = highlight_word(item_res.description)
 	rich_text.text = new_text
 	
-	level_label.text = str(item_res.level)
+	update_item_level()
 	update_portrait(item_res.portrait_path)
 	
 	match item_res.element_type:
@@ -51,6 +51,10 @@ func highlight_word(text: String) -> String:
 	text = text.replace("Conhecimento", "[color=%s]%s[/color]" % [COLOR_KNOWLEDGE.to_html(), "conhecimento".capitalize()])
 				
 	return text
+
+
+func update_item_level() -> void:
+	level_label.text = str(item_res.level)
 
 
 func update_portrait(new_texture: String) -> void:

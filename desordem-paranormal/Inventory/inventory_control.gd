@@ -14,6 +14,7 @@ func _ready() -> void:
 func insert_item(item_id: int) -> void:
 	var item_found: Resource
 	var index_slot: int = -1
+	var update_only_level_ui: bool = false
 	
 	for item in Global.items_resources_avaible: # {resource.id : resource}
 		item_found = item.get(item_id)
@@ -23,22 +24,28 @@ func insert_item(item_id: int) -> void:
 				
 				if inventory.item_slots[i]  == null:
 					inventory.item_slots[i] = Item_slot.new()
-					inventory.item_slots[i].item = item_found
-					index_slot = i
-				
-				else:
-					if inventory.item_slots[i].item == item_found:
-						inventory.item_slots[i].item.level += 1
-						index_slot = i
-						
-				break	
+					inventory.item_slots[i].item = item_found		
+					index_slot = i	#default value is -1, needs to be in there
+					break
+					
+				elif inventory.item_slots[i].item == item_found:
+					inventory.item_slots[i].item.level += 1
+					update_only_level_ui = true
+					index_slot = i #default value is -1, needs to be in there
+					break
+											
 		
-		update_item_slots_ui(index_slot)
+		update_item_slots_ui(index_slot, update_only_level_ui)
 		break
 
 
-func update_item_slots_ui(slot_index: int) -> void:
+func update_item_slots_ui(slot_index: int, only_level: bool) -> void:
 	if slot_index != -1:
+		
+		if only_level:
+			item_slots_ui[slot_index].update_item_level()
+			return
+		
 		item_slots_ui[slot_index].item_res = inventory.item_slots[slot_index].item
 		item_slots_ui[slot_index].update_item_slot()
 
