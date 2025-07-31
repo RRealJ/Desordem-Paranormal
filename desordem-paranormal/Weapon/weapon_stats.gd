@@ -6,7 +6,7 @@ class_name Weapon_stats
 @export var speed: int
 @export var weapon_type: weapon_types
 @export var range_type: range_types
-@export var dmg_type: dmg_types
+@export var element_type: element_types
 @export var attack_cooldown: int
 @export var awaken: bool
 @export var level: int = 1
@@ -18,7 +18,7 @@ enum range_types {
 	OCULTISM
 }
 
-enum dmg_types{
+enum element_types{
 	BLOOD,
 	DEATH,
 	ENERGY,

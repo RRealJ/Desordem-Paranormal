@@ -7,6 +7,10 @@
 [node name="inventory_slot" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 143.0
+offset_top = 65.0
+offset_right = 143.0
+offset_bottom = 65.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_ded5v")
@@ -43,10 +47,11 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("3_ded5v")
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer"]
 custom_minimum_size = Vector2(285, 32)
 layout_mode = 2
-text = "Ataque veloz em arco, deixando uma trilha de morte em seus ataques fazendo o monstro definhar."
-horizontal_alignment = 3
+bbcode_enabled = true
+text = "Ataque veloz em arco que deixa a trilha da Morte, e espirais pretas
+"
+fit_content = true
 vertical_alignment = 1
-autowrap_mode = 3

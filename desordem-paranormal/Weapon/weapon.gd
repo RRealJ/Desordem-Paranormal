@@ -52,7 +52,7 @@ func shoot() -> void:
 		
 	print(instance.DAMAGE)
 	
-	instance.DAMAGE_TYPE = weapon_stats.dmg_type
+	instance.DAMAGE_TYPE = weapon_stats.element_type
 	
 	if weapon_stats.range_type == weapon_stats.range_types.MELEE:
 		var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
