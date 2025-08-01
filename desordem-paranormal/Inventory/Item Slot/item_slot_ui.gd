@@ -4,6 +4,7 @@ extends Control
 @onready var rich_text: RichTextLabel = $HBoxContainer/RichTextLabel
 @onready var portrait: TextureRect = $HBoxContainer/TextureRect
 @onready var level_label: Label = $HBoxContainer/TextureRect/Label
+@onready var button: Button = $Button
 
 const COLOR_BLOOD: Color = Color(0.66, 0.08, 0.0, 1)
 const COLOR_DEATH: Color = Color(0.59, 0.6, 0.59, 1)
@@ -64,3 +65,16 @@ func update_portrait(new_texture: String) -> void:
 
 func _on_button_mouse_entered() -> void:
 	$Button.grab_focus()
+	
+	
+func _on_button_focus_entered() -> void:
+	level_label.position = Vector2(level_label.position.x, level_label.position.y - 3)
+	material.set_shader_parameter("enabled", true)
+	portrait.material.set_shader_parameter("enabled", true)
+	
+
+
+func _on_button_focus_exited() -> void:
+	level_label.position = Vector2(level_label.position.x, level_label.position.y + 3)
+	material.set_shader_parameter("enabled", false)
+	portrait.material.set_shader_parameter("enabled", false)

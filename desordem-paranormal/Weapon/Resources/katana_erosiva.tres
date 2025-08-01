@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Weapon_stats" load_steps=2 format=3 uid="uid://cms4kkdj6bfdr"]
+[gd_resource type="Resource" script_class="Weapon_stats" load_steps=3 format=3 uid="uid://cms4kkdj6bfdr"]
 
 [ext_resource type="Script" uid="uid://du1e0lxrsgmtr" path="res://Weapon/weapon_stats.gd" id="1_5lbii"]
+[ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="1_lf24f"]
 
 [resource]
 script = ExtResource("1_5lbii")
@@ -16,4 +17,5 @@ awaken = false
 level = 1
 description = "Uma Katana afida com varias espirais pretas pela lâmina, você consegue sentir o elemento da morte presente nessa arma."
 portrait_path = ""
+bullet_scene = ExtResource("1_lf24f")
 metadata/_custom_type_script = "uid://du1e0lxrsgmtr"

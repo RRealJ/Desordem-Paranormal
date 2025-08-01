@@ -8,6 +8,7 @@ extends Control
 func _ready() -> void:
 	inventory.item_slots.clear()
 	inventory.item_slots.resize(10)
+	set_focus()
 	#insert_item(Global.player.main_weapon.weapon_stats.id) #for add main weapon of character
 
 
@@ -55,4 +56,19 @@ func reset_items_level() -> void:  #call when player life reaches 0
 		if inventory.item_slots[i]  != null:
 			inventory.item_slots[i].item.level = 1
 			
-	
+
+func set_focus() -> void:
+	var item_slots_paths: Array[NodePath]
+	for item in item_slots_ui:
+		item_slots_paths.append(item.button.get_path())
+		
+	for i:int in range(item_slots_paths.size()):
+		if i != 0:
+			item_slots_ui[i].button.set_focus_neighbor(SIDE_TOP, item_slots_paths[i-1])
+			item_slots_ui[i].button.set_focus_neighbor(SIDE_LEFT, item_slots_paths[i-1])
+			
+		if i != 9:
+			item_slots_ui[i].button.set_focus_neighbor(SIDE_BOTTOM, item_slots_paths[i+1])
+			item_slots_ui[i].button.set_focus_neighbor(SIDE_RIGHT, item_slots_paths[i+1])
+			
+	item_slots_ui[0].button.grab_focus()

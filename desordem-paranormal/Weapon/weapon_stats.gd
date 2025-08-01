@@ -13,6 +13,7 @@ class_name Weapon_stats
 @export var level: int = 1
 @export var description: String
 @export var portrait_path: String
+@export var bullet_scene: PackedScene
 
 enum range_types {
 	MELEE,

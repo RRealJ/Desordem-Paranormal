@@ -1,8 +1,457 @@
-[gd_scene load_steps=4 format=3 uid="uid://ry48q0fn0f2v"]
+[gd_scene load_steps=26 format=3 uid="uid://ry48q0fn0f2v"]
 
 [ext_resource type="Script" uid="uid://b88l2p8y7y1yu" path="res://Inventory/inventory_control.gd" id="1_b1hjk"]
 [ext_resource type="Resource" uid="uid://dwdr4mfda23xr" path="res://Inventory/player_inventory.tres" id="2_lngxs"]
 [ext_resource type="PackedScene" uid="uid://blmlquib0igj0" path="res://Inventory/Item Slot/item_slot_ui.tscn" id="3_vmnol"]
+
+[sub_resource type="Shader" id="Shader_vmnol"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6bla5"]
+seed = 3
+frequency = 0.04
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_87rga"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_6bla5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0c75i"]
+resource_local_to_scene = true
+shader = SubResource("Shader_vmnol")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_0c75i"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1oak7"]
+resource_local_to_scene = true
+shader = SubResource("Shader_0c75i")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_1seau"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ppptr"]
+resource_local_to_scene = true
+shader = SubResource("Shader_1seau")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_1oak7"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vly2l"]
+resource_local_to_scene = true
+shader = SubResource("Shader_1oak7")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_sb6kl"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88hpr"]
+resource_local_to_scene = true
+shader = SubResource("Shader_sb6kl")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_ppptr"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6vp03"]
+resource_local_to_scene = true
+shader = SubResource("Shader_ppptr")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_o51qk"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q0cy1"]
+resource_local_to_scene = true
+shader = SubResource("Shader_o51qk")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_vly2l"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_800i2"]
+resource_local_to_scene = true
+shader = SubResource("Shader_vly2l")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_t0kbq"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iauth"]
+resource_local_to_scene = true
+shader = SubResource("Shader_t0kbq")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
+
+[sub_resource type="Shader" id="Shader_88hpr"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform sampler2D textureNoise: repeat_enable;
+uniform float radius: hint_range(0.0, 1.0) = 0.45;
+uniform float effectControl: hint_range(0.0, 1.0) = 0.309;
+uniform float burnSpeed: hint_range(0.0, 1.0) = 0.076;
+uniform float shape: hint_range(0.0, 1.0) = 1.0;
+uniform float opacityImage: hint_range(0.0, 1.0) = 1.0;
+uniform bool enabled = false;
+
+void fragment() {
+	if (enabled) {
+		vec2 centerDistVec = vec2(0.5) - UV;
+
+	float distToCircleEdge = length(centerDistVec) * radius;
+	float distToSquareEdge = 0.5*(0.5 - min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y)));
+	float distToEdge = mix(distToCircleEdge,distToSquareEdge,shape);
+
+    float gradient = smoothstep(0.5, 0.5 - radius, distToEdge);
+
+    vec2 direction = vec2(0, 1) * burnSpeed;
+    float noiseValue = texture(textureNoise, UV + direction * TIME).r;
+
+    float opacity = step(radius, mix(gradient, noiseValue, effectControl) - distToEdge);
+
+    COLOR = texture(TEXTURE, UV) * vec4(1.0, 1.0, 1.0, opacity);
+	COLOR.a *= opacityImage;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1v04j"]
+resource_local_to_scene = true
+shader = SubResource("Shader_88hpr")
+shader_parameter/textureNoise = SubResource("NoiseTexture2D_87rga")
+shader_parameter/radius = 0.39
+shader_parameter/effectControl = 0.4
+shader_parameter/burnSpeed = 0.076
+shader_parameter/shape = 1.0
+shader_parameter/opacityImage = 0.7
+shader_parameter/enabled = false
 
 [node name="inventory_control" type="Control"]
 layout_mode = 3
@@ -23,50 +472,62 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 72.0
+offset_top = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VScrollContainer" type="ScrollContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 28.0
-offset_right = 245.0
-offset_bottom = 26.0
+grow_horizontal = 2
 grow_vertical = 2
+follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
+scroll_deadzone = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="item_slot_ui" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_0c75i")
 layout_mode = 2
 
 [node name="item_slot_ui2" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_1oak7")
 layout_mode = 2
 
 [node name="item_slot_ui3" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_ppptr")
 layout_mode = 2
 
 [node name="item_slot_ui4" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_vly2l")
 layout_mode = 2
 
 [node name="item_slot_ui5" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_88hpr")
 layout_mode = 2
 
 [node name="item_slot_ui6" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_6vp03")
 layout_mode = 2
 
 [node name="item_slot_ui7" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_q0cy1")
 layout_mode = 2
 
 [node name="item_slot_ui8" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_800i2")
 layout_mode = 2
 
 [node name="item_slot_ui9" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_iauth")
 layout_mode = 2
 
 [node name="item_slot_ui10" parent="Panel/VScrollContainer/VBoxContainer" instance=ExtResource("3_vmnol")]
+material = SubResource("ShaderMaterial_1v04j")
 layout_mode = 2

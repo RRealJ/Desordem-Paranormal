@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnwqpyn3evyj6"]
+[gd_scene load_steps=18 format=3 uid="uid://bnwqpyn3evyj6"]
 
 [ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/character.gd" id="1_gj76y"]
 [ext_resource type="Resource" uid="uid://wdrqyuqh4qhx" path="res://Player/Resources/joui_jouki.tres" id="2_li66o"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://dwdmwmbppw6tu" path="res://Weapon/weapon.gd" id="5_6v8rf"]
 [ext_resource type="Texture2D" uid="uid://bcg0x0f5f1g2h" path="res://Assets/Sprites/Characters/JouiJouki_Upper_n.png" id="6_bi27d"]
 [ext_resource type="Resource" uid="uid://cms4kkdj6bfdr" path="res://Weapon/Resources/katana_erosiva.tres" id="6_l7cgl"]
-[ext_resource type="PackedScene" uid="uid://dghlg2t5h65io" path="res://Weapon/Bullets/katana_slash.tscn" id="7_7lihg"]
 [ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="8_81csu"]
 [ext_resource type="PackedScene" uid="uid://bh571nsqy51e0" path="res://Drops/player_collect_area.tscn" id="11_s1hos"]
 
@@ -109,7 +108,6 @@ hframes = 6
 [node name="main_weapon" type="Node2D" parent="."]
 script = ExtResource("5_6v8rf")
 weapon_stats = ExtResource("6_l7cgl")
-bullet_scene = ExtResource("7_7lihg")
 
 [node name="Pointer" parent="." instance=ExtResource("8_81csu")]
 visible = false

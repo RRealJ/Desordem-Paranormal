@@ -1,16 +1,13 @@
 extends Node2D
 
 @export var weapon_stats: Weapon_stats
-@export var bullet_scene: PackedScene
 @onready var anim: AnimationPlayer = $"../animAttack"
 
 var time_last_shoot: float = 0.0
 var character: CharacterBody2D
-var level: int = 0
 
 func _ready() -> void:
-	level = weapon_stats.level
-	character = $".."
+	character = Global.player
 
 
 func _process(delta: float) -> void:
@@ -31,7 +28,7 @@ func shoot() -> void:
 	time_last_shoot = 0.0
 	anim.play("Attack")
 	
-	var instance := bullet_scene.instantiate()
+	var instance := weapon_stats.bullet_scene.instantiate()
 	instance.rotation = rotation
 	instance.SPEED = weapon_stats.speed
 	
@@ -41,16 +38,12 @@ func shoot() -> void:
 	elif weapon_stats.weapon_type == weapon_stats.weapon_types.PICKABLE and character.character_data.type_of_character == character.character_data.types_of_characters.ESPECIALISTA: 
 		dmg_boost = character.level
 	
-	dmg_boost += (level * 5) 
+	dmg_boost += (weapon_stats.level * 5) 
 	instance.DAMAGE = weapon_stats.damage + dmg_boost
 	var it_crits: bool = (randi() % 100 <= character.crit_rate)
-
-	print(it_crits)
 	
 	if it_crits:
 		instance.DAMAGE = instance.DAMAGE * character.crit_modify
-		
-	print(instance.DAMAGE)
 	
 	instance.DAMAGE_TYPE = weapon_stats.element_type
 	
