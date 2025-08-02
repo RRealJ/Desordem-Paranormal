@@ -19,6 +19,7 @@ var money: int = 0
 func _init() -> void:
 	Global.player = self
 
+
 func _ready() -> void:
 	$Pointer.change_pointer(character_data.element_of_character)
 	max_health = character_data.health
@@ -30,6 +31,7 @@ func _ready() -> void:
 	$Pointer.visible = true
 	$animWalk.play("Walking")
 
+
 func _physics_process(delta: float) -> void:
 	if main_weapon.rotation_degrees > 90 and main_weapon.rotation_degrees < 270:
 		bottom.flip_h = true
@@ -39,16 +41,15 @@ func _physics_process(delta: float) -> void:
 		bottom.flip_h = false
 		upper.flip_h = false
 		
-			
 	var direction:Vector2 = Vector2.ZERO
 	
-	if Input.is_action_pressed("MoveUp"):
+	if Input.is_action_pressed("ui_up"):
 		direction.y -= 1
-	if Input.is_action_pressed("MoveDown"):
+	if Input.is_action_pressed("ui_down"):
 		direction.y += 1
-	if Input.is_action_pressed("MoveLeft"):
+	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
-	if Input.is_action_pressed("MoveRight"):
+	if Input.is_action_pressed("ui_right"):
 		direction.x += 1
 
 	direction = direction.normalized()
@@ -56,10 +57,12 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 	move_and_slide()
 	
+	
 func recieve_damage(damage: float, damage_type: int) -> void:
 	damage = matchDamage(damage, damage_type)
 	health -= int(damage)
 	updateUI()
+		
 		
 func matchDamage(damage:float, damage_element: int) -> float:
 	match damage_element:
@@ -92,8 +95,8 @@ func matchDamage(damage:float, damage_element: int) -> float:
 			pass
 		_:
 			damage *= 10
-	
 	return damage
+
 
 func updateUI() -> void:
 	pass

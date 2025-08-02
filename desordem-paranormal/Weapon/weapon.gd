@@ -6,11 +6,13 @@ extends Node2D
 var time_last_shoot: float = 0.0
 var character: CharacterBody2D
 
+var mouse_sens: int = 300
+
 func _ready() -> void:
 	character = Global.player
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
 	if rotation_degrees > 90 and rotation_degrees < 270:
 		scale.x = -1
@@ -18,6 +20,17 @@ func _process(delta: float) -> void:
 		scale.x = 1
 		
 	time_last_shoot += delta
+
+	#get Vector2 of Right Joystick
+	var direction: Vector2
+	direction.x = Input.get_action_strength("cursor_right") - Input.get_action_strength("cursor_left")
+	direction.y = Input.get_action_strength("cursor_down") - Input.get_action_strength("cursor_up")
+	
+	var movement: Vector2 = mouse_sens * direction * delta
+	if movement:
+		get_viewport().warp_mouse(round( get_viewport().get_mouse_position() + movement))
+		#IT NEEDS THE ROUND(), otherwise it goes into the fucking stratosphere
+	
 	look_at(get_global_mouse_position())
 
 	if time_last_shoot >= weapon_stats.attack_cooldown:

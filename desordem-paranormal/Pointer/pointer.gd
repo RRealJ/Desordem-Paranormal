@@ -32,5 +32,5 @@ func change_pointer(element:int) -> void:
 		
 	self.scale = Vector2(0.5, 0.5)
 	
-func _process(_delta:float) -> void:
+func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())

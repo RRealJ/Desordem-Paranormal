@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://rt2sm3m0cy3x"]
 
-[ext_resource type="Script" uid="uid://3a53vm3xe2mn" path="res://Scenes/StageControl.gd" id="1_lyi4a"]
+[ext_resource type="Script" uid="uid://3a53vm3xe2mn" path="res://Stages/StageControl.gd" id="1_lyi4a"]
 [ext_resource type="PackedScene" uid="uid://co4sl6jg0g3jc" path="res://Enemy/Blood/blood_zombie.tscn" id="2_qdsdc"]
 [ext_resource type="PackedScene" uid="uid://bnwqpyn3evyj6" path="res://Player/joui_jouki.tscn" id="3_ax884"]
 [ext_resource type="PackedScene" uid="uid://bjauqvfmmwng0" path="res://Enemy/Enemy_Controller/enemy_controller.tscn" id="3_h63fh"]
@@ -27,5 +27,6 @@ enemy_spawners_data = Array[ExtResource("4_h63fh")]([SubResource("Resource_h63fh
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Inventory_Ui" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="inventory_control" parent="Inventory_Ui" instance=ExtResource("6_ax884")]

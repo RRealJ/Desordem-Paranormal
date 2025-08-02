@@ -34,14 +34,11 @@ func _ready() -> void:
 	LifeTimer.start()
 
 func spawn_enemy() -> void:
-	print("spawn_enemy()")
 	if busy: return
 	if paused: return
 	
 	for i in range(quantity):
-		if wait_for_empty_space:
-			print("spawned enemy")
-			
+		if wait_for_empty_space:		
 			busy= true
 			await get_tree().physics_frame
 			busy= false
