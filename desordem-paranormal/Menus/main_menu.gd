@@ -17,6 +17,7 @@ func _ready() -> void:
 	for button in Array_of_buttons:
 		button.mouse_entered.connect(_grab_focus.bind(button))
 		button.focus_entered.connect(correct_shader_position.bind(button))
+		button.button_down.connect(button_is_pressed)
 	
 
 func _grab_focus(button:Button) -> void:
@@ -28,3 +29,13 @@ func _grab_focus(button:Button) -> void:
 func correct_shader_position(button: Button) -> void:
 	shader_rect.global_position = button.global_position
 	shader_rect.size = Vector2(button.size.x, button.size.y + 2)
+	shader_rect.material.set_shader_parameter("r_displacement", Vector2(4.0, 3.0))
+	shader_rect.material.set_shader_parameter("g_displacement", Vector2(2.0, 0.0))
+	shader_rect.material.set_shader_parameter("b_displacement", Vector2(-4.0, -3.0))
+		
+
+func button_is_pressed() -> void:
+	shader_rect.material.set_shader_parameter("r_displacement", Vector2(6.0, 3.0))
+	shader_rect.material.set_shader_parameter("g_displacement", Vector2(0.0, 0.0))
+	shader_rect.material.set_shader_parameter("b_displacement", Vector2(-7.0, -4.0))
+	

@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp7mvuxeyhdl4"]
+
+[ext_resource type="PackedScene" uid="uid://c5o65yjulrs8i" path="res://Menus/h_slider.tscn" id="1_jg50c"]
+[ext_resource type="Script" uid="uid://bg482mbrrer7n" path="res://Menus/audio_menu.gd" id="1_msip5"]
+
+[node name="audio_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_msip5")
+
+[node name="Labels" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -62.0
+offset_right = -24.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Master" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Master"
+
+[node name="BGM" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Musica"
+
+[node name="SFX" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Efeitos"
+
+[node name="Weapon_SFX" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Armas
+"
+
+[node name="Sliders" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -62.0
+offset_right = 71.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Master" parent="Sliders" instance=ExtResource("1_jg50c")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="BGM" parent="Sliders" instance=ExtResource("1_jg50c")]
+layout_mode = 2
+bus_name = "BGM"
+
+[node name="SFX" parent="Sliders" instance=ExtResource("1_jg50c")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="Weapon_SFX" parent="Sliders" instance=ExtResource("1_jg50c")]
+layout_mode = 2
+bus_name = "WEAPON_SFX"

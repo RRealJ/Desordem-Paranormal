@@ -12,7 +12,6 @@ var enemies: Node2D
 var obstacle_tile_map: TileMapLayer
 var pathfinder: Pathfinder
 
-
 func _ready() -> void:
 	get_items_resources("res://Weapon/Resources")
 

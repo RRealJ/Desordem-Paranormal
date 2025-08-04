@@ -22,6 +22,7 @@ buses/default_bus_layout="res://Assets/Audios + Bus/default_bus_layout.tres"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+Settings="*res://Scripts/settings.gd"
 
 [debug]
 
@@ -31,8 +32,8 @@ gdscript/warnings/untyped_declaration=2
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/window_width_override=1920
-window/size/window_height_override=1080
+window/size/window_width_override=320
+window/size/window_height_override=180
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
