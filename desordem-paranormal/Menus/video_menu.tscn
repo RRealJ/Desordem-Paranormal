@@ -25,7 +25,7 @@ offset_right = 6.0
 offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 13
 
 [node name="resolutions" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -33,7 +33,7 @@ text = "Resoluções"
 
 [node name="fullscreen" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Tipo de Janela"
+text = "Tela Cheia"
 
 [node name="borderless" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -49,17 +49,29 @@ offset_left = 16.0
 offset_top = 36.0
 offset_right = 56.0
 offset_bottom = 140.0
+theme_override_constants/separation = 5
 
 [node name="resolution" type="OptionButton" parent="VBoxContainer2"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Vsync")
+focus_neighbor_bottom = NodePath("../fullscreen")
 
 [node name="fullscreen" type="CheckBox" parent="VBoxContainer2"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../resolution")
+focus_neighbor_bottom = NodePath("../borderless")
 
 [node name="borderless" type="CheckBox" parent="VBoxContainer2"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../fullscreen")
+focus_neighbor_bottom = NodePath("../Vsync")
 
 [node name="Vsync" type="CheckBox" parent="VBoxContainer2"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../borderless")
+focus_neighbor_bottom = NodePath("../resolution")
 
 [connection signal="item_selected" from="VBoxContainer2/resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="toggled" from="VBoxContainer2/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="VBoxContainer2/borderless" to="." method="_on_borderless_toggled"]
+[connection signal="toggled" from="VBoxContainer2/Vsync" to="." method="_on_vsync_toggled"]

@@ -62,16 +62,24 @@ theme_override_constants/separation = 14
 
 [node name="Master" parent="Sliders" instance=ExtResource("1_jg50c")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Weapon_SFX")
+focus_neighbor_bottom = NodePath("../BGM")
 bus_name = "Master"
 
 [node name="BGM" parent="Sliders" instance=ExtResource("1_jg50c")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Master")
+focus_neighbor_bottom = NodePath("../SFX")
 bus_name = "BGM"
 
 [node name="SFX" parent="Sliders" instance=ExtResource("1_jg50c")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../BGM")
+focus_neighbor_bottom = NodePath("../Weapon_SFX")
 bus_name = "SFX"
 
 [node name="Weapon_SFX" parent="Sliders" instance=ExtResource("1_jg50c")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../SFX")
+focus_neighbor_bottom = NodePath("../Master")
 bus_name = "WEAPON_SFX"

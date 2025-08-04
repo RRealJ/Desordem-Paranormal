@@ -8,14 +8,17 @@ extends Control
 ]
 
 @onready var labels: Array[Node] = $Labels.get_children()
-
+var go_back_to_button: Button
 
 func _ready() -> void:
 	for slider in sliders:
 		slider.focus_entered.connect(change_label_color.bind(slider, true))
 		slider.focus_exited.connect(change_label_color.bind(slider, false))		
 	$Sliders/Master.grab_focus()
-		
+	
+	go_back_to_button = $"../..".button_audio
+	
+	
 		
 func change_label_color(slider: HSlider, entering_focus: bool) -> void:
 	for i in range(sliders.size()):

@@ -1,11 +1,14 @@
 extends Node
 
-
-var resolution_screen_index: int
+#AUDIO
 var master_bus_value: float
 var bgm_bus_value: float
 var sfx_bus_value: float
 var sfx_weapon_bus_value: float
+#VIDEO
+var resolution_screen_index: int
+var isVsyncOn: bool
+var isFullscreen: bool
 
 
 func center_window() -> void:

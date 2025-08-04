@@ -19,6 +19,7 @@ const RESOLUTIONS: Dictionary = {
 	"3840x2160": Vector2i(3840,2160),
 }
 
+var go_back_to_button: Button
 
 func _ready() -> void:
 	for resolution: String in RESOLUTIONS.keys():
@@ -28,6 +29,7 @@ func _ready() -> void:
 		button.focus_entered.connect(change_label_color.bind(button, true))
 		button.focus_exited.connect(change_label_color.bind(button, false))
 	
+	go_back_to_button = $"../..".button_video
 
 func _on_resolution_item_selected(index: int) -> void:
 	var key: String = resolution_options.get_item_text(index)
@@ -50,4 +52,23 @@ func change_label_color(button: Button, entering_focus: bool) -> void:
 
 func update_buttons_value() -> void:
 	resolution_options.selected = Settings.resolution_screen_index
+	$VBoxContainer2/Vsync.toggled = Settings.isVsyncOn
+	$VBoxContainer2/fullscreen.toggles = Settings.isFullscreen
 	
+
+func _on_fullscreen_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_borderless_toggled(toggled_on: bool) -> void:
+	get_window().borderless = toggled_on
+
+
+func _on_vsync_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
