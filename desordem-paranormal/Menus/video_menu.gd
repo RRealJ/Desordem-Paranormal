@@ -20,6 +20,7 @@ const RESOLUTIONS: Dictionary = {
 }
 
 var go_back_to_button: Button
+var index_focus_button: int
 
 func _ready() -> void:
 	for resolution: String in RESOLUTIONS.keys():
@@ -44,6 +45,7 @@ func change_label_color(button: Button, entering_focus: bool) -> void:
 			
 			if entering_focus:
 				labels[i].modulate = Color(0.93, 0.71, 0.0, 1)
+				index_focus_button = i
 				break
 			else:
 				labels[i].modulate = Color(1, 1, 1, 1)
@@ -72,3 +74,6 @@ func _on_vsync_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 	else:
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		
+
+	

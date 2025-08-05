@@ -108,6 +108,8 @@ text = "Voltar"
 [connection signal="focus_entered" from="NinePatchRect/VBoxContainer/audio" to="." method="_on_audio_focus_entered"]
 [connection signal="focus_entered" from="NinePatchRect/VBoxContainer/video" to="." method="_on_video_focus_entered"]
 [connection signal="focus_entered" from="NinePatchRect/VBoxContainer/mix" to="." method="_on_mix_focus_entered"]
+[connection signal="focus_entered" from="NinePatchRect/back" to="." method="_on_back_focus_entered"]
+[connection signal="focus_exited" from="NinePatchRect/back" to="." method="_on_back_focus_exited"]
 [connection signal="pressed" from="NinePatchRect/back" to="." method="_on_back_pressed"]
 
 [editable path="NinePatchRect/audio_menu"]

@@ -17,6 +17,7 @@ extends Control
 var focus_button: Button
 
 func _ready() -> void:
+	options_menu.current_menu = $"."
 	$NinePatchRect/VBoxContainer/Jogar.grab_focus()
 	focus_button = $NinePatchRect/VBoxContainer/Jogar
 	for button in Array_of_buttons:
@@ -49,7 +50,11 @@ func button_is_pressed() -> void:
 	
 
 func _on_opcoes_pressed() -> void:
-	options_menu.visible = !options_menu.visible
-	options_menu.menu_original = $NinePatchRect/VBoxContainer
+	options_menu.visible = true
+	
+	options_menu.button_audio.grab_focus()
+	print("Entrando em options")
 
-	$options_menu/NinePatchRect/VBoxContainer/audio.grab_focus()
+
+func _on_sair_pressed() -> void:
+	get_tree().quit()

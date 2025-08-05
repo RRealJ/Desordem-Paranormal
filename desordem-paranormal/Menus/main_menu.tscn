@@ -86,3 +86,4 @@ offset_right = 188.0
 offset_bottom = 76.0
 
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Sair" to="." method="_on_sair_pressed"]

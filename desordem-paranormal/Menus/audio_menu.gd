@@ -9,17 +9,17 @@ extends Control
 
 @onready var labels: Array[Node] = $Labels.get_children()
 var go_back_to_button: Button
+var index_focus_button: int
 
 func _ready() -> void:
 	for slider in sliders:
 		slider.focus_entered.connect(change_label_color.bind(slider, true))
-		slider.focus_exited.connect(change_label_color.bind(slider, false))		
+		slider.focus_exited.connect(change_label_color.bind(slider, false))	
+			
 	$Sliders/Master.grab_focus()
-	
 	go_back_to_button = $"../..".button_audio
-	
-	
-		
+
+
 func change_label_color(slider: HSlider, entering_focus: bool) -> void:
 	for i in range(sliders.size()):
 		
@@ -27,11 +27,12 @@ func change_label_color(slider: HSlider, entering_focus: bool) -> void:
 			
 			if entering_focus:
 				labels[i].modulate = Color(0.93, 0.71, 0.0, 1)
+				index_focus_button = i
 				break
 			else:
 				labels[i].modulate = Color(1, 1, 1, 1)
 				break
-	
+		
 
 func update_audio_value() -> void:
 	$Sliders/Master.value = Settings.master_bus_value
