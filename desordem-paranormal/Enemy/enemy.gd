@@ -72,7 +72,6 @@ var prev_position: Vector2
 var obstacle_collision_normal: Vector2
 
 
-
 func _ready() -> void:
 	if dynamic_separation_area:
 		# with a "dynamic" separation area we are getting rid off the 
@@ -115,15 +114,15 @@ func _physics_process(delta: float) -> void:
 	if obstacle_collision_normal:
 		# move enemy back to position before collision and find a new position
 		# like it bounced off the obstacle
-		position= prev_position + ( position - prev_position ).bounce(obstacle_collision_normal)
+		position = prev_position + ( position - prev_position ).bounce(obstacle_collision_normal)
 		
 		# bounce the velocity off the the obstacle as well, so it doesn't 
 		# immediately go back it into it
-		velocity= velocity.bounce(obstacle_collision_normal)
+		velocity = velocity.bounce(obstacle_collision_normal)
 		
 		# for safety, push the enemy a little bit away from the obstacle to be sure
 		# it doesn't overlap any more ( really necessary? )
-		position+= velocity * delta
+		position += velocity * delta
 		
 		obstacle_collision_normal= Vector2.ZERO
 	
@@ -148,18 +147,18 @@ func _physics_process(delta: float) -> void:
 
 		target_dir= (Global.player.global_position - position).normalized()
 		
-		velocity+= target_dir * target_weight
+		velocity += target_dir * target_weight
 
 		# set the velocity to "maximum_speed", which currently
 		# acts more like a constant speed
-		velocity= velocity.normalized() * maximum_speed
+		velocity = velocity.normalized() * maximum_speed
 
 	# store the current position so we can fall back to it if the new position
 	# causes a collision with an obstacle
-	prev_position= position
+	prev_position = position
 	
 	# move according to our velocity
-	position+= velocity * delta
+	position += (velocity * (speed/50)) * delta
 	
 	if (TARGET.position.x - position.x) < 0:
 		$Sprite2D.flip_h = true
@@ -203,7 +202,6 @@ func separate_from(other_pos: Vector2, weight: float) -> void:
 	var vec: Vector2= position - other_pos
 	if vec.is_zero_approx(): return
 	velocity+= vec.normalized() * 1.0 / vec.length() * weight
-
 
 # called from an Area Obstacle if it detects an overlap and we get
 # the resulting collision normal

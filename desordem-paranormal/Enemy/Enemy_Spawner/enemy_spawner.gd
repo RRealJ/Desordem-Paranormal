@@ -7,6 +7,7 @@ extends Node2D
 @export var wait_for_empty_space: bool= false
 @export var empty_radius: float= 20.0
 @export var is_formation: bool
+@export var velocity_mod: float
 @onready var timer: Timer = $Timer
 @onready var LifeTimer: Timer = $LifeTime
 
@@ -47,9 +48,11 @@ func spawn_enemy() -> void:
 			var result := space_state.intersect_shape(empty_space_query)
 			if result : return
 			
-		var obj := enemy_scene.instantiate()
-		obj.global_position = get_possible_enemy_position()
-		Global.enemies.add_child(obj)
+		var inst_enemy := enemy_scene.instantiate()
+		inst_enemy.global_position = get_possible_enemy_position()
+		
+		inst_enemy.speed = inst_enemy.speed * velocity_mod
+		Global.enemies.add_child(inst_enemy)
 
 
 func _on_timer_timeout() -> void:
