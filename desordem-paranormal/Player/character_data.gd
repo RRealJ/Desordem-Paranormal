@@ -9,6 +9,7 @@ class_name Character_data
 @export var crit_modify: float
 @export var type_of_character: types_of_characters
 @export var element_of_character: elements_of_characters
+@export var luck: float
 
 
 enum types_of_characters {

@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://co0b1bcx16r8j" path="res://Assets/Sprites/Menus/Menu_UI_NineRect.png" id="1_jf8mj"]
 [ext_resource type="Theme" uid="uid://hufnhce87heq" path="res://Assets/Themes/main_menu.tres" id="1_p3jrs"]
-[ext_resource type="Script" uid="uid://balr5cpfwpg4p" path="res://Menus/main_menu.gd" id="2_at0u2"]
-[ext_resource type="Shader" uid="uid://m4j0bctt0gjn" path="res://Chromatic_Aberration.gdshader" id="4_11gta"]
-[ext_resource type="PackedScene" uid="uid://2kefeofhu81r" path="res://Menus/options_menu.tscn" id="5_cxdly"]
+[ext_resource type="Script" uid="uid://balr5cpfwpg4p" path="res://Menus/Main/main_menu.gd" id="2_at0u2"]
+[ext_resource type="Shader" uid="uid://m4j0bctt0gjn" path="res://Assets/Mats/Chromatic_Aberration.gdshader" id="4_11gta"]
+[ext_resource type="PackedScene" uid="uid://2kefeofhu81r" path="res://Menus/Options/options_menu.tscn" id="5_cxdly"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_11gta"]
 shader = ExtResource("4_11gta")
@@ -32,9 +32,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
-offset_top = -39.5
+offset_top = -46.0
 offset_right = 32.0
-offset_bottom = 39.5
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_jf8mj")
@@ -61,15 +61,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 7
 
-[node name="Jogar" type="Button" parent="NinePatchRect/VBoxContainer"]
+[node name="Play" type="Button" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "Jogar"
 
-[node name="Opcoes" type="Button" parent="NinePatchRect/VBoxContainer"]
+[node name="Store" type="Button" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Loja
+"
+
+[node name="Options" type="Button" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "Opções"
 
-[node name="Sair" type="Button" parent="NinePatchRect/VBoxContainer"]
+[node name="Quit" type="Button" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "Sair"
 
@@ -81,9 +86,9 @@ layout_mode = 1
 material = SubResource("ShaderMaterial_11gta")
 layout_mode = 0
 offset_left = 132.0
-offset_top = 59.0
+offset_top = 47.0
 offset_right = 188.0
-offset_bottom = 76.0
+offset_bottom = 64.0
 
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/Opcoes" to="." method="_on_opcoes_pressed"]
-[connection signal="pressed" from="NinePatchRect/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Options" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Quit" to="." method="_on_sair_pressed"]

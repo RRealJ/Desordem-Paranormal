@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Assets/Audios + Bus/default_bus_layout.tres"
 
 Global="*res://Scripts/Global.gd"
 Settings="*res://Scripts/settings.gd"
+StoreUpgrades="*res://Store/store_upgrades.gd"
 
 [debug]
 

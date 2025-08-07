@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dp7mvuxeyhdl4"]
 
-[ext_resource type="PackedScene" uid="uid://c5o65yjulrs8i" path="res://Menus/h_slider.tscn" id="1_jg50c"]
-[ext_resource type="Script" uid="uid://bg482mbrrer7n" path="res://Menus/audio_menu.gd" id="1_msip5"]
+[ext_resource type="PackedScene" uid="uid://c5o65yjulrs8i" path="res://Menus/Audio/h_slider.tscn" id="1_jg50c"]
+[ext_resource type="Script" uid="uid://bg482mbrrer7n" path="res://Menus/Audio/audio_menu.gd" id="1_msip5"]
 
 [node name="audio_menu" type="Control"]
 layout_mode = 3

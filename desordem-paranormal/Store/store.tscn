@@ -1,0 +1,145 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhad3vhxynei4"]
+
+[ext_resource type="PackedScene" uid="uid://dj0yu2r3kd46b" path="res://Store/store_item.tscn" id="1_fl8b2"]
+[ext_resource type="Script" uid="uid://7r33baivb0pn" path="res://Store/store.gd" id="1_tekt1"]
+[ext_resource type="Resource" uid="uid://bs81u7nkdh4f0" path="res://Store/Resources/life_upgrade.tres" id="3_up0u5"]
+
+[node name="Store" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tekt1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -82.0
+offset_right = -6.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Player"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Stage"
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Monstro"
+
+[node name="player_upgrades" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -54.0
+offset_right = -6.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 2
+columns = 5
+
+[node name="StoreItem" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+store_item_data = ExtResource("3_up0u5")
+
+[node name="StoreItem2" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem3" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem4" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem5" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem6" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem7" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem8" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem9" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem10" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem11" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem12" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem13" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem14" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem15" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem16" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem17" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem18" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem19" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem20" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 41.0
+offset_right = 126.0
+offset_bottom = 168.0
+bbcode_enabled = true
+text = "pepeloni
+dsadassddas
+dsadasdsadas
+dasdasdasdas"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="RichTextLabel"]
+modulate = Color(0.942862, 0.802704, 0, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Custo: 10"
+horizontal_alignment = 1

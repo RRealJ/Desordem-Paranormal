@@ -1,9 +1,10 @@
 extends Control
 
 @onready var Array_of_buttons: Array[Button] = [
-	$NinePatchRect/VBoxContainer/Jogar,
-	$NinePatchRect/VBoxContainer/Opcoes,
-	$NinePatchRect/VBoxContainer/Sair,
+	$NinePatchRect/VBoxContainer/Play,
+	$NinePatchRect/VBoxContainer/Store,
+	$NinePatchRect/VBoxContainer/Options,
+	$NinePatchRect/VBoxContainer/Quit,
 	$options_menu/NinePatchRect/VBoxContainer/audio,
 	$options_menu/NinePatchRect/VBoxContainer/video,
 	$options_menu/NinePatchRect/VBoxContainer/mix,
@@ -18,8 +19,8 @@ var focus_button: Button
 
 func _ready() -> void:
 	options_menu.current_menu = $"."
-	$NinePatchRect/VBoxContainer/Jogar.grab_focus()
-	focus_button = $NinePatchRect/VBoxContainer/Jogar
+	$NinePatchRect/VBoxContainer/Play.grab_focus()
+	focus_button = $NinePatchRect/VBoxContainer/Play
 	for button in Array_of_buttons:
 		print(button)
 		button.mouse_entered.connect(_grab_focus.bind(button))

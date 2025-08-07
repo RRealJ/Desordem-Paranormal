@@ -12,4 +12,5 @@ crit_rate = 10.0
 crit_modify = 2.5
 type_of_character = 0
 element_of_character = 0
+luck = 5.0
 metadata/_custom_type_script = "uid://10cwd11tkgrd"
