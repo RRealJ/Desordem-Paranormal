@@ -3,11 +3,14 @@ extends Control
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
 @onready var price_display: Label = $RichTextLabel/Label
 @onready var player_upgrades: Array[Node] = $player_upgrades.get_children()
+@onready var confirm_panel: Panel = $Panel
 #@onready var stage_upgrades: Array[Node] = $stage_upgrades.get_children()
 #@onready var monster_upgrades: Array[Node] = $monster_upgrades.get_children()
 
+var upgrade_selected: Node
 
 func _ready() -> void:
+	update_money()
 	var all_upgrades_slots: Array[Node] = []
 #	all_upgrades_slots.append_array(player_upgrades)
 #	all_upgrades_slots.append_array(stage_upgrades)
@@ -17,6 +20,7 @@ func _ready() -> void:
 	for upgrade in player_upgrades:
 		if upgrade.store_item_data:
 			upgrade.button.focus_entered.connect(change_item_text_display.bind(upgrade))
+			upgrade.button.pressed.connect(pop_confirm_screen.bind(upgrade))
 		else:
 			upgrade.button.disabled = true
 			upgrade.button.focus_mode = Control.FOCUS_NONE
@@ -28,3 +32,28 @@ func change_item_text_display(upgrade:PanelContainer) -> void:
 	rich_text_label.text = "%s\n\n%s" % [upgrade.store_item_data.store_item_name, upgrade.store_item_data.store_item_description]
 	price_display.text = "Custo: %d" % [upgrade.store_item_data.price]
 	
+	
+func pop_confirm_screen(upgrade: Node) -> void:
+	$Panel/RichTextLabel.text = "Confirmar compra de %s por %d?" % [(upgrade.store_item_data.store_item_name).capitalize() , upgrade.store_item_data.price]
+	confirm_panel.visible = true
+	upgrade_selected = upgrade
+
+
+func _on_confirm_button_pressed() -> void:
+	if Global.money >= upgrade_selected.store_item_data.price:
+		Global.money -= upgrade_selected.store_item_data.price
+		update_money()
+		upgrade_selected.store_item_data.level += 1
+		upgrade_selected.update_item_display()
+		StoreUpgrades.store_upgrade_var_update(upgrade_selected.store_item_data.id, upgrade_selected.store_item_data.level)
+		upgrade_selected.save_store_item()
+		print("confirmado")
+		
+	else:
+		print("nuh-uh")
+	
+	confirm_panel.visible = false
+	
+
+func update_money() -> void:
+	$Label.text = str(Global.money)

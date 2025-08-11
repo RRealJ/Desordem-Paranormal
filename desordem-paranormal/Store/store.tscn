@@ -143,3 +143,66 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Custo: 10"
 horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 26.0
+offset_right = -30.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 54.0
+offset_top = 13.0
+offset_right = 88.0
+offset_bottom = 37.0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Sim"
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = 14.0
+offset_right = -72.0
+offset_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+text = "Não"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 17.0
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_confirm_button_pressed"]

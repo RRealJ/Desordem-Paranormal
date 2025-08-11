@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	
 	look_at(get_global_mouse_position())
 
-	if time_last_shoot >= weapon_stats.attack_cooldown:
+	if time_last_shoot >= weapon_stats.attack_cooldown - (0.1 * StoreUpgrades.recharge_upgrade):
 		shoot()
 
 func shoot() -> void:

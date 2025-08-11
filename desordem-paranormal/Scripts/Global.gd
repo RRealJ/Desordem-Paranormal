@@ -6,11 +6,15 @@ const OBSTACLE_COLLISION_LAYER = 11
 const RAYCAST_ENEMY_COLLISION_LAYER=  12
 const TILE_SIZE = 16
 
-var items_resources_avaible: Array[Dictionary]
-var player: CharacterBody2D
-var enemies: Node2D
 var obstacle_tile_map: TileMapLayer
 var pathfinder: Pathfinder
+
+var player: CharacterBody2D
+var enemies: Node2D # for Calc and Counts
+
+var items_resources_avaible: Array[Dictionary]
+var money: int = 7000
+var enemies_killed: int
 
 func _ready() -> void:
 	get_items_resources("res://Weapon/Resources")

@@ -9,4 +9,6 @@ price = 50
 level = 0
 store_item_name = "VIDA"
 store_item_description = "Aumenta a vida do personagem"
+image_path = ""
+item_path_name = "life_upgrade.tres"
 metadata/_custom_type_script = "uid://bxh5ft4t2h5i0"
