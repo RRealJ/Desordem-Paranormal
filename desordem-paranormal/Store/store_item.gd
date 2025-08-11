@@ -2,8 +2,14 @@ extends PanelContainer
 
 
 @export var store_item_data: Store_item_data
+@export var upgrade_tab: UPGRADE_TABS
 @onready var button: Button = $Button
 
+enum UPGRADE_TABS {
+	PLAYER,
+	STAGE,
+	ENEMY
+}
 
 func _ready() -> void:
 	if store_item_data:

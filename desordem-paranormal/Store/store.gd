@@ -9,6 +9,14 @@ extends Control
 
 var upgrade_selected: Node
 
+enum UPGRADE_TABS {
+	PLAYER,
+	STAGE,
+	ENEMY
+}
+
+var current_upgrade_tab: UPGRADE_TABS
+
 func _ready() -> void:
 	update_money()
 	var all_upgrades_slots: Array[Node] = []
@@ -34,9 +42,11 @@ func change_item_text_display(upgrade:PanelContainer) -> void:
 	
 	
 func pop_confirm_screen(upgrade: Node) -> void:
-	$Panel/RichTextLabel.text = "Confirmar compra de %s por %d?" % [(upgrade.store_item_data.store_item_name).capitalize() , upgrade.store_item_data.price]
+	$Panel/RichTextLabel.text = "Confirmar compra de [color=#00e6e1]%s[/color] por [color=#f0cd00]%d[/color]?" % [(upgrade.store_item_data.store_item_name).capitalize() , upgrade.store_item_data.price]
 	confirm_panel.visible = true
+	$Panel/Button.grab_focus()
 	upgrade_selected = upgrade
+	current_upgrade_tab = upgrade.upgrade_tab
 
 
 func _on_confirm_button_pressed() -> void:
@@ -53,7 +63,20 @@ func _on_confirm_button_pressed() -> void:
 		print("nuh-uh")
 	
 	confirm_panel.visible = false
+	get_focus_to_current_upgrade_tab()
 	
 
 func update_money() -> void:
 	$Label.text = str(Global.money)
+
+
+func _on_button_2_pressed() -> void:
+	print("upgrade cancelado")
+	confirm_panel.visible = false
+	get_focus_to_current_upgrade_tab()
+	
+
+func get_focus_to_current_upgrade_tab() -> void:
+	match current_upgrade_tab:
+		UPGRADE_TABS.PLAYER:
+			$player_upgrades/StoreItem.button.grab_focus()
