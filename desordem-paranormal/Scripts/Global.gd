@@ -13,7 +13,7 @@ var player: CharacterBody2D
 var enemies: Node2D # for Calc and Counts
 
 var items_resources_avaible: Array[Dictionary]
-var money: int = 7000
+var money: int = 69000
 var enemies_killed: int
 
 func _ready() -> void:

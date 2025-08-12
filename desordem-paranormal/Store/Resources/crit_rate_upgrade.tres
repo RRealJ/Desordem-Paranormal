@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Store_item_data" load_steps=2 format=3 uid="uid://by2pmg7yvy5hb"]
+
+[ext_resource type="Script" uid="uid://bxh5ft4t2h5i0" path="res://Store/store_item_resource.gd" id="1_v2dsk"]
+
+[resource]
+script = ExtResource("1_v2dsk")
+id = 2
+price = 50
+level = 0
+store_item_name = "CHANCE CRITICA"
+store_item_description = "Aumenta a chance de causar dano critico"
+image_path = ""
+item_path_name = "crit_rate_upgrade.tres"
+metadata/_custom_type_script = "uid://bxh5ft4t2h5i0"

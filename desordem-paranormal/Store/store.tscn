@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhad3vhxynei4"]
+[gd_scene load_steps=8 format=3 uid="uid://dhad3vhxynei4"]
 
 [ext_resource type="PackedScene" uid="uid://dj0yu2r3kd46b" path="res://Store/store_item.tscn" id="1_fl8b2"]
 [ext_resource type="Script" uid="uid://7r33baivb0pn" path="res://Store/store.gd" id="1_tekt1"]
 [ext_resource type="Resource" uid="uid://bs81u7nkdh4f0" path="res://Store/Resources/life_upgrade.tres" id="3_up0u5"]
+[ext_resource type="Resource" uid="uid://dnnqpdr46pvht" path="res://Store/Resources/speed_upgrade.tres" id="4_pgyxp"]
+[ext_resource type="Resource" uid="uid://by2pmg7yvy5hb" path="res://Store/Resources/crit_rate_upgrade.tres" id="5_45sil"]
+[ext_resource type="Resource" uid="uid://b1cj7xksvk1jr" path="res://Store/Resources/luck_upgrade.tres" id="6_eimfe"]
+[ext_resource type="Resource" uid="uid://6pofgcu1qfjy" path="res://Store/Resources/recharge_upgrade.tres" id="7_nbm4w"]
 
 [node name="Store" type="Control"]
 layout_mode = 3
@@ -60,15 +64,19 @@ store_item_data = ExtResource("3_up0u5")
 
 [node name="StoreItem2" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
 layout_mode = 2
+store_item_data = ExtResource("4_pgyxp")
 
 [node name="StoreItem3" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
 layout_mode = 2
+store_item_data = ExtResource("5_45sil")
 
 [node name="StoreItem4" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
 layout_mode = 2
+store_item_data = ExtResource("6_eimfe")
 
 [node name="StoreItem5" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
 layout_mode = 2
+store_item_data = ExtResource("7_nbm4w")
 
 [node name="StoreItem6" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
 layout_mode = 2
@@ -117,10 +125,11 @@ layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 41.0
-offset_right = 126.0
-offset_bottom = 168.0
+offset_left = 5.0
+offset_top = 39.0
+offset_right = 188.0
+offset_bottom = 235.0
+scale = Vector2(0.7, 0.7)
 bbcode_enabled = true
 text = "pepeloni
 dsadassddas
@@ -136,11 +145,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -16.0
-offset_right = 20.0
+offset_left = -68.6429
+offset_top = -60.2857
+offset_right = -2.64285
+offset_bottom = -44.2857
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(2, 2)
 text = "Custo: 10"
 horizontal_alignment = 1
 
@@ -182,6 +193,10 @@ offset_right = 88.0
 offset_bottom = 37.0
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button2")
 text = "Sim"
 
 [node name="Button2" type="Button" parent="Panel"]
@@ -198,6 +213,10 @@ offset_bottom = 38.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+focus_neighbor_left = NodePath("../Button")
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_right = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button")
 text = "Não"
 
 [node name="Label" type="Label" parent="."]
@@ -209,4 +228,4 @@ offset_right = 41.0
 offset_bottom = 17.0
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_confirm_button_pressed"]
-[connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/Button2" to="." method="_on_cancel_pressed"]

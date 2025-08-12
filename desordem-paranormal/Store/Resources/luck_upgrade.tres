@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Store_item_data" load_steps=2 format=3 uid="uid://b1cj7xksvk1jr"]
+
+[ext_resource type="Script" uid="uid://bxh5ft4t2h5i0" path="res://Store/store_item_resource.gd" id="1_5hw24"]
+
+[resource]
+script = ExtResource("1_5hw24")
+id = 3
+price = 50
+level = 0
+store_item_name = "SORTE"
+store_item_description = "Aumenta a chance de receber moedas quando derrotar inimigos"
+image_path = ""
+item_path_name = "luck_upgrade.tres"
+metadata/_custom_type_script = "uid://bxh5ft4t2h5i0"
