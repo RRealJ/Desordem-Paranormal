@@ -54,13 +54,13 @@ func pop_confirm_screen(upgrade: Node) -> void:
 	current_upgrade_tab = upgrade.upgrade_tab
 	last_button = upgrade.button
 	if upgrade_selected.store_item_data.level != 7:
-		$Panel/Button2.text = "Não"
 		$Panel/Button.text = "Sim"
+		$Panel/Button2.text = "Não"
 		$Panel/RichTextLabel.text = "Confirmar compra de [color=#00e6e1]%s[/color] por [color=#f0cd00]%d[/color]?" % [(upgrade.store_item_data.store_item_name).capitalize() , upgrade.store_item_data.price]	
 	else:
 		$Panel/RichTextLabel.text = "[color=#de6bff]Level Maximo Atingido[/color]"
-		$Panel/Button2.text = "Ok"
 		$Panel/Button.text = "Ok"
+		$Panel/Button2.text = "Refund"
 	$Panel/Button.grab_focus()
 
 
@@ -85,7 +85,17 @@ func _on_confirm_button_pressed() -> void:
 	
 	
 func _on_cancel_pressed() -> void:
-	print("Upgrade Cancelado")
+	if upgrade_selected.store_item_data.level == 7:
+		Global.money += 15469
+		update_money()
+		upgrade_selected.store_item_data.level = 0
+		upgrade_selected.update_item_display()
+		StoreUpgrades.store_upgrade_var_update(upgrade_selected.store_item_data.id, upgrade_selected.store_item_data.level)
+		upgrade_selected.save_store_item()
+		print("Upgrade Refounded")	
+		
+	else:
+		print("Upgrade Cancelado")	
 	confirm_panel.visible = false
 	get_focus_to_last_button()
 	confirming = false	
@@ -104,6 +114,8 @@ func get_focus_to_last_button() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton or event is InputEventAction:
 		if event.is_action_pressed("ui_cancel"):
-			if confirming:
+			if confirming and upgrade_selected.store_item_data.level != 7:
 				_on_cancel_pressed()
+			elif confirming and upgrade_selected.store_item_data.level == 7:
+				_on_confirm_button_pressed()
 			
