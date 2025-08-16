@@ -6,7 +6,7 @@ extends Bullet
 @export var swing_duration: float = 0.2
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $Sprite2D.frame == 2:
 		$katana_slash/PointLight2D.visible = true
 		$katana_slash/CollisionShape2D.disabled = false

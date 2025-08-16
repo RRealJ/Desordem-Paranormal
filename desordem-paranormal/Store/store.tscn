@@ -1,12 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhad3vhxynei4"]
+[gd_scene load_steps=13 format=3 uid="uid://dhad3vhxynei4"]
 
-[ext_resource type="PackedScene" uid="uid://dj0yu2r3kd46b" path="res://Store/store_item.tscn" id="1_fl8b2"]
+[ext_resource type="PackedScene" uid="uid://dj0yu2r3kd46b" path="res://Store/Store_item/store_item.tscn" id="1_fl8b2"]
 [ext_resource type="Script" uid="uid://7r33baivb0pn" path="res://Store/store.gd" id="1_tekt1"]
+[ext_resource type="Theme" uid="uid://bohqp73yil0k6" path="res://Store/Store_item/store_item_display.tres" id="2_vf6ly"]
 [ext_resource type="Resource" uid="uid://bs81u7nkdh4f0" path="res://Store/Resources/life_upgrade.tres" id="3_up0u5"]
 [ext_resource type="Resource" uid="uid://dnnqpdr46pvht" path="res://Store/Resources/speed_upgrade.tres" id="4_pgyxp"]
 [ext_resource type="Resource" uid="uid://by2pmg7yvy5hb" path="res://Store/Resources/crit_rate_upgrade.tres" id="5_45sil"]
 [ext_resource type="Resource" uid="uid://b1cj7xksvk1jr" path="res://Store/Resources/luck_upgrade.tres" id="6_eimfe"]
 [ext_resource type="Resource" uid="uid://6pofgcu1qfjy" path="res://Store/Resources/recharge_upgrade.tres" id="7_nbm4w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf6ly"]
+draw_center = false
+border_width_left = 3
+border_width_right = 3
+border_color = Color(0, 0.935499, 0.830306, 1)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+shadow_size = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vf6ly"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rv373"]
+draw_center = false
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.941176, 0.803922, 0, 1)
+
+[sub_resource type="Theme" id="Theme_rv373"]
+Button/colors/font_focus_color = Color(0.941176, 0.803922, 0, 1)
+Button/colors/font_pressed_color = Color(0.941176, 0.803922, 0, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_vf6ly")
+Button/styles/normal = SubResource("StyleBoxEmpty_vf6ly")
+Button/styles/pressed = SubResource("StyleBoxFlat_rv373")
+HBoxContainer/constants/separation = 5
 
 [node name="Store" type="Control"]
 layout_mode = 3
@@ -30,18 +56,32 @@ offset_right = -6.0
 offset_bottom = -58.0
 grow_horizontal = 0
 grow_vertical = 2
+theme = SubResource("Theme_rv373")
+alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="Player" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 16)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Monster")
+focus_neighbor_right = NodePath("../Stage")
+mouse_filter = 2
 text = "Player"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="Stage" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 16)
 layout_mode = 2
+focus_neighbor_left = NodePath("../Player")
+focus_neighbor_right = NodePath("../Monster")
+mouse_filter = 2
 text = "Stage"
 
-[node name="Button3" type="Button" parent="HBoxContainer"]
+[node name="Monster" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
-text = "Monstro"
+focus_neighbor_left = NodePath("../Stage")
+focus_neighbor_right = NodePath("../Player")
+mouse_filter = 2
+text = "Monster"
 
 [node name="player_upgrades" type="GridContainer" parent="."]
 layout_mode = 1
@@ -56,6 +96,7 @@ offset_right = -6.0
 offset_bottom = 86.0
 grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("2_vf6ly")
 columns = 5
 
 [node name="StoreItem" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
@@ -121,6 +162,158 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="StoreItem20" parent="player_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="stage_upgrades" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -54.0
+offset_right = -6.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 2
+columns = 5
+
+[node name="StoreItem" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem2" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem3" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem4" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem5" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem6" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem7" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem8" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem9" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem10" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem11" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem12" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem13" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem14" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem15" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem16" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem17" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem18" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem19" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem20" parent="stage_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="monster_upgrades" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -54.0
+offset_right = -6.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 2
+columns = 5
+
+[node name="StoreItem3" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem2" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem4" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem5" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem6" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem7" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem8" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem9" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem10" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem11" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem12" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem13" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem14" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem15" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem16" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem17" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem18" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem19" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
+layout_mode = 2
+
+[node name="StoreItem20" parent="monster_upgrades" instance=ExtResource("1_fl8b2")]
 layout_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -227,5 +420,8 @@ offset_top = 1.0
 offset_right = 41.0
 offset_bottom = 17.0
 
+[connection signal="pressed" from="HBoxContainer/Player" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Stage" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Monster" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Panel/Button2" to="." method="_on_cancel_pressed"]

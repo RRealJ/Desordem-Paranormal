@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bohqp73yil0k6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcwpd"]
+draw_center = false
+border_width_left = 6
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0507983, 0.858533, 0.792611, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jcwpd"]
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_jcwpd")
+Button/styles/hover = SubResource("StyleBoxEmpty_jcwpd")
