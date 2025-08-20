@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon_stats" load_steps=2 format=3 uid="uid://c8lbildv5e2eo"]
+
+[ext_resource type="Script" uid="uid://du1e0lxrsgmtr" path="res://Weapon/weapon_stats.gd" id="1_lw2wn"]
+
+[resource]
+script = ExtResource("1_lw2wn")
+id = 2
+name = "LOsds"
+damage = 100
+speed = 75
+weapon_type = 1
+range_type = 2
+element_type = 2
+attack_cooldown = 5.0
+awaken = false
+level = 0
+description = Array[String](["dasdsdasdasdasdasdasdasd"])
+portrait_path = ""
+metadata/_custom_type_script = "uid://du1e0lxrsgmtr"

@@ -12,13 +12,17 @@ var pathfinder: Pathfinder
 var player: CharacterBody2D
 var enemies: Node2D # for Calc and Counts
 
-var items_resources_avaible: Array[Dictionary]
 var money: int = 69000
 var enemies_killed: int
+var items_resources_avaible: Array[Dictionary]
 
 func _ready() -> void:
-	get_items_resources("res://Weapon/Resources")
+	insert_items_resouces()
 
+
+func insert_items_resouces() -> void:
+	get_items_resources("res://Weapon/Resources")
+	
 
 func get_items_resources(folder_path: String) -> void:
 	var dir: DirAccess = DirAccess.open(folder_path)
@@ -39,3 +43,9 @@ func get_items_resources(folder_path: String) -> void:
 					
 			file_name = dir.get_next()
 		dir.list_dir_end()
+
+
+func reset_items_resources() -> void:
+	items_resources_avaible.clear()
+	insert_items_resouces()
+	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://blmlquib0igj0"]
+[gd_scene load_steps=13 format=3 uid="uid://blmlquib0igj0"]
 
 [ext_resource type="Theme" uid="uid://cyneqiul8ys8n" path="res://Assets/Themes/theme_item_slots.tres" id="1_dtafu"]
 [ext_resource type="Script" uid="uid://c2xnk7l88ncwk" path="res://Inventory/Item Slot/item_slot_ui.gd" id="2_6bla5"]
 [ext_resource type="Texture2D" uid="uid://p06oh5m44oeo" path="res://Assets/Sprites/Inventory_items/item_slot_ui_placeholder.png" id="3_dtafu"]
 [ext_resource type="Shader" uid="uid://ct82ji7vckrlf" path="res://Assets/Mats/Focus_item_slot_ui.gdshader" id="4_6bla5"]
+[ext_resource type="Script" uid="uid://bj4bg3nx28jsa" path="res://Inventory/Item Slot/item_slot.gd" id="4_87rga"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6bla5"]
 seed = 3
@@ -24,6 +25,10 @@ shader_parameter/burnSpeed = 0.076
 shader_parameter/shape = 1.0
 shader_parameter/opacityImage = 0.7
 shader_parameter/enabled = false
+
+[sub_resource type="Resource" id="Resource_87rga"]
+script = ExtResource("4_87rga")
+metadata/_custom_type_script = "uid://bj4bg3nx28jsa"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_87rga"]
 seed = 3
@@ -55,6 +60,7 @@ size_flags_vertical = 4
 focus_mode = 2
 theme = ExtResource("1_dtafu")
 script = ExtResource("2_6bla5")
+item_res = SubResource("Resource_87rga")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapon_stats" load_steps=2 format=3 uid="uid://bk12o0grjdj1b"]
+
+[ext_resource type="Script" uid="uid://du1e0lxrsgmtr" path="res://Weapon/weapon_stats.gd" id="1_yreny"]
+
+[resource]
+script = ExtResource("1_yreny")
+id = 1
+name = "Metralhadora"
+damage = 10
+speed = 50
+weapon_type = 0
+range_type = 1
+element_type = 4
+attack_cooldown = 1.2
+awaken = false
+level = 0
+description = Array[String](["BLABLBALBLABLA"])
+portrait_path = ""
+metadata/_custom_type_script = "uid://du1e0lxrsgmtr"

@@ -8,10 +8,10 @@ class_name Weapon_stats
 @export var weapon_type: weapon_types
 @export var range_type: range_types
 @export var element_type: element_types
-@export var attack_cooldown: int
+@export var attack_cooldown: float
 @export var awaken: bool
 @export var level: int = 1
-@export var description: String
+@export var description: Array[String]
 @export var portrait_path: String
 @export var bullet_scene: PackedScene
 

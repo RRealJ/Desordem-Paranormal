@@ -1,10 +1,11 @@
 extends Control
 
-@export var item_res: Resource
+@export var item_res: Item_slot
 @onready var rich_text: RichTextLabel = $HBoxContainer/RichTextLabel
 @onready var portrait: TextureRect = $HBoxContainer/TextureRect
 @onready var level_label: Label = $HBoxContainer/TextureRect/Label
 @onready var button: Button = $Button
+
 
 const COLOR_BLOOD: Color = Color(0.66, 0.08, 0.0, 1)
 const COLOR_DEATH: Color = Color(0.59, 0.6, 0.59, 1)
@@ -14,13 +15,13 @@ const COLOR_KNOWLEDGE: Color = Color(0.93, 0.71, 0.0, 1)
 
 func update_item_slot() -> void:
 	var new_text: String
-	new_text = highlight_word(item_res.description)
+	new_text = highlight_word(item_res.item.description[0])
 	rich_text.text = new_text
 	
 	update_item_level()
-	update_portrait(item_res.portrait_path)
+	update_portrait(item_res.item.portrait_path)
 	
-	match item_res.element_type:
+	match item_res.item.element_type:
 		0:
 			self_modulate = COLOR_BLOOD
 		1: 
@@ -55,7 +56,7 @@ func highlight_word(text: String) -> String:
 
 
 func update_item_level() -> void:
-	level_label.text = str(item_res.level)
+	level_label.text = str(item_res.item.level)
 
 
 func update_portrait(new_texture: String) -> void:
