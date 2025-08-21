@@ -29,11 +29,13 @@ enemy_spawners_data = Array[ExtResource("4_h63fh")]([SubResource("Resource_h63fh
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Inventory_Ui" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="inventory_control" parent="Inventory_Ui" instance=ExtResource("6_ax884")]
 visible = false
 
 [node name="Reward_ui" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="level_up_reward_control" parent="Reward_ui" instance=ExtResource("7_rj0l8")]
 visible = false
