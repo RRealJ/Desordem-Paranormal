@@ -4,6 +4,7 @@ extends Control
 @export var inventory: Inventory
 @onready var item_slots_ui: Array[Node] = $"Panel/VScrollContainer/VBoxContainer".get_children()
 @onready var stage: Node2D = $"../.."
+@onready var pause_menu_node: Node = $"../../Pause_menu/pause_menu"
 
 
 func _ready() -> void:
@@ -17,7 +18,7 @@ func _ready() -> void:
 func insert_item(item: Resource) -> void:
 	var index_slot: int = -1
 	var update_only_level_ui: bool = false
-	
+
 	if item:
 		for i in range(inventory.item_slots.size()):
 			
@@ -68,10 +69,16 @@ func set_focus() -> void:
 	for i:int in range(item_slots_paths.size()):
 		if i != 0:
 			item_slots_ui[i].button.set_focus_neighbor(SIDE_TOP, item_slots_paths[i-1])
-			item_slots_ui[i].button.set_focus_neighbor(SIDE_LEFT, item_slots_paths[i-1])
+			#item_slots_ui[i].button.set_focus_neighbor(SIDE_LEFT, item_slots_paths[i-1])
 			
 		if i != 9:
 			item_slots_ui[i].button.set_focus_neighbor(SIDE_BOTTOM, item_slots_paths[i+1])
 			item_slots_ui[i].button.set_focus_neighbor(SIDE_RIGHT, item_slots_paths[i+1])
 			
 	item_slots_ui[0].button.grab_focus()
+
+
+func _on_button_pressed() -> void:
+	visible = false
+	pause_menu_node.last_button.grab_focus()
+	pause_menu_node.visible = true

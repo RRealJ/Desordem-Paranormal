@@ -10,3 +10,6 @@ extends Node2D
 func _ready() -> void:
 	Global.enemies = enemies
 	#enemy_controller.create_spawner(enemy_controller.enemy_spawners_data[0]) #velocity_mod
+
+
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rt2sm3m0cy3x"]
+[gd_scene load_steps=10 format=3 uid="uid://rt2sm3m0cy3x"]
 
 [ext_resource type="Script" uid="uid://3a53vm3xe2mn" path="res://Stages/StageControl.gd" id="1_lyi4a"]
 [ext_resource type="PackedScene" uid="uid://co4sl6jg0g3jc" path="res://Enemy/Blood/blood_zombie.tscn" id="2_qdsdc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cho7f52od37fy" path="res://Enemy/Enemy_Spawner/enemy_spawner_data.gd" id="4_h63fh"]
 [ext_resource type="PackedScene" uid="uid://ry48q0fn0f2v" path="res://Inventory/inventory_control.tscn" id="6_ax884"]
 [ext_resource type="PackedScene" uid="uid://cc5kn2v6jb5vg" path="res://LevelNexUp/LevelUp/level_up_reward_control.tscn" id="7_rj0l8"]
+[ext_resource type="PackedScene" uid="uid://nwc3ncocmpt1" path="res://Menus/Pause/pause_menu.tscn" id="8_mic8h"]
 
 [sub_resource type="Resource" id="Resource_h63fh"]
 script = ExtResource("4_h63fh")
@@ -28,11 +29,17 @@ enemy_spawners_data = Array[ExtResource("4_h63fh")]([SubResource("Resource_h63fh
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Inventory_Ui" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="inventory_control" parent="Inventory_Ui" instance=ExtResource("6_ax884")]
-
-[node name="Reward_ui" type="CanvasLayer" parent="."]
 visible = false
 
+[node name="Reward_ui" type="CanvasLayer" parent="."]
+
 [node name="level_up_reward_control" parent="Reward_ui" instance=ExtResource("7_rj0l8")]
+visible = false
+
+[node name="Pause_menu" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="pause_menu" parent="Pause_menu" instance=ExtResource("8_mic8h")]
+visible = false
