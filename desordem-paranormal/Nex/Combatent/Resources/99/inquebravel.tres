@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://5i87qlgfkrh7"]
+
+[ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_wvtx4"]
+
+[resource]
+script = ExtResource("1_wvtx4")
+id = 16
+name = "Inquebrável"
+nex_level = 99
+class_type = 0
+damage = 0
+range_type = 0
+element_type = 4
+attack_cooldown = 0.0
+level = 0
+description = Array[String](["Morra, receba metade de sua vida como cura e fique invencivel por 5 segundos. (Recarga: 1min)"])
+portrait_path = ""
+metadata/_custom_type_script = "uid://bllxioyd0ydvk"

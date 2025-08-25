@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://b2t4s5cbmlpp"]
+
+[ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_tfkg0"]
+
+[resource]
+script = ExtResource("1_tfkg0")
+id = 1
+name = "A Favorita"
+nex_level = 10
+class_type = 0
+damage = 0
+range_type = 0
+element_type = 4
+attack_cooldown = 0.0
+level = 0
+description = Array[String](["Aumenta a chance critica da sua arma principal em 25%"])
+portrait_path = ""
+metadata/_custom_type_script = "uid://bllxioyd0ydvk"

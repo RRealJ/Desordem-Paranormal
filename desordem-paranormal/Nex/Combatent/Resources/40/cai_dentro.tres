@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://ns5oamoabb5w"]
+
+[ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_ui0fk"]
+
+[resource]
+script = ExtResource("1_ui0fk")
+id = 8
+name = "Cai Dentro"
+nex_level = 40
+class_type = 0
+damage = 0
+range_type = 0
+element_type = 4
+attack_cooldown = 0.0
+level = 0
+description = Array[String](["Provoca os inimigos por 15 segundos, reduza o dano recebido em 50% pela duração. (Recarga: 30 Segundos)"])
+portrait_path = ""
+metadata/_custom_type_script = "uid://bllxioyd0ydvk"

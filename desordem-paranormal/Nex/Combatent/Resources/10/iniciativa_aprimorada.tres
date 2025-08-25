@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://d1w7utyp0bg2x"]
+
+[ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_dsn1q"]
+
+[resource]
+script = ExtResource("1_dsn1q")
+id = 3
+name = "Iniciativa Aprimorada"
+nex_level = 10
+class_type = 0
+damage = 0
+range_type = 0
+element_type = 4
+attack_cooldown = 0.0
+level = 0
+description = Array[String](["Aumenta a velocidade de movimento em 25% e ataca 15% mais rápido"])
+portrait_path = ""
+metadata/_custom_type_script = "uid://bllxioyd0ydvk"

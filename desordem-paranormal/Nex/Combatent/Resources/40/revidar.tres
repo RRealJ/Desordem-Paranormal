@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://blchq7ar7ymcf"]
+
+[ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_fkb6i"]
+
+[resource]
+script = ExtResource("1_fkb6i")
+id = 6
+name = "Revidar"
+nex_level = 0
+class_type = 0
+damage = 0
+range_type = 0
+element_type = 4
+attack_cooldown = 0.0
+level = 0
+description = Array[String](["Sempre que levar dano, você revida o inimigo, fazendo com ele receba o dobro do dano tomado."])
+portrait_path = ""
+metadata/_custom_type_script = "uid://bllxioyd0ydvk"

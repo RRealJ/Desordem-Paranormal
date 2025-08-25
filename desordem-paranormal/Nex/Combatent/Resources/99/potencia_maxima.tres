@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://dcq21vuyftj82"]
+
+[ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_j18s7"]
+
+[resource]
+script = ExtResource("1_j18s7")
+id = 14
+name = "Potência Máxima"
+nex_level = 99
+class_type = 0
+damage = 0
+range_type = 0
+element_type = 0
+attack_cooldown = 0.0
+level = 0
+description = Array[String](["Danos com armas corpo-a-corpo recebem x3 a qualquer bonus aplicado a elas."])
+portrait_path = ""
+metadata/_custom_type_script = "uid://bllxioyd0ydvk"

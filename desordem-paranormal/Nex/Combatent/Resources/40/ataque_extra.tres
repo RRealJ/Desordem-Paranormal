@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://bc4rqvaqjoi6e"]
+
+[ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_tid44"]
+
+[resource]
+script = ExtResource("1_tid44")
+id = 7
+name = "Ataque Extra"
+nex_level = 40
+class_type = 0
+damage = 0
+range_type = 0
+element_type = 4
+attack_cooldown = 0.0
+level = 0
+description = Array[String](["Após Atacar com sua arma principal, imediatamente realize outro ataque"])
+portrait_path = ""
+metadata/_custom_type_script = "uid://bllxioyd0ydvk"

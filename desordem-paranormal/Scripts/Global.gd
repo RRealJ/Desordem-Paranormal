@@ -15,6 +15,7 @@ var enemies: Node2D # for Calc and Counts
 var money: int = 69000
 var enemies_killed: int
 var items_resources_avaible: Array[Dictionary]
+var nex_rewards: Array[Dictionary]
 
 func _ready() -> void:
 	insert_items_resouces()
