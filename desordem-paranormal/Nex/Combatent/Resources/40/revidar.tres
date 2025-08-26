@@ -10,6 +10,6 @@ nex_level = 40
 sub_class = "Guerreiro"
 class_type = 0
 element_type = 4
-description = Array[String](["Sempre que levar dano, você revida o inimigo, fazendo com ele receba o dobro do dano tomado."])
+description = Array[String](["Sempre que levar dano, você revida o ataque fazendo com ele receba o dobro do dano tomado."])
 portrait_path = ""
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

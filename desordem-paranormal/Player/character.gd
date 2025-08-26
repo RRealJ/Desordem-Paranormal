@@ -99,5 +99,10 @@ func matchDamage(damage:float, damage_element: int) -> float:
 	return damage
 
 
+func insert_nex_upgrade(nex_upgrade: Nex_stats) -> void:
+	var new_nex_upgrade := nex_upgrade.nex_scene.instantiate()
+	nex_upgrade.add_child(new_nex_upgrade)
+	
+
 func updateUI() -> void:
 	pass

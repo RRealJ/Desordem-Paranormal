@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b6r84gtpkxy1h"]
+
+[node name="Player_UI" type="CanvasLayer"]
+
+[node name="hp" type="ProgressBar" parent="."]
+offset_left = 28.0
+offset_top = 3.0
+offset_right = 97.0
+offset_bottom = 12.0
+value = 3.0
+show_percentage = false
+
+[node name="hp_label" type="Label" parent="."]
+offset_left = 99.0
+offset_top = 4.0
+offset_right = 155.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+text = "123/323"

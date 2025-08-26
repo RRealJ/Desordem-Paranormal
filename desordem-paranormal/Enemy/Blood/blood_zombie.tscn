@@ -4,16 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://3mlhb17tb0sf" path="res://Assets/Sprites/Enemies/Blood/Blood_Zombie.png" id="2_am0pq"]
 [ext_resource type="Texture2D" uid="uid://btdyt5iuvrogj" path="res://Assets/Sprites/Enemies/Blood/Blood_Zombie_n.png" id="3_eqilm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uq8fd"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5e71"]
+size = Vector2(13, 14)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ncf7h"]
 diffuse_texture = ExtResource("2_am0pq")
 normal_texture = ExtResource("3_eqilm")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_73xiy"]
-radius = 4.0
-height = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phu5g"]
+size = Vector2(10, 11)
 
 [sub_resource type="Animation" id="Animation_glvfu"]
 length = 0.001
@@ -67,7 +66,8 @@ skip_frames = 15
 jitter_fix = 1.0
 
 [node name="hurtbox" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_uq8fd")
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_o5e71")
 debug_color = Color(0.910365, 0, 0.103723, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -79,7 +79,8 @@ collision_layer = 32
 collision_mask = 2
 
 [node name="hitbox" type="CollisionShape2D" parent="hitbox"]
-shape = SubResource("CapsuleShape2D_73xiy")
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_phu5g")
 debug_color = Color(0, 0.619576, 0.569242, 0.42)
 
 [node name="anim" type="AnimationPlayer" parent="."]

@@ -7,6 +7,7 @@ script = ExtResource("1_fiy1u")
 id = 0
 name = "Ataque Especial"
 nex_level = 5
+sub_class = ""
 class_type = 0
 element_type = 4
 description = Array[String](["Aumenta o dano de sua arma principal por 5 a cada 5% de NEX"])

@@ -44,6 +44,7 @@ layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="nex_up_ui" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +54,10 @@ grow_vertical = 2
 
 [node name="nex_up_ui_slot" parent="nex_up_ui" instance=ExtResource("3_3ly8c")]
 layout_mode = 1
+focus_neighbor_left = NodePath("../nex_up_ui_slot2")
+focus_neighbor_top = NodePath("../nex_up_ui_slot3")
+focus_neighbor_right = NodePath("../nex_up_ui_slot2")
+focus_neighbor_bottom = NodePath("../nex_up_ui_slot3")
 
 [node name="nex_up_ui_slot2" parent="nex_up_ui" instance=ExtResource("3_3ly8c")]
 layout_mode = 1
@@ -62,6 +67,10 @@ anchor_right = 1.0
 offset_left = -160.0
 offset_right = 0.0
 grow_horizontal = 0
+focus_neighbor_left = NodePath("../nex_up_ui_slot")
+focus_neighbor_top = NodePath("../nex_up_ui_slot4")
+focus_neighbor_right = NodePath("../nex_up_ui_slot")
+focus_neighbor_bottom = NodePath("../nex_up_ui_slot4")
 
 [node name="nex_up_ui_slot3" parent="nex_up_ui" instance=ExtResource("3_3ly8c")]
 layout_mode = 1
@@ -71,6 +80,10 @@ anchor_bottom = 1.0
 offset_top = -90.0
 offset_bottom = 0.0
 grow_vertical = 0
+focus_neighbor_left = NodePath("../nex_up_ui_slot4")
+focus_neighbor_top = NodePath("../nex_up_ui_slot")
+focus_neighbor_right = NodePath("../nex_up_ui_slot4")
+focus_neighbor_bottom = NodePath("../nex_up_ui_slot")
 
 [node name="nex_up_ui_slot4" parent="nex_up_ui" instance=ExtResource("3_3ly8c")]
 layout_mode = 1
@@ -85,3 +98,14 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+focus_neighbor_left = NodePath("../nex_up_ui_slot3")
+focus_neighbor_top = NodePath("../nex_up_ui_slot2")
+focus_neighbor_right = NodePath("../nex_up_ui_slot3")
+focus_neighbor_bottom = NodePath("../nex_up_ui_slot2")
+
+[node name="nex5" parent="nex_up_ui" instance=ExtResource("3_3ly8c")]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 45.0
+offset_right = 241.0
+offset_bottom = 135.0
