@@ -57,6 +57,8 @@ func highlight_word(text: String) -> String:
 
 func update_item_level() -> void:
 	level_label.text = str(item_res.item.level)
+	if item_res.item is Nex_stats:
+		level_label.visible = false
 
 
 func update_portrait(new_texture: String) -> void:

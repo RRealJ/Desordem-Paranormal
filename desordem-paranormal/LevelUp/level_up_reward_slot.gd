@@ -15,7 +15,6 @@ const COLOR_ENERGY: Color = Color(0.67, 0.29, 1, 1)
 const COLOR_KNOWLEDGE: Color = Color(0.93, 0.71, 0.0, 1)
 
 
-
 func update_slot() -> void:
 	update_level_label(item.level)
 	update_range_label(item.range_type)

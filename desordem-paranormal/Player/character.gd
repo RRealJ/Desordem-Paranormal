@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var upper: Sprite2D = $Upper
 @onready var bottom: Sprite2D = $Bottom
 @onready var main_weapon: Node2D = $main_weapon
+@onready var nex_upgrades: Node2D = $Nex_Upgrades
 
 var max_health: int
 var health: int

@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://lrcrp10y4nf"]
+
+[ext_resource type="Script" uid="uid://bi2tf6w012ny4" path="res://Nex/nex_up_ui_slot.gd" id="1_3ixg2"]
+[ext_resource type="Texture2D" uid="uid://b25fgfcv00lbi" path="res://Assets/Sprites/nex_slot.png" id="1_kso53"]
+[ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_lw2ew"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kso53"]
+
+[node name="nex_up_ui_slot" type="Panel"]
+offset_right = 160.0
+offset_bottom = 90.0
+script = ExtResource("1_3ixg2")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kso53")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -22.0
+offset_right = 68.0
+offset_bottom = 34.0
+grow_vertical = 2
+texture = ExtResource("1_lw2ew")
+
+[node name="name_label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = 6.0
+offset_right = 86.0
+offset_bottom = 24.0
+grow_horizontal = 2
+scale = Vector2(0.9, 0.9)
+text = "Iniciativa Aprimorada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -22.0
+offset_right = 62.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+text = "Aumenta a chance critica das armas corpo-a-corpo em 10%"
+
+[node name="caminho" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -10.0
+offset_right = 126.0
+offset_bottom = 7.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+text = "Aniquilador"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kso53")

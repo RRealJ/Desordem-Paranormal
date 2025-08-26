@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cc5kn2v6jb5vg"]
 
-[ext_resource type="Script" uid="uid://d3mnokkel2s34" path="res://LevelNexUp/level_up_reward_control.gd" id="1_v00ii"]
-[ext_resource type="PackedScene" uid="uid://bblchyt3gpmw7" path="res://LevelNexUp/level_up_reward_slot.tscn" id="2_bs2m1"]
+[ext_resource type="Script" uid="uid://d3mnokkel2s34" path="res://LevelUp/level_up_reward_control.gd" id="1_v00ii"]
+[ext_resource type="PackedScene" uid="uid://bblchyt3gpmw7" path="res://LevelUp/level_up_reward_slot.tscn" id="2_bs2m1"]
 [ext_resource type="Shader" uid="uid://ct82ji7vckrlf" path="res://Assets/Mats/Focus_item_slot_ui.gdshader" id="3_lfr1l"]
 [ext_resource type="Texture2D" uid="uid://5bah6w6toq3h" path="res://Assets/16x16.png" id="4_1ga2j"]
 

@@ -5,14 +5,11 @@
 [resource]
 script = ExtResource("1_fj13x")
 id = 12
-name = "Duro de Matar."
+name = "Duro de Matar"
 nex_level = 65
+sub_class = "Troque de Choque"
 class_type = 0
-damage = 0
-range_type = 0
 element_type = 4
-attack_cooldown = 0.0
-level = 0
 description = Array[String](["Após vida atingir 0, você tem 15 segundos até a morte definitiva. (Recarga: 2min)"])
 portrait_path = ""
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

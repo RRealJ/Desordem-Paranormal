@@ -2,7 +2,9 @@ extends Control
 
 @export var nex_inventory: Inventory
 @onready var item_slot: PackedScene = preload("res://Inventory/Item Slot/item_slot_ui.tscn")
-@onready var item_slots_ui: Control = $Panel/VScrollContainer/VBoxContainer
+@onready var nex_options_ui: Panel = $options_ui
+@onready var nex_up_ui: Control = $nex_up_ui
+@onready var item_slots_ui: Control = $options_ui/VScrollContainer/VBoxContainer
 #@onready var stage: Node2D = $"../.."
 #@onready var pause_menu_node: Node = $"../../Pause_menu/pause_menu"
 

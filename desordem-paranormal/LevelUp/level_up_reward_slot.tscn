@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_2aduh"]
 [ext_resource type="Shader" uid="uid://ct82ji7vckrlf" path="res://Assets/Mats/Focus_item_slot_ui.gdshader" id="1_ayqrn"]
-[ext_resource type="Script" uid="uid://c1bncn3txsqm5" path="res://LevelNexUp/level_up_reward_slot.gd" id="1_l3yao"]
+[ext_resource type="Script" uid="uid://c1bncn3txsqm5" path="res://LevelUp/level_up_reward_slot.gd" id="1_l3yao"]
 [ext_resource type="Theme" uid="uid://cyneqiul8ys8n" path="res://Assets/Themes/theme_item_slots.tres" id="2_fpsif"]
 [ext_resource type="Texture2D" uid="uid://5bah6w6toq3h" path="res://Assets/16x16.png" id="3_h2utk"]
 
