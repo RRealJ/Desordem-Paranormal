@@ -1,19 +1,106 @@
-[gd_scene format=3 uid="uid://b6r84gtpkxy1h"]
+[gd_scene load_steps=7 format=3 uid="uid://b6r84gtpkxy1h"]
+
+[ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_6ytmn"]
+[ext_resource type="Script" uid="uid://bf3mn7c4ngvai" path="res://Player/player_ui.gd" id="1_ced3y"]
+[ext_resource type="Texture2D" uid="uid://5bah6w6toq3h" path="res://Assets/16x16.png" id="2_6noqq"]
+[ext_resource type="Texture2D" uid="uid://dyuihfrsskfis" path="res://Assets/Sprites/nex_bar_back.png" id="3_r1esw"]
+[ext_resource type="Texture2D" uid="uid://smwp5tanrxa8" path="res://Assets/Sprites/nex_bar_over1.png" id="4_bw1dt"]
+[ext_resource type="Texture2D" uid="uid://dvxcccufaea25" path="res://Assets/Sprites/nex_bar_progress1.png" id="5_bw1dt"]
 
 [node name="Player_UI" type="CanvasLayer"]
 
-[node name="hp" type="ProgressBar" parent="."]
-offset_left = 28.0
-offset_top = 3.0
-offset_right = 97.0
-offset_bottom = 12.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ced3y")
+
+[node name="hp" type="ProgressBar" parent="Control"]
+offset_left = 36.0
+offset_top = 2.0
+offset_right = 113.0
+offset_bottom = 11.0
 value = 3.0
 show_percentage = false
 
-[node name="hp_label" type="Label" parent="."]
-offset_left = 99.0
-offset_top = 4.0
-offset_right = 155.0
-offset_bottom = 20.0
+[node name="hp_label" type="Label" parent="Control"]
+offset_left = 61.0
+offset_top = 3.0
+offset_right = 117.0
+offset_bottom = 19.0
 scale = Vector2(0.5, 0.5)
 text = "123/323"
+
+[node name="portrait" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(32, 32)
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 34.0
+texture = ExtResource("1_6ytmn")
+
+[node name="items_portrait" type="GridContainer" parent="Control"]
+offset_left = 55.0
+offset_top = 13.0
+offset_right = 152.0
+offset_bottom = 49.0
+scale = Vector2(0.6, 0.6)
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect5" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect6" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect7" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect8" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect9" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="TextureRect10" type="TextureRect" parent="Control/items_portrait"]
+layout_mode = 2
+texture = ExtResource("2_6noqq")
+
+[node name="nex_progress" type="TextureProgressBar" parent="Control"]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 35.0
+offset_top = 14.0
+offset_right = 73.0
+offset_bottom = 52.0
+scale = Vector2(0.5, 0.5)
+fill_mode = 8
+radial_initial_angle = 180.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_r1esw")
+texture_over = ExtResource("4_bw1dt")
+texture_progress = ExtResource("5_bw1dt")
+tint_under = Color(1, 1, 1, 0.533)
