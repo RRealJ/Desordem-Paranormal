@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buakjikv6e8u0"]
+
+[ext_resource type="Script" uid="uid://p61t73srcgrj" path="res://Nex/Nex_Scripts/ataque_extra.gd" id="1_baxga"]
+
+[node name="ataque_extra" type="Node"]
+script = ExtResource("1_baxga")

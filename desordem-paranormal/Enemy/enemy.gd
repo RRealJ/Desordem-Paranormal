@@ -1,5 +1,5 @@
-extends Area2D
 class_name Enemy
+extends Area2D
 
 @export var enemy_name: String = "Zumbi de Sangue"
 @export var health: int = 30
@@ -215,7 +215,7 @@ func is_area()-> bool:
 
 func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
 	if body == TARGET:
-		body.recieve_damage(damage, enemy_type)	
+		body.recieve_damage(damage, enemy_type, self)	
 	
 	
 func recieve_damage(player_damage:float , damage_type:int) -> void:

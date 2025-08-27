@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://by43jbuhc5b0k"]
+
+[ext_resource type="Script" uid="uid://b5i2cuggw20rb" path="res://Nex/Nex_Scripts/cai_dentro.gd" id="1_aycyc"]
+
+[node name="cai_dentro" type="Node"]
+script = ExtResource("1_aycyc")
+type = 5
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="persist" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="timeout" from="cooldown" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="persist" to="." method="_on_persist_timeout"]

@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var character_data: Character_data
@@ -6,6 +7,8 @@ extends CharacterBody2D
 @onready var bottom: Sprite2D = $Bottom
 @onready var main_weapon: Node2D = $main_weapon
 @onready var nex_upgrades: Node2D = $Nex_Upgrades
+@onready var equips: Node2D = $Equips
+@onready var pickable_weapons: Node2D = $Weapons
 
 var max_health: int
 var health: int
@@ -16,6 +19,10 @@ var crit_modify: float
 var exp: int = 0
 var nex: float = 0.0
 var money: int = 0
+
+var resistence: float = 0
+var cai_dentro: bool = false
+var revidar: bool = false
 
 func _init() -> void:
 	Global.player = self
@@ -59,10 +66,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
-func recieve_damage(damage: float, damage_type: int) -> void:
+func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 	damage = matchDamage(damage, damage_type)
 	health -= int(damage)
 	updateUI()
+	if revidar:
+		enemy.recieve_damage(damage*2, character_data.elements_of_characters.PHYSICAL)
 		
 		
 func matchDamage(damage:float, damage_element: int) -> float:
@@ -94,8 +103,10 @@ func matchDamage(damage:float, damage_element: int) -> float:
 			
 		character_data.elements_of_characters.PHYSICAL:
 			pass
+			
 		_:
 			damage *= 10
+			
 	return damage
 
 
@@ -106,3 +117,23 @@ func insert_nex_upgrade(nex_upgrade: Nex_stats) -> void:
 
 func updateUI() -> void:
 	pass
+
+
+func get_nex_upgrades(element: Node2D) -> void:
+	var nexes: Array[Node] = nex_upgrades.get_children()
+	for n in nexes:
+		n.apply_upgrade(element)
+	
+
+func get_equip_upgrades(element: Node2D) -> void:
+	var equipes: Array[Node] = equips.get_children()
+	for e in equipes:
+		e.apply_upgrade(element)
+
+
+func update_weapon_equip_ritual_nex() -> void:
+	get_nex_upgrades(main_weapon)
+	
+	var weapons: Array[Node] = pickable_weapons.get_children()
+	for w in weapons:
+		get_nex_upgrades(w)

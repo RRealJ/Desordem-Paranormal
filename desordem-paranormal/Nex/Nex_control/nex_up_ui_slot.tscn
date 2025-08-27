@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://lrcrp10y4nf"]
 
-[ext_resource type="Script" uid="uid://bi2tf6w012ny4" path="res://Nex/nex_up_ui_slot.gd" id="1_3ixg2"]
+[ext_resource type="Script" uid="uid://bi2tf6w012ny4" path="res://Nex/Nex_control/nex_up_ui_slot.gd" id="1_3ixg2"]
 [ext_resource type="Texture2D" uid="uid://b25fgfcv00lbi" path="res://Assets/Sprites/nex_slot.png" id="1_kso53"]
 [ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_lw2ew"]
 [ext_resource type="Resource" uid="uid://dpweuaw87kbkw" path="res://Nex/Combatent/Resources/ataque_especial.tres" id="2_p5i0x"]

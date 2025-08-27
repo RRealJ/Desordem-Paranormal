@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0o1gf1jixrx5"]
+
+[ext_resource type="Script" uid="uid://br41uhipntw7a" path="res://Nex/Nex_Scripts/iniciativa_aprimorada.gd" id="1_nlhdi"]
+
+[node name="iniciativa_aprimorada" type="Node"]
+script = ExtResource("1_nlhdi")
+type = 5

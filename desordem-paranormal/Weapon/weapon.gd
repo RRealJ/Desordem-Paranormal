@@ -1,15 +1,29 @@
+class_name Weapon
 extends Node2D
 
 @export var weapon_stats: Weapon_stats
 @onready var anim: AnimationPlayer = $"../animAttack"
 
 var time_last_shoot: float = 0.0
-var character: CharacterBody2D
+var character: Player
 
 var mouse_sens: int = 300
 
+var dmg_boost: float = 0.0
+var crit_rate: float 
+var crit_modifier: float
+
+var a_favorita: bool = false
+var tecnica_letal: bool = false
+var tecnica_secreta: bool = false
+var extra_attack1: bool = false
+
 func _ready() -> void:
 	character = Global.player
+	crit_rate = character.crit_rate
+	crit_modifier = character.crit_modify
+	character.get_nex_upgrades(self)
+	character.get_equip_upgrades(self)
 
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +51,6 @@ func _physics_process(delta: float) -> void:
 		shoot()
 
 func shoot() -> void:
-	var dmg_boost: int = 0
 	time_last_shoot = 0.0
 	anim.play("Attack")
 	
@@ -46,19 +59,22 @@ func shoot() -> void:
 	instance.SPEED = weapon_stats.speed
 	
 	if weapon_stats.weapon_type == weapon_stats.weapon_types.MAIN and character.character_data.type_of_character == character.character_data.types_of_characters.GUERREIRO: 
-		dmg_boost = character.level
+		dmg_boost += character.level
 		
 	elif weapon_stats.weapon_type == weapon_stats.weapon_types.PICKABLE and character.character_data.type_of_character == character.character_data.types_of_characters.ESPECIALISTA: 
-		dmg_boost = character.level
+		dmg_boost += character.level
 	
 	dmg_boost += (weapon_stats.level * 5) 
 	instance.DAMAGE = weapon_stats.damage + dmg_boost
-	var it_crits: bool = (randi() % 100 <= character.crit_rate)
+	
+	var it_crits: bool = (randi() % 100 <= crit_rate)
 	
 	if it_crits:
-		instance.DAMAGE = instance.DAMAGE * character.crit_modify
+		instance.DAMAGE *= crit_modifier
 	
 	instance.DAMAGE_TYPE = weapon_stats.element_type
+	
+	instance.DAMAGE = int(instance.DAMAGE)
 	
 	if weapon_stats.range_type == weapon_stats.range_types.MELEE:
 		var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -71,7 +87,15 @@ func shoot() -> void:
 			instance.scale.y = scale.x - 0.5
 			
 		character.add_child(instance)
+		
+		if extra_attack1:
+			get_tree().create_timer(0.1).timeout
+			character.add_child(instance)
 			
 	else:
 		instance.global_position = global_position
 		get_tree().root.add_child(instance)
+		
+		if extra_attack1:
+			get_tree().create_timer(0.1).timeout
+			get_tree().root.add_child(instance)

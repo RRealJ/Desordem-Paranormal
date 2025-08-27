@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu3qgon1pbfb4"]
+
+[ext_resource type="Script" uid="uid://xfnepjs1wnnk" path="res://Nex/Nex_Scripts/revidar.gd" id="1_ombtf"]
+
+[node name="revidar" type="Node"]
+script = ExtResource("1_ombtf")
+type = 5

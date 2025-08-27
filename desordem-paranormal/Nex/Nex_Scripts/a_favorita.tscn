@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4l826eevijkd"]
+
+[ext_resource type="Script" uid="uid://jxm2njolfs2o" path="res://Nex/Nex_Scripts/a_favorita.gd" id="1_j1syl"]
+
+[node name="a_favorita" type="Node"]
+script = ExtResource("1_j1syl")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt1sj64a6p874"]
+
+[ext_resource type="Script" uid="uid://b78eg21bvqlp8" path="res://Nex/Nex_Scripts/casca_grossa.gd" id="1_tutkk"]
+
+[node name="casca_grossa" type="Node"]
+script = ExtResource("1_tutkk")
+type = 5

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lqpcgd3ixx8v"]
+
+[ext_resource type="Script" uid="uid://pfbs4jofw8pv" path="res://Nex/Nex_Scripts/tecnica_letal.gd" id="1_kphm7"]
+
+[node name="tecnica_letal" type="Node"]
+script = ExtResource("1_kphm7")

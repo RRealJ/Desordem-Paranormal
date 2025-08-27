@@ -9,7 +9,7 @@ const TILE_SIZE = 16
 var obstacle_tile_map: TileMapLayer
 var pathfinder: Pathfinder
 
-var player: CharacterBody2D
+var player: Player
 var enemies: Node2D # for Calc and Counts
 
 var money: int = 69000

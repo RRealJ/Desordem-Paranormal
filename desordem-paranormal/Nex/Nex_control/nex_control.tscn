@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://crsmjcp3fleo6"]
 
-[ext_resource type="Script" uid="uid://ciaj5ylukmy0l" path="res://Nex/nex_control.gd" id="1_iru0d"]
+[ext_resource type="Script" uid="uid://ciaj5ylukmy0l" path="res://Nex/Nex_control/nex_control.gd" id="1_iru0d"]
 [ext_resource type="Resource" uid="uid://b2ctm548e2uy1" path="res://Nex/nex_inventory.tres" id="2_cy6ob"]
-[ext_resource type="PackedScene" uid="uid://lrcrp10y4nf" path="res://Nex/nex_up_ui_slot.tscn" id="3_3ly8c"]
+[ext_resource type="PackedScene" uid="uid://lrcrp10y4nf" path="res://Nex/Nex_control/nex_up_ui_slot.tscn" id="3_3ly8c"]
 
 [node name="nex_control" type="Control"]
 process_mode = 3

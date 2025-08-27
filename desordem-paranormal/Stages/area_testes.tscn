@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ry48q0fn0f2v" path="res://Inventory/inventory_control.tscn" id="6_ax884"]
 [ext_resource type="PackedScene" uid="uid://cc5kn2v6jb5vg" path="res://LevelUp/level_up_reward_control.tscn" id="7_rj0l8"]
 [ext_resource type="PackedScene" uid="uid://nwc3ncocmpt1" path="res://Menus/Pause/pause_menu.tscn" id="8_mic8h"]
-[ext_resource type="PackedScene" uid="uid://crsmjcp3fleo6" path="res://Nex/nex_control.tscn" id="9_ffv8s"]
+[ext_resource type="PackedScene" uid="uid://crsmjcp3fleo6" path="res://Nex/Nex_control/nex_control.tscn" id="9_ffv8s"]
 
 [sub_resource type="Resource" id="Resource_h63fh"]
 script = ExtResource("4_h63fh")
