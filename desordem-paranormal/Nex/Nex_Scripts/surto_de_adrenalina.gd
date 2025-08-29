@@ -4,13 +4,12 @@ var applied: bool = false
 var speed_boost: float
 
 func apply_upgrade(_element: Weapon) -> void:
-	$Buff.start(10)
-	player.surto_de_adrenalina = true
-	
 	if !applied:
 		speed_boost = player.speed * 3
 		player.speed += speed_boost
 		applied = true
+		$Buff.start(10)
+		player.surto_de_adrenalina = true
 
 
 func _on_buff_timeout() -> void:

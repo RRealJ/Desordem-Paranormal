@@ -20,11 +20,15 @@ var exp: int = 0
 var nex: float = 0.0
 var money: int = 0
 
+var invencibilidade: bool = false
+var prevent_death: bool = false
+
 var resistence: float = 0
 var cai_dentro: bool = false
 var revidar: bool = false
 var duro_de_matar: bool = false
 var surto_de_adrenalina: bool = false
+var inquebravel: bool = false
 
 func _init() -> void:
 	Global.player = self
@@ -70,22 +74,43 @@ func _physics_process(delta: float) -> void:
 	
 func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 	damage = matchDamage(damage, damage_type)
-	health -= int(damage)
+	
+	if invencibilidade:
+		pass
+		
+	elif health >= 0:
+		health -= int(damage)
+		
 	updateUI()
+	
 	if revidar:
 		enemy.recieve_damage(damage*2, character_data.elements_of_characters.PHYSICAL)
+	
+	if prevent_death:
+		pass
 		
-	if duro_de_matar and health <= 0:
-		print("efeito duro de matar ativo")
-		await get_tree().create_timer(15.0).timeout
+	elif health <= 0:
 		
-		if health <= 0:
-			print("morreu")
-		else:
-			print("efeito duro de matar desativado")
-			print("tá vivo o menino")		
-		
-		
+		if duro_de_matar:
+			prevent_death = true
+			print("efeito duro de matar ativo")
+			await get_tree().create_timer(15.0).timeout
+			$"Nex_Upgrades/duro_de_matar/recarga".start(120)
+			duro_de_matar = false
+			prevent_death = false
+			
+				
+		if inquebravel and !duro_de_matar:
+			prevent_death = true
+			health = max_health/2
+			invencibilidade = true		
+			await get_tree().create_timer(5)
+			$"Nex_Upgrades/inquebravel/recarga".start(60)
+			inquebravel = false
+			invencibilidade = false
+			prevent_death = false
+
+
 func matchDamage(damage:float, damage_element: int) -> float:
 	match damage_element:
 		
@@ -125,10 +150,6 @@ func matchDamage(damage:float, damage_element: int) -> float:
 func insert_nex_upgrade(nex_upgrade: Nex_stats) -> void:
 	var new_nex_upgrade := nex_upgrade.nex_scene.instantiate()
 	nex_upgrade.add_child(new_nex_upgrade)
-	
-
-func updateUI() -> void:
-	pass
 
 
 func get_nex_upgrades(element: Node2D) -> void:
@@ -149,3 +170,7 @@ func update_weapon_equip_ritual_nex() -> void:
 	var weapons: Array[Node] = pickable_weapons.get_children()
 	for w in weapons:
 		get_nex_upgrades(w)
+
+
+func updateUI() -> void:
+	pass

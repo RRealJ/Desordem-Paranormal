@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gojax1t3l63f"]
+
+[ext_resource type="Script" uid="uid://kdqjf44luva" path="res://Nex/Nex_Scripts/sempre_alerta.gd" id="1_kamgh"]
+
+[node name="sempre_alerta" type="Node"]
+script = ExtResource("1_kamgh")

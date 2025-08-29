@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgrk62cs25lq4"]
+
+[ext_resource type="Script" uid="uid://b1o05nfqqx3mg" path="res://Nex/Nex_Scripts/maquina_de_matar.gd" id="1_ywmk6"]
+
+[node name="maquina_de_matar" type="Node"]
+script = ExtResource("1_ywmk6")

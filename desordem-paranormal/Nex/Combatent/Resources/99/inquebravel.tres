@@ -10,6 +10,6 @@ nex_level = 99
 sub_class = "Tropa de Choque"
 class_type = 0
 element_type = 4
-description = Array[String](["Morra, receba metade de sua vida como cura e fique invencivel por 5 segundos. (Recarga: 1min)"])
+description = Array[String](["Ao Morrer receba metade de sua vida como cura e fique invencivel por 5 segundos. (Recarga: 1min)"])
 portrait_path = ""
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

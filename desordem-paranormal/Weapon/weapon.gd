@@ -16,8 +16,10 @@ var crit_modifier: float
 var a_favorita: bool = false
 var tecnica_letal: bool = false
 var tecnica_secreta: bool = false
-var extra_attack1: bool = true
+var extra_attack1: bool = false
 var forca_opressora: bool = false
+var potencia_maxima: bool = false
+var sempre_alerta: bool = false
 
 func _ready() -> void:
 	character = Global.player
@@ -77,6 +79,10 @@ func shoot() -> void:
 	instance.DAMAGE_TYPE = weapon_stats.element_type
 	
 	instance.DAMAGE = int(instance.DAMAGE)
+	
+	if potencia_maxima:
+		instance.DAMAGE *= 3
+		
 	instance.FORCA_OPRESSORA = forca_opressora
 	
 	if weapon_stats.range_type == weapon_stats.range_types.MELEE:
@@ -107,23 +113,23 @@ func check_attack_extra(place: Node2D) -> void:
 	var instance: Bullet	
 	
 	if extra_attack1:
-		await get_tree().create_timer(0.1).timeout	
-		print("Ataque Extra!!")
+		await get_tree().create_timer(0.3).timeout	
 		instance = attack_extra()
 		print(instance)
 		place.add_child(instance)
-			
-			
+				
 	if forca_opressora and ((randi() % 100) <= Global.player.character_data.luck):
-		await get_tree().create_timer(0.1).timeout	
-		print("Ataque Extra!!")
+		await get_tree().create_timer(0.3).timeout	
 		instance = attack_extra()
 		place.add_child(instance)
 		
-		
 	if character.surto_de_adrenalina and ((randi() % 4) == 1):
-		await get_tree().create_timer(0.1).timeout	
-		print("Ataque Extra!!")
+		await get_tree().create_timer(0.3).timeout	
+		instance = attack_extra()
+		place.add_child(instance)
+	
+	if sempre_alerta:
+		await get_tree().create_timer(0.3).timeout	
 		instance = attack_extra()
 		place.add_child(instance)
 

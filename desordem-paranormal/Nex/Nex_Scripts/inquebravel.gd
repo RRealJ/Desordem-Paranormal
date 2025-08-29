@@ -4,9 +4,8 @@ var applied: bool = false
 
 func apply_upgrade(_element: Weapon) -> void:
 	if !applied:
-		player.duro_de_matar = true
-		applied = true
+		player.inquebravel = true
+		applied = true	
 	
-
 func _on_recarga_timeout() -> void:
-	player.duro_de_matar = true
+	player.inquebravel = true

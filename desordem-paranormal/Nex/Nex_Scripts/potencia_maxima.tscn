@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6f25b6bnyvkc"]
+
+[ext_resource type="Script" uid="uid://domo73ltmr8uc" path="res://Nex/Nex_Scripts/potencia_maxima.gd" id="1_6c8dw"]
+
+[node name="potencia_maxima" type="Node"]
+script = ExtResource("1_6c8dw")
