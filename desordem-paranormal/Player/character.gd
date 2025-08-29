@@ -23,6 +23,8 @@ var money: int = 0
 var resistence: float = 0
 var cai_dentro: bool = false
 var revidar: bool = false
+var duro_de_matar: bool = false
+var surto_de_adrenalina: bool = false
 
 func _init() -> void:
 	Global.player = self
@@ -72,6 +74,16 @@ func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 	updateUI()
 	if revidar:
 		enemy.recieve_damage(damage*2, character_data.elements_of_characters.PHYSICAL)
+		
+	if duro_de_matar and health <= 0:
+		print("efeito duro de matar ativo")
+		await get_tree().create_timer(15.0).timeout
+		
+		if health <= 0:
+			print("morreu")
+		else:
+			print("efeito duro de matar desativado")
+			print("tá vivo o menino")		
 		
 		
 func matchDamage(damage:float, damage_element: int) -> float:

@@ -7,9 +7,12 @@ extends Node2D
 
 @export var pause_below_n_fps: int= 20
 
+func _init() -> void:
+	Global.stage = self
+
 func _ready() -> void:
 	Global.enemies = enemies
-	#enemy_controller.create_spawner(enemy_controller.enemy_spawners_data[0]) #velocity_mod
+	enemy_controller.create_spawner(enemy_controller.enemy_spawners_data[0]) #velocity_mod
 
 
 		

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://di5vfaauqhwqk"]
+
+[ext_resource type="Script" uid="uid://b1ersgis7paxv" path="res://Nex/Nex_Scripts/forca_opressora.gd" id="1_h2mwb"]
+
+[node name="forca_opressiva" type="Node"]
+script = ExtResource("1_h2mwb")

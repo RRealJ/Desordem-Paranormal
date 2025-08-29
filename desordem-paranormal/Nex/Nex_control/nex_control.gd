@@ -19,7 +19,7 @@ func _ready() -> void:
 	nex_inventory.item_slots.clear()
 	nex_inventory.item_slots.resize(50)
 	slots_in_nex_up_screen = nex_up_ui.get_children()
-	nex_up(5)
+#	nex_up(5)
 
 
 func nex_up(level: int) -> void:

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://kkhjycif54kq"]
+
+[ext_resource type="Script" uid="uid://dxjpa68ctbs4s" path="res://Nex/Nex_Scripts/duro_de_matar.gd" id="1_i2h52"]
+
+[node name="duro_de_matar" type="Node"]
+script = ExtResource("1_i2h52")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0

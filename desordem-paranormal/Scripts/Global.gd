@@ -11,6 +11,7 @@ var pathfinder: Pathfinder
 
 var player: Player
 var enemies: Node2D # for Calc and Counts
+var stage: Node2D
 
 var money: int = 69000
 var enemies_killed: int

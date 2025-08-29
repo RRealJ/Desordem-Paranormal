@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsp1on6ucnxrv"]
+
+[ext_resource type="Script" uid="uid://b6l6j0mynrmbx" path="res://Nex/Nex_Scripts/surto_de_adrenalina.gd" id="1_wu10x"]
+
+[node name="surto_de_adrenalina" type="Node"]
+script = ExtResource("1_wu10x")
+
+[node name="Recarga" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="Buff" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Recarga" to="." method="_on_recarga_timeout"]
+[connection signal="timeout" from="Buff" to="." method="_on_buff_timeout"]

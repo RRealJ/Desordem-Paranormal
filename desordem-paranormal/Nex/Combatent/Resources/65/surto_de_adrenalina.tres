@@ -10,6 +10,6 @@ nex_level = 65
 sub_class = "Operações Especiais"
 class_type = 0
 element_type = 4
-description = Array[String](["Aumenta velocidade em 200%, e 30% de chance de ataque novamente"])
+description = Array[String](["Aumenta velocidade em 200%, e 30% de chance de ataque novamente com arma principal, por 10 segundos (RECARGA:  30s)"])
 portrait_path = ""
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

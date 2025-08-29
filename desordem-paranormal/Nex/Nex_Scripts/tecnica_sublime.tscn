@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnv3k1vkq1ki6"]
+
+[ext_resource type="Script" uid="uid://dj4vfp1wth2ay" path="res://Nex/Nex_Scripts/tecnica_sublime.gd" id="1_x2dgr"]
+
+[node name="tecnica_sublime" type="Node"]
+script = ExtResource("1_x2dgr")

@@ -219,6 +219,8 @@ func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
 	
 	
 func recieve_damage(player_damage:float , damage_type:int) -> void:
+	print(player_damage)
+	
 	player_damage = matchDamage(player_damage, damage_type)
 	health -= int(player_damage)
 	if health <= 0:

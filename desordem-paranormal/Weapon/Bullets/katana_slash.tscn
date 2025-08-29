@@ -61,16 +61,16 @@ scale = Vector2(1, -1)
 texture = SubResource("CanvasTexture_ctusi")
 hframes = 6
 
-[node name="katana_slash" type="Area2D" parent="."]
+[node name="attack_collision" type="Area2D" parent="."]
 rotation = 0.647725
 collision_layer = 4
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="katana_slash"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_collision"]
 position = Vector2(-12.2264, -6.21508)
 shape = SubResource("RectangleShape2D_y8hrb")
 
-[node name="PointLight2D" type="PointLight2D" parent="katana_slash"]
+[node name="PointLight2D" type="PointLight2D" parent="attack_collision"]
 visible = false
 position = Vector2(4.71168, 10.6469)
 rotation = -0.647725
@@ -83,5 +83,5 @@ libraries = {
 }
 autoplay = "Attack"
 
-[connection signal="area_entered" from="katana_slash" to="." method="_on_katana_slash_hit_enemy_hurtbox"]
+[connection signal="area_entered" from="attack_collision" to="." method="_on_attack_collision_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

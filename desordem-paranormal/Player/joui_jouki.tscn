@@ -105,18 +105,16 @@ hframes = 6
 texture = SubResource("CanvasTexture_8kvql")
 hframes = 6
 
+[node name="Pointer" parent="." instance=ExtResource("8_81csu")]
+visible = false
+
 [node name="main_weapon" type="Node2D" parent="."]
 script = ExtResource("5_6v8rf")
 weapon_stats = ExtResource("6_l7cgl")
 
-[node name="Pointer" parent="." instance=ExtResource("8_81csu")]
-visible = false
-
 [node name="hurtbox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g1apg")
 debug_color = Color(1, 0.166925, 0.296297, 0.42)
-
-[node name="Player_UI" parent="hurtbox" instance=ExtResource("10_s1hos")]
 
 [node name="animAttack" type="AnimationPlayer" parent="."]
 libraries = {
@@ -140,3 +138,5 @@ position_smoothing_speed = 10.0
 [node name="Equips" type="Node2D" parent="."]
 
 [node name="Weapons" type="Node2D" parent="."]
+
+[node name="Player_UI" parent="." instance=ExtResource("10_s1hos")]

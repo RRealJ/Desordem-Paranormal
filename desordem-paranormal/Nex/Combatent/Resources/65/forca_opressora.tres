@@ -10,6 +10,6 @@ nex_level = 65
 sub_class = "Guerreiro"
 class_type = 0
 element_type = 4
-description = Array[String](["Aplica um empurrão em suas armas corpo-a-corpo, caso o inimigo caia, imediatamente ataca novamente."])
+description = Array[String](["Aplica um empurrão em suas armas corpo-a-corpo, caso o inimigo caia , imediatamente ataca novamente."])
 portrait_path = ""
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"
