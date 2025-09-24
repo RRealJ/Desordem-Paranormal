@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6r84gtpkxy1h"]
+[gd_scene load_steps=8 format=3 uid="uid://b6r84gtpkxy1h"]
 
 [ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_6ytmn"]
 [ext_resource type="Script" uid="uid://bf3mn7c4ngvai" path="res://Player/player_ui.gd" id="1_ced3y"]
 [ext_resource type="Texture2D" uid="uid://5bah6w6toq3h" path="res://Assets/16x16.png" id="2_6noqq"]
+[ext_resource type="Script" uid="uid://c5hfqx8fh70gk" path="res://Player/hp.gd" id="2_j43l2"]
 [ext_resource type="Texture2D" uid="uid://dyuihfrsskfis" path="res://Assets/Sprites/nex_bar_back.png" id="3_r1esw"]
 [ext_resource type="Texture2D" uid="uid://smwp5tanrxa8" path="res://Assets/Sprites/nex_bar_over1.png" id="4_bw1dt"]
 [ext_resource type="Texture2D" uid="uid://dvxcccufaea25" path="res://Assets/Sprites/nex_bar_progress1.png" id="5_bw1dt"]
@@ -26,15 +27,21 @@ offset_right = 113.0
 offset_bottom = 11.0
 value = 3.0
 show_percentage = false
+script = ExtResource("2_j43l2")
 
-[node name="hp_label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 61.0
-offset_top = 3.0
-offset_right = 117.0
-offset_bottom = 19.0
+[node name="hp_label" type="Label" parent="Control/hp"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_top = 1.0
+offset_right = 83.5
+offset_bottom = 17.0
+grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 text = "123/323"
+horizontal_alignment = 1
 
 [node name="portrait" type="TextureRect" parent="Control"]
 custom_minimum_size = Vector2(32, 32)
@@ -102,6 +109,7 @@ offset_top = 14.0
 offset_right = 73.0
 offset_bottom = 52.0
 scale = Vector2(0.5, 0.5)
+max_value = 5.0
 fill_mode = 8
 radial_initial_angle = 180.0
 nine_patch_stretch = true

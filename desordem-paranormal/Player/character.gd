@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+signal healthChange
+
 @export var character_data: Character_data
 
 @onready var upper: Sprite2D = $Upper
@@ -19,6 +21,8 @@ var crit_modify: float
 var exp: int = 0
 var nex: float = 0.0
 var money: int = 0
+
+var iframes: float = 1.0
 
 var invencibilidade: bool = false
 var prevent_death: bool = false
@@ -80,8 +84,12 @@ func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 		
 	elif health >= 0:
 		health -= int(damage)
-		
-	updateUI()
+	
+	emit_signal("healthChange")
+	
+	if !invencibilidade:
+		$invicibility.start(iframes)
+		invencibilidade = true
 	
 	if revidar:
 		enemy.recieve_damage(damage*2, character_data.elements_of_characters.PHYSICAL)
@@ -172,5 +180,5 @@ func update_weapon_equip_ritual_nex() -> void:
 		get_nex_upgrades(w)
 
 
-func updateUI() -> void:
-	pass
+func _on_invicibility_timeout() -> void:
+	invencibilidade = false

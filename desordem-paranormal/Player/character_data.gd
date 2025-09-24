@@ -10,6 +10,7 @@ class_name Character_data
 @export var type_of_character: types_of_characters
 @export var element_of_character: elements_of_characters
 @export var luck: float
+@export var portrait: String
 
 
 enum types_of_characters {

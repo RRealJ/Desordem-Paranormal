@@ -140,3 +140,7 @@ position_smoothing_speed = 10.0
 [node name="Weapons" type="Node2D" parent="."]
 
 [node name="Player_UI" parent="." instance=ExtResource("10_s1hos")]
+
+[node name="invicibility" type="Timer" parent="."]
+
+[connection signal="timeout" from="invicibility" to="." method="_on_invicibility_timeout"]
