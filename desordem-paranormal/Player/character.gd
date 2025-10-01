@@ -25,6 +25,7 @@ var money: int = 0
 var iframes: float = 1.0
 
 var invencibilidade: bool = false
+var inquebravel_invenci: bool = false
 var prevent_death: bool = false
 
 var resistence: float = 0
@@ -32,7 +33,8 @@ var cai_dentro: bool = false
 var revidar: bool = false
 var duro_de_matar: bool = false
 var surto_de_adrenalina: bool = false
-var inquebravel: bool = false
+var inquebravel: bool = true
+
 
 func _init() -> void:
 	Global.player = self
@@ -79,45 +81,47 @@ func _physics_process(delta: float) -> void:
 func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 	damage = matchDamage(damage, damage_type)
 	
-	if invencibilidade:
-		pass
+	if !invencibilidade and !inquebravel_invenci:
 		
-	elif health >= 0:
-		health -= int(damage)
-	
-	emit_signal("healthChange")
-	
-	if !invencibilidade:
+		print("Dano")
+			
+		if health >= 0:
+			health -= int(damage)
+		
+		emit_signal("healthChange")
+		
 		$invicibility.start(iframes)
 		invencibilidade = true
-	
-	if revidar:
-		enemy.recieve_damage(damage*2, character_data.elements_of_characters.PHYSICAL)
-	
-	if prevent_death:
-		pass
 		
-	elif health <= 0:
+		if revidar:
+			enemy.recieve_damage(damage*2, character_data.elements_of_characters.PHYSICAL)
 		
-		if duro_de_matar:
-			prevent_death = true
-			print("efeito duro de matar ativo")
-			await get_tree().create_timer(15.0).timeout
-			$"Nex_Upgrades/duro_de_matar/recarga".start(120)
-			duro_de_matar = false
-			prevent_death = false
+		if !prevent_death:
 			
-				
-		if inquebravel and !duro_de_matar:
-			prevent_death = true
-			health = max_health/2
-			invencibilidade = true		
-			await get_tree().create_timer(5)
-			$"Nex_Upgrades/inquebravel/recarga".start(60)
-			inquebravel = false
-			invencibilidade = false
-			prevent_death = false
-
+			if health <= 0:
+					
+				if duro_de_matar:
+					prevent_death = true
+					print("efeito duro de matar ativo")
+					await get_tree().create_timer(15.0).timeout
+					print("efeito duro de matar desativado")
+					$"Nex_Upgrades/duro_de_matar/recarga".start(120)
+					duro_de_matar = false
+					prevent_death = false		
+					
+					
+				elif inquebravel and !duro_de_matar:
+					prevent_death = true
+					inquebravel_invenci = true		
+					print("inquebravel ativado")
+					health = int(max_health/2)
+					emit_signal("healthChange")
+					await get_tree().create_timer(5).timeout
+					print("inquebravel desativado")
+					$"Nex_Upgrades/inquebravel/recarga".start(60)
+					inquebravel = false
+					inquebravel_invenci = false
+					prevent_death = false
 
 func matchDamage(damage:float, damage_element: int) -> float:
 	match damage_element:

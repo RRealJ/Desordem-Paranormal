@@ -95,7 +95,6 @@ func shoot() -> void:
 		else:
 			instance.scale.y = scale.x - 0.5
 		
-		print(instance)
 		character.add_child(instance)	
 		
 		check_attack_extra(character)
@@ -103,7 +102,6 @@ func shoot() -> void:
 			
 	else:
 		instance.global_position = global_position
-		print(instance)
 		Global.stage.add_child(instance)
 		
 		check_attack_extra(Global.stage)
@@ -115,7 +113,6 @@ func check_attack_extra(place: Node2D) -> void:
 	if extra_attack1:
 		await get_tree().create_timer(0.3).timeout	
 		instance = attack_extra()
-		print(instance)
 		place.add_child(instance)
 				
 	if forca_opressora and ((randi() % 100) <= Global.player.character_data.luck):

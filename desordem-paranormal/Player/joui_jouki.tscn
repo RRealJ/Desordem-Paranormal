@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bnwqpyn3evyj6"]
+[gd_scene load_steps=20 format=3 uid="uid://bnwqpyn3evyj6"]
 
 [ext_resource type="Script" uid="uid://e7y4tlymlxpf" path="res://Player/character.gd" id="1_gj76y"]
 [ext_resource type="Resource" uid="uid://wdrqyuqh4qhx" path="res://Player/Resources/joui_jouki.tres" id="2_li66o"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cms4kkdj6bfdr" path="res://Weapon/Resources/katana_erosiva.tres" id="6_l7cgl"]
 [ext_resource type="PackedScene" uid="uid://4ifxijn6dyju" path="res://Pointer/Pointer.tscn" id="8_81csu"]
 [ext_resource type="PackedScene" uid="uid://b6r84gtpkxy1h" path="res://Player/player_ui.tscn" id="10_s1hos"]
+[ext_resource type="PackedScene" uid="uid://cj52iydpql2ea" path="res://Nex/Nex_Scripts/inquebravel.tscn" id="11_rntvr"]
 [ext_resource type="PackedScene" uid="uid://bh571nsqy51e0" path="res://Drops/player_collect_area.tscn" id="11_s1hos"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bi27d"]
@@ -134,6 +135,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Nex_Upgrades" type="Node2D" parent="."]
+
+[node name="inquebravel" parent="Nex_Upgrades" instance=ExtResource("11_rntvr")]
 
 [node name="Equips" type="Node2D" parent="."]
 
