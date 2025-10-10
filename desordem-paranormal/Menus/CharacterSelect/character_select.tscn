@@ -1,0 +1,203 @@
+[gd_scene load_steps=3 format=3 uid="uid://sp03qdilq6m5"]
+
+[ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_4xrwd"]
+[ext_resource type="Texture2D" uid="uid://5bah6w6toq3h" path="res://Assets/16x16.png" id="2_3tggm"]
+
+[node name="character_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 33.0
+offset_right = 320.0
+offset_bottom = 169.0
+color = Color(0.381703, 0.381703, 0.381703, 1)
+
+[node name="portrait" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+offset_left = -10.0
+offset_top = -8.0
+offset_right = 30.0
+offset_bottom = 32.0
+texture = ExtResource("1_4xrwd")
+
+[node name="in_game_character" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_4xrwd")
+
+[node name="class_icon" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+texture = ExtResource("1_4xrwd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 33.0
+offset_top = 3.0
+offset_right = 55.0
+offset_bottom = 59.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="hp" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "100"
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_3tggm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="speed" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "75"
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_3tggm")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="special-regen" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "0.5"
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("2_3tggm")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="crit_chance" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "10%"
+
+[node name="crit_chance_label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Chance Critica"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="crit_multi" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "2.5"
+
+[node name="crit_multi_label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Multi Critico"
+
+[node name="main_menu" type="Button" parent="."]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 54.0
+offset_bottom = 26.0
+text = "Voltar"
+
+[node name="character_name" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 4.0
+offset_top = 9.0
+offset_right = 156.0
+offset_bottom = 25.0
+grow_horizontal = 2
+text = "Nome do Personagem"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -46.0
+offset_right = 129.0
+offset_bottom = 58.0
+grow_vertical = 2
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton2" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton3" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton4" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton5" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton6" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton7" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton8" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")
+
+[node name="TextureButton9" type="TextureButton" parent="TextureButton"]
+layout_mode = 2
+texture_normal = ExtResource("1_4xrwd")
+texture_focused = ExtResource("2_3tggm")

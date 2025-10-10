@@ -126,25 +126,25 @@ func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 func matchDamage(damage:float, damage_element: int) -> float:
 	match damage_element:
 		
-		character_data.elements_of_characters.BLOOD:#USING SAME ENUM
+		character_data.elements_of_characters.BLOOD:#USING SAME ENUM AS TYPE_OF_DAMAGE
 			if character_data.element_of_character == character_data.elements_of_characters.DEATH:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.KNOWLEDGE:
 				damage *= 2
 			
-		character_data.elements_of_characters.DEATH:#USING SAME ENUM
+		character_data.elements_of_characters.DEATH:
 			if character_data.element_of_character == character_data.elements_of_characters.ENERGY:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.BLOOD:
 				damage *= 2
 				
-		character_data.elements_of_characters.ENERGY:#USING SAME ENUM
+		character_data.elements_of_characters.ENERGY:
 			if character_data.element_of_character == character_data.elements_of_characters.KNOWLEDGE:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.DEATH:
 				damage *= 2
 		
-		character_data.elements_of_characters.KNOWLEDGE:#USING SAME ENUM
+		character_data.elements_of_characters.KNOWLEDGE:
 			if character_data.element_of_character == character_data.elements_of_characters.BLOOD:
 				damage /= 2
 			elif character_data.element_of_character == character_data.elements_of_characters.ENERGY:
@@ -154,7 +154,7 @@ func matchDamage(damage:float, damage_element: int) -> float:
 			pass
 			
 		_:
-			damage *= 10
+			damage *= 5
 			
 	return damage
 
