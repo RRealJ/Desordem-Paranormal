@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0bams1pgw2ej"]
+
+[ext_resource type="Script" uid="uid://4s0rgpk6sqrr" path="res://Menus/CharacterSelect/bnt_character_select.gd" id="1_0pd84"]
+[ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_3eboq"]
+
+[node name="BntCharacterSelect" type="TextureButton"]
+texture_normal = ExtResource("1_3eboq")
+script = ExtResource("1_0pd84")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
