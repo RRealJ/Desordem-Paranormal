@@ -49,6 +49,10 @@ func button_is_pressed() -> void:
 	shader_rect.material.set_shader_parameter("g_displacement", Vector2(0.0, 0.0))
 	shader_rect.material.set_shader_parameter("b_displacement", Vector2(-7.0, -4.0))
 	
+	
+func _on_play_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menus/CharacterSelect/character_select.tscn")
+
 
 func _on_opcoes_pressed() -> void:
 	options_menu.visible = true

@@ -8,3 +8,4 @@ texture_normal = ExtResource("1_3eboq")
 script = ExtResource("1_0pd84")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

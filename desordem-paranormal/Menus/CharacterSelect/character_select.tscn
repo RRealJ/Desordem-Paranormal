@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://sp03qdilq6m5"]
+[gd_scene load_steps=7 format=3 uid="uid://sp03qdilq6m5"]
 
 [ext_resource type="Script" uid="uid://4l04of7ft3gq" path="res://Menus/CharacterSelect/character_select.gd" id="1_2pfc1"]
 [ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_4xrwd"]
 [ext_resource type="Texture2D" uid="uid://5bah6w6toq3h" path="res://Assets/16x16.png" id="2_3tggm"]
 [ext_resource type="PackedScene" uid="uid://b0bams1pgw2ej" path="res://Menus/CharacterSelect/bnt_character_select.tscn" id="3_is3q2"]
 [ext_resource type="Resource" uid="uid://wdrqyuqh4qhx" path="res://Player/Resources/joui_jouki.tres" id="4_2pfc1"]
+[ext_resource type="PackedScene" uid="uid://bnwqpyn3evyj6" path="res://Player/joui_jouki.tscn" id="6_4eyjh"]
 
 [node name="character_select" type="Control"]
 layout_mode = 3
@@ -156,6 +157,8 @@ columns = 3
 [node name="BntCharacterSelect" parent="character_grid" instance=ExtResource("3_is3q2")]
 layout_mode = 2
 character_data = ExtResource("4_2pfc1")
+character_scene = ExtResource("6_4eyjh")
+unlocked = true
 
 [node name="BntCharacterSelect2" parent="character_grid" instance=ExtResource("3_is3q2")]
 layout_mode = 2
@@ -180,3 +183,5 @@ layout_mode = 2
 
 [node name="BntCharacterSelect9" parent="character_grid" instance=ExtResource("3_is3q2")]
 layout_mode = 2
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]

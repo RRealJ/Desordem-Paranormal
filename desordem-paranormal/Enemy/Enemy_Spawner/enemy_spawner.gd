@@ -7,7 +7,14 @@ extends Node2D
 @export var wait_for_empty_space: bool= false
 @export var empty_radius: float= 20.0
 @export var is_formation: bool
+
 @export var velocity_mod: float
+@export var health_mod: float
+@export var damage_mod: float
+@export var exp_mod: float
+@export var nex_mod: float
+@export var money_mod: float
+
 @onready var timer: Timer = $Timer
 @onready var LifeTimer: Timer = $LifeTime
 
@@ -51,6 +58,11 @@ func spawn_enemy() -> void:
 		var inst_enemy := enemy_scene.instantiate()
 		inst_enemy.global_position = get_possible_enemy_position()
 		
+		inst_enemy.health = inst_enemy.health * health_mod
+		inst_enemy.damage = inst_enemy.damage * damage_mod
+		inst_enemy.nex = inst_enemy.nex * nex_mod
+		inst_enemy.exp = inst_enemy.exp * exp_mod
+		inst_enemy.money = inst_enemy.money * money_mod
 		inst_enemy.speed = inst_enemy.speed * velocity_mod
 		Global.enemies.add_child(inst_enemy)
 

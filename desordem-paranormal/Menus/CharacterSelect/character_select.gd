@@ -1,9 +1,10 @@
 extends Control
 
 @onready var element_select: TextureRect = $ColorRect/VBoxContainer/HBoxContainer/Elemento
-var character_focus: Character_data
-var character_sprite_select: CHARACTER_SELECT
 
+var character_focus: Character_data
+var character_select_sprite: CHARACTER_SELECT
+var button_focus: TextureButton
 
 enum CHARACTER_SELECT{
 	JOUI,
@@ -35,16 +36,18 @@ func _ready() -> void:
 	update_character_display()
 	$character_grid/BntCharacterSelect.grab_focus()
 
+
 func update_character_display() -> void:
-	#update_sprites()
-	$character_name.text = character_focus.name
-	$ColorRect/VBoxContainer/HBoxContainer/HBoxContainer/hp.text = str(character_focus.health)
-	$ColorRect/VBoxContainer/HBoxContainer/HBoxContainer2/speed.text = str(int(character_focus.speed))
-	$ColorRect/VBoxContainer/HBoxContainer2/crit_chance.text = str(character_focus.crit_rate)
-	#$ColorRect/VBoxContainer/HBoxContainer2/crit_chance_label.text = change translation
-	$ColorRect/VBoxContainer/HBoxContainer3/crit_multi.text = str(character_focus.crit_modify)
-	#$ColorRect/VBoxContainer/HBoxContainer3/crit_multi_label.text = change translation
-	update_images(character_focus.portrait, character_focus.type_of_character, character_focus.element_of_character)
+	if button_focus:
+		#update_sprites()
+		$character_name.text = character_focus.name
+		$ColorRect/VBoxContainer/HBoxContainer/HBoxContainer/hp.text = str(character_focus.health)
+		$ColorRect/VBoxContainer/HBoxContainer/HBoxContainer2/speed.text = str(int(character_focus.speed))
+		$ColorRect/VBoxContainer/HBoxContainer2/crit_chance.text = str(character_focus.crit_rate)
+		#$ColorRect/VBoxContainer/HBoxContainer2/crit_chance_label.text = change translation
+		$ColorRect/VBoxContainer/HBoxContainer3/crit_multi.text = str(character_focus.crit_modify)
+		#$ColorRect/VBoxContainer/HBoxContainer3/crit_multi_label.text = change translation
+		update_images(character_focus.portrait, character_focus.type_of_character, character_focus.element_of_character)
 
 
 func update_images(new_portrait: String, new_class: int, new_element: int) -> void:
@@ -78,7 +81,7 @@ func update_images(new_portrait: String, new_class: int, new_element: int) -> vo
 
 
 func update_sprites() -> void: # basicamente vai show/hide o animated sprite
-	match character_sprite_select:
+	match character_select_sprite:
 		
 		CHARACTER_SELECT.JOUI:
 			pass
@@ -90,3 +93,7 @@ func update_sprites() -> void: # basicamente vai show/hide o animated sprite
 			pass
 		CHARACTER_SELECT.AGATHA:
 			pass	
+
+
+func _on_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menus/Main/main_menu.tscn")

@@ -1,18 +1,24 @@
 extends Node2D
 
 
-@onready var player: CharacterBody2D = get_tree().get_nodes_in_group("Player")[0]
-@onready var enemy_controller: Node2D = $enemy_controller
+@onready var enemy_controller: Spawner = $enemy_controller
 @onready var enemies: Node2D = $Enemies
-
 @export var pause_below_n_fps: int= 20
+
+var player: Player
 
 func _init() -> void:
 	Global.stage = self
 
+
 func _ready() -> void:
+	print("Fetching Character")
+	var new_character := Global.character_selected.instantiate()
+	new_character.global_position = $player_spawn.global_position
+	$".".add_child(new_character)
+	print("Character Fetched Sucessfully")
+	
+	player = Global.player
+	
 	Global.enemies = enemies
-	enemy_controller.create_spawner(enemy_controller.enemy_spawners_data[0]) #velocity_mod
-
-
-		
+	enemy_controller.create_spawner(enemy_controller.enemy_spawners_data[0])

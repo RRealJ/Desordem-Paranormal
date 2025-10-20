@@ -90,5 +90,6 @@ offset_top = 47.0
 offset_right = 188.0
 offset_bottom = 64.0
 
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Options" to="." method="_on_opcoes_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Quit" to="." method="_on_sair_pressed"]

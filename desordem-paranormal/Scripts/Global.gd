@@ -9,6 +9,7 @@ const TILE_SIZE = 16
 var obstacle_tile_map: TileMapLayer
 var pathfinder: Pathfinder
 
+var character_selected: PackedScene
 var player: Player
 var enemies: Node2D # for Calc and Counts
 var stage: Node2D
@@ -17,6 +18,14 @@ var money: int = 69000
 var enemies_killed: int
 var items_resources_avaible: Array[Dictionary]
 var nex_rewards: Array[Dictionary]
+
+
+var joui: bool = true
+var kaiser: bool = false
+var erin: bool = false
+var arnaldo: bool = false
+var agatha: bool = false
+
 
 func _ready() -> void:
 	insert_items_resouces()
