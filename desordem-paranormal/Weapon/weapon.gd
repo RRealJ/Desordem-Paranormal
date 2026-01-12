@@ -163,10 +163,5 @@ func attack_extra() -> Bullet:
 		var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 		var offset_distance: float = 10.0  # Adjust to how far from player you want
 		instance.global_position = position + direction * offset_distance
-		
-		if scale.x > 0:
-			instance.scale.y = scale.x + 0.5
-		else:
-			instance.scale.y = scale.x - 0.5
 			
 	return instance
