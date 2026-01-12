@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://b2t4s5cbmlpp"]
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=3 format=3 uid="uid://b2t4s5cbmlpp"]
 
+[ext_resource type="PackedScene" uid="uid://4l826eevijkd" path="res://Nex/Nex_Scripts/a_favorita.tscn" id="1_f4a4r"]
 [ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_tfkg0"]
 
 [resource]
@@ -12,4 +13,5 @@ class_type = 0
 element_type = 4
 description = Array[String](["Aumenta a chance critica da arma principal em 25%"])
 portrait_path = ""
+nex_scene = ExtResource("1_f4a4r")
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

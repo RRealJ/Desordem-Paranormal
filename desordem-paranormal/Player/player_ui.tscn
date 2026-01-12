@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6r84gtpkxy1h"]
+[gd_scene load_steps=9 format=3 uid="uid://b6r84gtpkxy1h"]
 
 [ext_resource type="Texture2D" uid="uid://h3acbepdqk43" path="res://Assets/32x32.png" id="1_6ytmn"]
 [ext_resource type="Script" uid="uid://bf3mn7c4ngvai" path="res://Player/player_ui.gd" id="1_ced3y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dyuihfrsskfis" path="res://Assets/Sprites/nex_bar_back.png" id="3_r1esw"]
 [ext_resource type="Texture2D" uid="uid://smwp5tanrxa8" path="res://Assets/Sprites/nex_bar_over1.png" id="4_bw1dt"]
 [ext_resource type="Texture2D" uid="uid://dvxcccufaea25" path="res://Assets/Sprites/nex_bar_progress1.png" id="5_bw1dt"]
+[ext_resource type="Script" uid="uid://b7cc3k6wujix" path="res://Player/nex_progress.gd" id="8_kvjnj"]
 
 [node name="Player_UI" type="CanvasLayer"]
 
@@ -40,7 +41,7 @@ offset_right = 83.5
 offset_bottom = 17.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
-text = "123/323"
+text = "04/13"
 horizontal_alignment = 1
 
 [node name="portrait" type="TextureRect" parent="Control"]
@@ -117,3 +118,4 @@ texture_under = ExtResource("3_r1esw")
 texture_over = ExtResource("4_bw1dt")
 texture_progress = ExtResource("5_bw1dt")
 tint_under = Color(1, 1, 1, 0.533)
+script = ExtResource("8_kvjnj")

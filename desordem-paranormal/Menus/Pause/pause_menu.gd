@@ -1,6 +1,7 @@
 extends Control
 
 @onready var inventory_node: Node = $"../../Inventory_Ui/inventory_control"
+@onready var nex_upgrades_node: Node = $"../../Nex_ui/nex_control"
 @onready var last_button: Button = $VBoxContainer/Resume
 
 var is_paused: bool = false
@@ -39,3 +40,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			is_paused = true
 			visible = true
 			get_tree().paused = true
+
+
+func _on_nex_upgrades_pressed() -> void:
+	if nex_upgrades_node.slots_ui_in_use.size() >= 1:
+		last_button = $VBoxContainer/Nex_Upgrades
+		nex_upgrades_node.nex_options_ui.visible = true
+		visible = false
+		nex_upgrades_node.slots_ui_in_use[0].button.grab_focus()
+	else:
+		print("no nex upgrades yet")

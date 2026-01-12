@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://d1w7utyp0bg2x"]
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=3 format=3 uid="uid://d1w7utyp0bg2x"]
 
 [ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_dsn1q"]
+[ext_resource type="PackedScene" uid="uid://b0o1gf1jixrx5" path="res://Nex/Nex_Scripts/iniciativa_aprimorada.tscn" id="1_t614q"]
 
 [resource]
 script = ExtResource("1_dsn1q")
@@ -12,4 +13,5 @@ class_type = 0
 element_type = 4
 description = Array[String](["Aumenta a velocidade de movimento em 50%"])
 portrait_path = ""
+nex_scene = ExtResource("1_t614q")
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

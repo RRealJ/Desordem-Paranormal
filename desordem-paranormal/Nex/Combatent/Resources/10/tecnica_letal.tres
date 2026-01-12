@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://b4yu0v0yebkce"]
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=3 format=3 uid="uid://b4yu0v0yebkce"]
 
 [ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_f4ivp"]
+[ext_resource type="PackedScene" uid="uid://lqpcgd3ixx8v" path="res://Nex/Nex_Scripts/tecnica_letal.tscn" id="1_mcupk"]
 
 [resource]
 script = ExtResource("1_f4ivp")
@@ -12,4 +13,5 @@ class_type = 0
 element_type = 0
 description = Array[String](["Aumenta a chance critica das armas corpo-a-crpo em 10%"])
 portrait_path = ""
+nex_scene = ExtResource("1_mcupk")
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

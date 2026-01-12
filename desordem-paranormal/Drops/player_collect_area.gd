@@ -15,5 +15,12 @@ func _on_absorv_delete_area_entered(area: Area2D) -> void:
 		
 	elif area.is_in_group("Exp"):
 		player.exp += area.exp_value
-		player.nex += area.nex_value
+		
+		if player.nex < 99.0: 
+			player.nex += area.nex_value
+		if player.nex > 99.0: player.nex = 99.0
+		
+		player.emit_signal("expChange")
+		player.emit_signal("nexChange")
+		
 	area.queue_free()

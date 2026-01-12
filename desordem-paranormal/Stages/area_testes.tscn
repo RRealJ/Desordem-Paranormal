@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://nwc3ncocmpt1" path="res://Menus/Pause/pause_menu.tscn" id="8_mic8h"]
 [ext_resource type="PackedScene" uid="uid://crsmjcp3fleo6" path="res://Nex/Nex_control/nex_control.tscn" id="9_ffv8s"]
 
-[sub_resource type="Resource" id="Resource_h63fh"]
+[sub_resource type="Resource" id="Resource_ffv8s"]
 script = ExtResource("4_h63fh")
 enemy_scene = ExtResource("2_qdsdc")
-enemy_quantity = 10
-enemy_timer_end = 2.0
+enemy_quantity = 30
+enemy_timer_end = 10.0
 enemy_delay = 1.0
 enemy_is_formation = false
 metadata/_custom_type_script = "uid://cho7f52od37fy"
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://cho7f52od37fy"
 script = ExtResource("1_lyi4a")
 
 [node name="enemy_controller" parent="." instance=ExtResource("3_h63fh")]
-enemy_spawners_data = Array[ExtResource("4_h63fh")]([SubResource("Resource_h63fh")])
+enemy_spawners_data = Array[ExtResource("4_h63fh")]([SubResource("Resource_ffv8s")])
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -50,6 +50,6 @@ process_mode = 3
 visible = false
 
 [node name="Nex_ui" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="nex_control" parent="Nex_ui" instance=ExtResource("9_ffv8s")]
-visible = false

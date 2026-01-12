@@ -1,29 +1,47 @@
 extends Control
 
 @export var nex_inventory: Inventory
+@onready var player: Player
 @onready var item_slot: PackedScene = preload("res://Inventory/Item Slot/item_slot_ui.tscn")
 @onready var nex_options_ui: Panel = $options_ui
 @onready var nex_up_ui: Control = $nex_up_ui
 @onready var item_slots_ui: Control = $options_ui/VScrollContainer/VBoxContainer
 
-#@onready var stage: Node2D = $"../.."
-#@onready var pause_menu_node: Node = $"../../Pause_menu/pause_menu"
+@onready var stage: Node2D = $"../.."
+@onready var pause_menu_node: Node = $"../../Pause_menu/pause_menu"
 
 var slots_ui_in_use: Array
 var slots_in_nex_up_screen: Array[Node]
 var current_nex_upgrade: Resource
+
 var nex_done: Array[bool] = [false, false, false, false, false]
+var nex_progression: Array[int] = [5, 10, 40, 65, 99]
+var nex_current_progression : int = 0
 
 
 func _ready() -> void:
 	nex_inventory.item_slots.clear()
 	nex_inventory.item_slots.resize(50)
 	slots_in_nex_up_screen = nex_up_ui.get_children()
-#	nex_up(5)
+#	nex_up(5) --- teste
 
 
-func nex_up(level: int) -> void:
+func adjustCharacter() -> void:
+	player = Global.player
+	player.nexUp.connect(nex_up)
+	
+
+func hide_all() -> void:
+	$nex_up_ui/nex_up_ui_slot.visible = false
+	$nex_up_ui/nex_up_ui_slot2.visible = false
+	$nex_up_ui/nex_up_ui_slot3.visible = false
+	$nex_up_ui/nex_up_ui_slot4.visible = false
+	$nex_up_ui/nex5.visible = false
+
+func nex_up() -> void:
 	var nex_level_done: bool
+	var level: int = nex_progression[nex_current_progression]
+	
 	match level:
 		5: nex_level_done = nex_done[0]
 		10: nex_level_done = nex_done[1]
@@ -33,6 +51,7 @@ func nex_up(level: int) -> void:
 		_: nex_level_done = true
 			
 	if !nex_level_done:
+		get_tree().paused = true
 		nex_up_ui.visible = true
 		var nex_upgrades: Array[Nex_stats] = get_nex_upgrades_from_level(level)
 		
@@ -60,6 +79,8 @@ func nex_up(level: int) -> void:
 				slots_in_nex_up_screen[i].update_slot()
 			
 			slots_in_nex_up_screen[0].button.grab_focus()
+			
+		nex_current_progression += 1
 
 
 func add_slot_ui(nex_upgrade: Nex_stats) -> void:
@@ -71,8 +92,8 @@ func add_slot_ui(nex_upgrade: Nex_stats) -> void:
 	
 	insert_nex_upgrade_into_ui()
 	
-	Global.player.insert_nex_upgrade(current_nex_upgrade)
-	print(Global.player.nex_upgrades)
+	player.insert_nex_upgrade(current_nex_upgrade)
+	print(player.nex_upgrades)
 
 
 func update_slots_ui_children() -> void:
@@ -88,8 +109,8 @@ func get_nex_upgrades_from_level(level: int) -> Array[Nex_stats]:
 	var nex_upgrades_avaible: Array[Nex_stats]
 	var folder_path: String
 	
-	match Global.player.character_data.types_of_characters:
-	
+	match player.character_data.type_of_character:
+
 		0: #Guerreiro
 			folder_path = "res://Nex/Combatent/Resources/"
 		1: #Especialista
@@ -120,8 +141,10 @@ func get_nex_upgrades_from_level(level: int) -> Array[Nex_stats]:
 	if dir:
 		dir.list_dir_begin()
 		var file_name: String = dir.get_next()
+		print(folder_path)
 		
 		while file_name != "":
+			print(file_name)
 			if not dir.current_is_dir() and file_name.ends_with(".tres"):
 				
 				var file_path: String = folder_path + "/" + file_name
@@ -133,6 +156,5 @@ func get_nex_upgrades_from_level(level: int) -> Array[Nex_stats]:
 					
 			file_name = dir.get_next()
 		dir.list_dir_end()
-		
 	return nex_upgrades_avaible
 	

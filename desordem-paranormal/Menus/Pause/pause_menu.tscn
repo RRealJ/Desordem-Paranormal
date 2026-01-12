@@ -34,6 +34,10 @@ text = "Resumir"
 layout_mode = 2
 text = "Inventário"
 
+[node name="Nex_Upgrades" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Nex Upgrades"
+
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Opções"
@@ -44,5 +48,6 @@ text = "Sair"
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Inventory" to="." method="_on_inventory_pressed"]
+[connection signal="pressed" from="VBoxContainer/Nex_Upgrades" to="." method="_on_nex_upgrades_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

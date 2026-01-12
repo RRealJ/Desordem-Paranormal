@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Nex_stats" load_steps=2 format=3 uid="uid://g1lnufe6lgb4"]
+[gd_resource type="Resource" script_class="Nex_stats" load_steps=3 format=3 uid="uid://g1lnufe6lgb4"]
 
+[ext_resource type="PackedScene" uid="uid://bt1sj64a6p874" path="res://Nex/Nex_Scripts/casca_grossa.tscn" id="1_fva3b"]
 [ext_resource type="Script" uid="uid://bllxioyd0ydvk" path="res://Nex/nex_stats.gd" id="1_v25tf"]
 
 [resource]
@@ -12,4 +13,5 @@ class_type = 0
 element_type = 4
 description = Array[String](["Recebe +5 de Vida a cada 5% de NEX"])
 portrait_path = ""
+nex_scene = ExtResource("1_fva3b")
 metadata/_custom_type_script = "uid://bllxioyd0ydvk"

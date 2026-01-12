@@ -2,6 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 signal healthChange
+signal expChange
+signal nexChange
+signal nexUp
+signal leveUp
 
 @export var character_data: Character_data
 
@@ -33,7 +37,7 @@ var cai_dentro: bool = false
 var revidar: bool = false
 var duro_de_matar: bool = false
 var surto_de_adrenalina: bool = false
-var inquebravel: bool = true
+var inquebravel: bool = false
 
 
 func _init() -> void:
@@ -108,8 +112,8 @@ func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 					$"Nex_Upgrades/duro_de_matar/recarga".start(120)
 					duro_de_matar = false
 					prevent_death = false		
-					
-					
+						
+								
 				elif inquebravel and !duro_de_matar:
 					prevent_death = true
 					inquebravel_invenci = true		
@@ -122,6 +126,7 @@ func recieve_damage(damage: float, damage_type: int, enemy: Enemy) -> void:
 					inquebravel = false
 					inquebravel_invenci = false
 					prevent_death = false
+					
 
 func matchDamage(damage:float, damage_element: int) -> float:
 	match damage_element:
@@ -159,9 +164,9 @@ func matchDamage(damage:float, damage_element: int) -> float:
 	return damage
 
 
-func insert_nex_upgrade(nex_upgrade: Nex_stats) -> void:
-	var new_nex_upgrade := nex_upgrade.nex_scene.instantiate()
-	nex_upgrade.add_child(new_nex_upgrade)
+func insert_nex_upgrade(nex_upgrade_coming: Nex_stats) -> void:
+	var new_nex_upgrade := nex_upgrade_coming.nex_scene.instantiate()
+	$Nex_Upgrades.add_child(new_nex_upgrade)
 
 
 func get_nex_upgrades(element: Node2D) -> void:

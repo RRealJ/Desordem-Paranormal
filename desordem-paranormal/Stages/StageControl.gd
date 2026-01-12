@@ -16,7 +16,9 @@ func _ready() -> void:
 	var new_character := Global.character_selected.instantiate()
 	new_character.global_position = $player_spawn.global_position
 	$".".add_child(new_character)
+	
 	print("Character Fetched Sucessfully")
+	$Nex_ui/nex_control.adjustCharacter()
 	
 	player = Global.player
 	

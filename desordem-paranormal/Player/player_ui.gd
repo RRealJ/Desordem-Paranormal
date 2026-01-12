@@ -13,5 +13,9 @@ func _ready() -> void:
 	hp_bar.max_value = char.health
 	hp_bar.value = char.health
 	
+	nex_progress.value = 0.0
+	nex_progress.max_value = 5.0
+	
 	var image: Texture2D = load(char.character_data.portrait) as Texture2D
 	char_portrait.texture = image
+	

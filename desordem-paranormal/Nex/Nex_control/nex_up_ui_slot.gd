@@ -32,3 +32,5 @@ func _on_button_focus_exited() -> void:
 
 func _on_button_pressed() -> void:
 	$"../..".add_slot_ui(nex_resource)
+	$"../..".hide_all()
+	get_tree().paused = false
